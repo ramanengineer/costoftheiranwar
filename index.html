@@ -14,12 +14,12 @@
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://costoftheiranwar.com/">
 <meta property="og:title" content="Cost of the Iran War - Live Real-Time Tracker">
-<meta property="og:description" content="The Pentagon told Congress the first week of the Iran war cost $11.3 billion. Track the live running total, gold prices, global recession odds (48.6%), and the human cost, updated every second.">
+<meta property="og:description" content="The Pentagon told Congress the first week of the Iran war cost $11.3 billion. Track the live running total, gold prices, global recession odds, and the human cost, updated every second.">
 <meta property="og:image" content="https://costoftheiranwar.com/og-image.png">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:site" content="@heyramanraman">
 <meta name="twitter:title" content="Cost of the Iran War - Live Real-Time Tracker">
-<meta name="twitter:description" content="The Pentagon told Congress the first week cost $11.3 billion. Gold: $4,430/oz. Recession odds: 48.6% (Moody's). Track the live running total.">
+<meta name="twitter:description" content="The Pentagon told Congress the first week cost $11.3 billion. Track the live running total.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300&family=Libre+Baskerville:ital,wght@0,700;1,400&display=swap" rel="stylesheet">
@@ -54,7 +54,7 @@ body{
   border-bottom:1px solid rgba(0,229,255,.18);
   position:sticky;top:0;z-index:100;
   backdrop-filter:blur(12px);
-  flex-wrap:wrap;
+  -webkit-backdrop-filter:blur(12px);
 }
 .bar-live{
   display:flex;align-items:center;gap:8px;padding:0 14px;
@@ -70,11 +70,16 @@ body{
 .pip.green{background:var(--green);box-shadow:0 0 8px var(--green)}
 .pip.amber{background:var(--amber);box-shadow:0 0 8px var(--amber)}
 @keyframes blink{0%,100%{opacity:1}50%{opacity:.15}}
-.clocks{display:flex;align-items:stretch;flex:1;flex-wrap:wrap}
+.clocks{
+  display:flex;align-items:stretch;flex:1;
+  overflow-x:auto;-webkit-overflow-scrolling:touch;
+  scrollbar-width:none;
+}
+.clocks::-webkit-scrollbar{display:none}
 .cc{
   display:flex;flex-direction:column;justify-content:center;
   padding:6px 14px;border-right:1px solid rgba(255,255,255,.05);
-  min-width:110px;flex:1;
+  min-width:110px;flex:0 0 auto;
 }
 .cc:last-child{border-right:none}
 .cc-flag{font-size:7.5px;letter-spacing:1.5px;text-transform:uppercase;color:var(--t3);margin-bottom:2px}
@@ -85,7 +90,7 @@ body{
 .cc-ir .cc-time{color:var(--red)}
 .cc-au .cc-time{color:var(--amber)}
 .data-status{
-  display:flex;align-items:center;gap:6px;padding:0 14px;
+  display:flex;align-items:center;gap:6px;padding:0 12px;
   border-left:1px solid rgba(255,255,255,.05);font-size:8px;
   color:var(--t3);letter-spacing:1px;text-transform:uppercase;white-space:nowrap;flex-shrink:0;
 }
@@ -105,10 +110,10 @@ body{
 .rs{opacity:.25;margin:0 6px}
 
 /* === PAGE === */
-.page{max-width:960px;margin:0 auto;padding:36px 18px 80px}
+.page{max-width:960px;margin:0 auto;padding:28px 16px 80px}
 
 /* === HEADER === */
-.header{margin-bottom:32px}
+.header{margin-bottom:28px}
 .kicker{
   font-size:8.5px;letter-spacing:5px;text-transform:uppercase;
   color:var(--cyan);font-weight:600;margin-bottom:10px;
@@ -116,7 +121,7 @@ body{
 }
 .kicker::after{content:'';flex:1;height:1px;background:rgba(0,229,255,.18)}
 h1{
-  font-family:var(--serif);font-size:clamp(30px,6.5vw,58px);font-weight:700;
+  font-family:var(--serif);font-size:clamp(26px,6.5vw,58px);font-weight:700;
   line-height:1.05;letter-spacing:-1px;margin-bottom:12px;
 }
 h1 span{color:var(--cyan)}
@@ -167,13 +172,14 @@ h1 span{color:var(--cyan)}
 .cost-wrap{display:flex;align-items:flex-start;gap:28px;flex-wrap:wrap;margin-bottom:12px}
 .cost-main{flex:1;min-width:240px}
 .cost-fig{
-  font-size:clamp(32px,5.5vw,60px);font-weight:700;color:var(--cyan);
+  font-size:clamp(28px,5vw,60px);font-weight:700;color:var(--cyan);
   letter-spacing:-1.5px;line-height:1;
   text-shadow:0 0 50px rgba(0,229,255,.35);margin-bottom:5px;
+  word-break:break-all;
 }
 .cost-sub{font-size:9.5px;color:var(--t3);line-height:1.65;margin-bottom:16px}
 .cost-sub strong{color:var(--t2)}
-.elapsed-row{display:flex;gap:6px;align-items:flex-start}
+.elapsed-row{display:flex;gap:6px;align-items:flex-start;flex-wrap:wrap}
 .d-box{display:flex;flex-direction:column;align-items:center}
 .d-num{
   background:rgba(0,229,255,.08);border:1px solid rgba(0,229,255,.2);
@@ -227,19 +233,33 @@ h1 span{color:var(--cyan)}
 .gauge-needle{
   position:absolute;top:-5px;width:2px;height:30px;background:var(--t1);
   border-radius:2px;transform:translateX(-50%);box-shadow:0 0 6px rgba(255,255,255,.5);
-  transition:left 1s ease;
+  transition:left 1.5s cubic-bezier(.25,.46,.45,.94);
 }
 .gauge-labels{display:flex;justify-content:space-between;font-size:8px;color:var(--t3);letter-spacing:1px;text-transform:uppercase}
 .gauge-pct{
   font-size:44px;font-weight:700;color:var(--red);
   letter-spacing:-1px;line-height:1;text-shadow:0 0 30px rgba(255,59,59,.35);margin-bottom:3px;
+  transition:opacity .5s;
 }
+.gauge-source{font-size:8px;color:var(--t3);letter-spacing:.8px;text-transform:uppercase;margin-bottom:10px}
+
+/* Live recession badge */
+.rec-live-badge{
+  display:inline-flex;align-items:center;gap:5px;
+  background:rgba(255,59,59,.12);border:1px solid rgba(255,59,59,.28);
+  border-radius:4px;padding:3px 8px;font-size:8px;letter-spacing:1.5px;
+  text-transform:uppercase;color:var(--red);font-weight:700;margin-bottom:10px;
+}
+
 .rec-row{display:flex;justify-content:space-between;align-items:center;padding:7px 0;border-bottom:1px solid rgba(255,255,255,.04);font-size:11px}
 .rec-row:last-child{border-bottom:none}
 .rec-firm{color:var(--t2);font-size:10.5px}
 .rec-bar{width:55px;height:3px;background:rgba(255,255,255,.07);border-radius:2px;margin:0 8px;overflow:hidden;flex-shrink:0}
-.rec-fill{height:100%;border-radius:2px}
+.rec-fill{height:100%;border-radius:2px;transition:width 1.5s ease}
 .rec-pct{font-weight:700;font-size:12px;min-width:36px;text-align:right}
+.rec-row.live-calc{background:rgba(0,229,255,.04);border-radius:5px;padding:7px 8px;border:1px solid rgba(0,229,255,.12);margin-bottom:4px;border-bottom:1px solid rgba(0,229,255,.12)!important}
+.rec-firm.live{color:var(--cyan)}
+.rec-pct.live{color:var(--cyan)}
 
 /* === SNAPSHOT TILES === */
 .snap-tile{
@@ -300,7 +320,8 @@ h1 span{color:var(--cyan)}
 .tl-body{font-size:11px;color:var(--t2);line-height:1.65}
 
 /* === HISTORICAL COMPARISON === */
-.war-compare{width:100%;border-collapse:collapse;font-size:11.5px}
+.table-scroll{overflow-x:auto;-webkit-overflow-scrolling:touch;border-radius:var(--r)}
+.war-compare{width:100%;border-collapse:collapse;font-size:11.5px;min-width:560px}
 .war-compare th{font-size:8px;letter-spacing:2px;text-transform:uppercase;color:var(--t3);padding:8px;border-bottom:1px solid var(--border);text-align:left;font-weight:700}
 .war-compare td{padding:10px 8px;border-bottom:1px solid rgba(255,255,255,.04);vertical-align:middle}
 .war-compare tr:last-child td{border-bottom:none}
@@ -313,7 +334,8 @@ h1 span{color:var(--cyan)}
 .wc-current .wc-name{color:var(--cyan)}
 
 /* === PAIN TABLE === */
-.pain-table{width:100%;border-collapse:collapse;font-size:11px}
+.pain-table-scroll{overflow-x:auto;-webkit-overflow-scrolling:touch}
+.pain-table{width:100%;border-collapse:collapse;font-size:11px;min-width:520px}
 .pain-table th{font-size:7.5px;letter-spacing:2px;text-transform:uppercase;color:var(--t3);padding:7px;border-bottom:1px solid var(--border);text-align:left;font-weight:700}
 .pain-table td{padding:8px 7px;border-bottom:1px solid rgba(255,255,255,.03);vertical-align:middle}
 .pain-table tr:last-child td{border-bottom:none}
@@ -331,7 +353,7 @@ h1 span{color:var(--cyan)}
 .budget-row{display:flex;align-items:center;gap:10px;padding:9px 0;border-bottom:1px solid rgba(255,255,255,.04);font-size:11px}
 .budget-row:last-child{border-bottom:none}
 .budget-icon{font-size:16px;flex-shrink:0;width:24px;text-align:center}
-.budget-label{flex:1;color:var(--t2)}
+.budget-label{flex:1;color:var(--t2);min-width:0}
 .budget-bar-bg{width:80px;height:4px;background:rgba(255,255,255,.07);border-radius:2px;overflow:hidden;flex-shrink:0}
 .budget-bar-fill{height:100%;border-radius:2px}
 .budget-pct{font-size:10.5px;color:var(--amber);font-weight:700;min-width:36px;text-align:right}
@@ -354,6 +376,7 @@ h1 span{color:var(--cyan)}
   padding:12px 14px;border-radius:8px;text-decoration:none;
   border:1px solid;cursor:pointer;font-family:var(--mono);
   transition:all .16s ease;background:transparent;width:100%;text-align:left;
+  -webkit-tap-highlight-color:transparent;
 }
 .share-btn:hover{transform:translateY(-1px)}
 .sb-icon{width:36px;height:36px;border-radius:7px;flex-shrink:0;display:flex;align-items:center;justify-content:center}
@@ -417,14 +440,14 @@ details.section[open]>summary{margin-bottom:11px}
 }
 .section-title::after{content:'';flex:1;height:1px;background:var(--border)}
 
-/* === NEWS TICKER === */
+/* === NEWS === */
 .news-grid{display:flex;flex-direction:column;gap:0}
 .news-item{
   display:flex;gap:12px;padding:10px 0;border-bottom:1px solid rgba(255,255,255,.04);
   font-size:11.5px;
 }
 .news-item:last-child{border-bottom:none}
-.news-date{font-size:8.5px;letter-spacing:1px;color:var(--t3);flex-shrink:0;min-width:68px;padding-top:1px}
+.news-date{font-size:8.5px;letter-spacing:1px;color:var(--t3);flex-shrink:0;min-width:60px;padding-top:1px}
 .news-dot{flex-shrink:0;width:6px;height:6px;border-radius:50%;background:var(--cyan);margin-top:5px;opacity:.7}
 .news-dot.red{background:var(--red)}
 .news-dot.amber{background:var(--amber)}
@@ -432,7 +455,7 @@ details.section[open]>summary{margin-bottom:11px}
 .news-body strong{color:var(--t1)}
 .news-source{font-size:9px;color:var(--t3);margin-top:2px;letter-spacing:.5px}
 
-/* === NEWS FEED === */
+/* News feed header */
 .news-feed-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:4px}
 .news-feed-status{font-size:8px;letter-spacing:2px;text-transform:uppercase;padding:3px 8px;border-radius:3px;font-weight:700}
 .nfs-live{background:rgba(0,230,118,.12);color:var(--green);border:1px solid rgba(0,230,118,.25)}
@@ -444,29 +467,116 @@ details.section[open]>summary{margin-bottom:11px}
 .news-fallback-label{font-size:8px;letter-spacing:2px;text-transform:uppercase;color:var(--t3);margin:10px 0 6px;padding-top:10px;border-top:1px solid var(--border)}
 .news-source-link{color:var(--cyan);text-decoration:none;font-size:9px}
 .news-source-link:hover{text-decoration:underline}
+
 /* === PAIN TABLE LIVE === */
-.pt-live-header{display:flex;align-items:center;justify-content:space-between;width:100%;margin-bottom:14px}
+.pt-live-header{display:flex;align-items:center;justify-content:space-between;width:100%;margin-bottom:14px;flex-wrap:wrap;gap:8px}
 .pt-status{font-size:8px;letter-spacing:1.5px;text-transform:uppercase;color:var(--t3);font-style:italic}
 .cur-delta{font-size:9px;display:block;margin-top:2px}
 .cur-delta.neg{color:var(--red)}.cur-delta.pos{color:var(--green)}.cur-delta.flat{color:var(--t3)}
 .pain-score-bar{height:2px;background:rgba(255,255,255,.07);border-radius:1px;overflow:hidden;margin-top:4px}
 .pain-score-fill{height:100%;border-radius:1px;transition:width .8s ease}
-/* === RESPONSIVE === */
+
+/* === RESPONSIVE - TABLET 700-900px === */
+@media(max-width:900px){
+  .g4{grid-template-columns:1fr 1fr}
+}
+
+/* === RESPONSIVE - MOBILE ≤700px === */
 @media(max-width:700px){
-  .g2,.g3,.g4,.g32,.g23{grid-template-columns:1fr}
+  /* Top bar */
+  .top-bar{position:static}/* un-sticky on mobile to save space */
+  .bar-live{padding:0 10px;font-size:7px;letter-spacing:2px}
+  .cc{min-width:88px;padding:5px 10px}
+  .cc-time{font-size:12px}
+  .data-status{
+    display:none /* hide on smallest screens; shown in body */
+  }
+
+  /* Page padding */
+  .page{padding:16px 12px 60px}
+
+  /* Grids */
+  .g2{grid-template-columns:1fr}
+  .g3{grid-template-columns:1fr 1fr}
+  .g4{grid-template-columns:1fr 1fr}
+  .g32,.g23{grid-template-columns:1fr}
   .span2,.span3,.span4{grid-column:span 1}
-  .cost-sidebar{flex-direction:row;flex-wrap:wrap}
-  .breakdown-item{min-width:140px}
-  .top-bar{flex-wrap:wrap}
-  .clocks{flex-wrap:wrap}
-  .cc{min-width:50%}
-  .data-status{width:100%;border-left:none;border-top:1px solid rgba(255,255,255,.05)}
-  .cost-fig{font-size:30px}
-  .gauge-pct{font-size:34px}
-  .lives-row{flex-direction:column}
+  .counter-card{grid-column:span 1}
+
+  /* Cost counter */
+  .cost-wrap{flex-direction:column;gap:16px}
+  .cost-main{min-width:0}
+  .cost-fig{font-size:clamp(22px,8vw,38px)}
+  .cost-sidebar{
+    display:grid;grid-template-columns:1fr 1fr;gap:8px;
+    min-width:0;width:100%;
+  }
+  .breakdown-item{padding:8px 10px}
+  .bi-val{font-size:12px}
+  .d-num{font-size:16px;min-width:34px;padding:3px 7px}
+
+  /* Header */
+  h1{letter-spacing:-0.5px}
+  .deck{font-size:12px}
+  .kicker{font-size:7.5px;letter-spacing:3px}
+
+  /* Market tiles */
+  .mt-price{font-size:18px}
+  .market-tile{padding:10px 12px}
+
+  /* Gauge */
+  .gauge-pct{font-size:36px}
+  .rec-bar{width:40px}
+  .rec-firm{font-size:9.5px}
+
+  /* Lives */
+  .lives-row{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+  .lives-stat{min-width:0}
+  .ls-num{font-size:24px}
+
+  /* Section title */
+  .section-title{font-size:7.5px;letter-spacing:3px;margin:16px 0 8px}
+
+  /* Snap tiles */
+  .snap-tile{padding:12px 10px}
+  .st-big{font-size:22px}
+
+  /* Supply chain */
+  /* g3 = 2-col already */
+
+  /* Detail column hidden */
   .detail{display:none}
-  .cost-wrap{flex-direction:column}
-  .cost-sidebar{width:100%}
+
+  /* Timeline */
+  .timeline{padding-left:18px}
+  .tl-dot{left:-16px}
+
+  /* Budget */
+  .budget-bar-bg{display:none}
+  .budget-label{font-size:10px}
+
+  /* Card padding */
+  .card{padding:14px 12px}
+  .card-label{font-size:7.5px;letter-spacing:2px}
+
+  /* Prose */
+  .prose{font-size:11.5px}
+  .callout{font-size:11.5px}
+
+  /* Footer */
+  .footer{font-size:10px}
+}
+
+@media(max-width:480px){
+  .g3{grid-template-columns:1fr}
+  .g4{grid-template-columns:1fr}
+  .cost-sidebar{grid-template-columns:1fr}
+  .lives-row{grid-template-columns:1fr}
+  .rate-pills{gap:5px}
+  .rpill{font-size:9px;padding:2px 8px}
+  .gauge-pct{font-size:30px}
+  .rec-row{flex-wrap:wrap;gap:4px}
+  .rec-bar{display:none}
 }
 </style>
 </head>
@@ -522,7 +632,7 @@ details.section[open]>summary{margin-bottom:11px}
     <span class="ri">BRENT CRUDE <span id="rib-oil2">~$105/bbl</span> · UP 40% since Feb 28</span><span class="rs">|</span>
     <span class="ri">SILVER <span id="rib-silver2">$67.73/oz</span></span><span class="rs">|</span>
     <span class="ri">GLOBAL STOCKS -5.5% SINCE WAR BEGAN (Bloomberg)</span><span class="rs">|</span>
-    <span class="ri">RECESSION ODDS: MOODY'S 48.6% · GOLDMAN 30% · EY 40%</span><span class="rs">|</span>
+    <span class="ri">RECESSION ODDS: LIVE CALC <span id="rib-rec">--</span>% · MOODY'S 48.6%</span><span class="rs">|</span>
     <span class="ri">US GAS $3.94/gal · UP $0.98 IN ONE MONTH</span><span class="rs">|</span>
     <span class="ri">STRAIT OF HORMUZ: effectively closed to tanker traffic</span><span class="rs">|</span>
     <span class="ri">3,400+ Iranian civilians killed · 9,100+ wounded</span><span class="rs">|</span>
@@ -568,7 +678,7 @@ details.section[open]>summary{margin-bottom:11px}
           <div class="breakdown-item">
             <div class="bi-label">Carrier Strike Groups</div>
             <div class="bi-val">~$3.1B</div>
-            <div class="bi-sub">USS Nimitz + USS Truman deployment</div>
+            <div class="bi-sub">USS Nimitz + USS Truman</div>
           </div>
           <div class="breakdown-item">
             <div class="bi-label">Logistics + Support</div>
@@ -583,7 +693,7 @@ details.section[open]>summary{margin-bottom:11px}
         </div>
       </div>
     </div>
-    <!-- SHARE CARD in grid -->
+    <!-- SHARE CARD -->
     <div class="card cyan">
       <div class="card-label">Share This Tracker</div>
       <div class="share-col">
@@ -692,20 +802,31 @@ details.section[open]>summary{margin-bottom:11px}
 
   <!-- === 2-COL: RECESSION + BUDGET === -->
   <div class="g2">
-    <!-- RECESSION GAUGE -->
+    <!-- RECESSION GAUGE — live calculated -->
     <div class="card red">
       <div class="card-label"><span class="pip" style="background:var(--red);box-shadow:0 0 8px var(--red)"></span>Global Recession Likelihood</div>
-      <div style="display:flex;align-items:flex-end;gap:16px">
+
+      <!-- Live calc badge -->
+      <div class="rec-live-badge"><span class="pip" style="width:5px;height:5px;animation-duration:.9s"></span>LIVE CALCULATED FROM API DATA</div>
+
+      <div style="display:flex;align-items:flex-end;gap:16px;flex-wrap:wrap">
         <div>
-          <div class="gauge-pct">48.6<span style="font-size:18px">%</span></div>
-          <div style="font-size:8.5px;color:var(--t3);letter-spacing:1px;text-transform:uppercase;max-width:100px;line-height:1.5">Moody's Analytics, highest estimate</div>
+          <div class="gauge-pct" id="gauge-pct">--<span style="font-size:18px">%</span></div>
+          <div class="gauge-source" id="gauge-source">Loading market data...</div>
         </div>
-        <div style="flex:1">
-          <div class="gauge-bar-bg"><div class="gauge-needle" style="left:48.6%"></div></div>
+        <div style="flex:1;min-width:120px">
+          <div class="gauge-bar-bg"><div class="gauge-needle" id="gauge-needle" style="left:48%"></div></div>
           <div class="gauge-labels"><span>Low</span><span>Elevated</span><span>Severe</span></div>
         </div>
       </div>
+
+      <!-- Live composite row at top -->
       <div style="margin-top:14px">
+        <div class="rec-row live-calc">
+          <span class="rec-firm live">⚡ Live Composite (oil + currency + equity)</span>
+          <div class="rec-bar" style="border-color:rgba(0,229,255,.2)"><div class="rec-fill" id="rec-live-bar" style="width:80%;background:var(--cyan)"></div></div>
+          <span class="rec-pct live" id="rec-live-pct">--%</span>
+        </div>
         <div class="rec-row">
           <span class="rec-firm">Moody's Analytics (Mark Zandi)</span>
           <div class="rec-bar"><div class="rec-fill" style="width:97%;background:var(--red)"></div></div>
@@ -737,7 +858,13 @@ details.section[open]>summary{margin-bottom:11px}
           <span class="rec-pct" style="color:var(--green)">15-20%</span>
         </div>
       </div>
-      <div class="info-box warn" style="margin-top:12px">
+
+      <!-- Inputs breakdown -->
+      <div class="info-box" style="margin-top:10px;font-size:9.5px">
+        <strong>Live model inputs:</strong>
+        <span id="rec-inputs">Fetching oil price, currency basket &amp; equity data...</span>
+      </div>
+      <div class="info-box warn" style="margin-top:8px">
         <strong>Zandi (Moody's):</strong> recession "more than likely by H2 2026" without ceasefire. PNC's Faucher: odds top <strong>50%</strong> if oil reaches $150/bbl. Brent crude already peaked at $115/bbl on March 14.
       </div>
     </div>
@@ -781,7 +908,7 @@ details.section[open]>summary{margin-bottom:11px}
         <span class="budget-amt">~$0.7B</span>
       </div>
       <div class="info-box amber" style="margin-top:12px">
-        <strong>Note:</strong> These breakdowns are congressional estimates from WSJ, NYT, and defense analysts. The Pentagon has not published a detailed line-item budget. Veteran costs (healthcare, disability) over 10-30 years are not included and will likely <strong>triple</strong> the direct military spend based on Iraq/Afghanistan precedent (Watson Institute).
+        <strong>Note:</strong> Congressional estimates from WSJ, NYT, and defense analysts. The Pentagon has not published a detailed line-item budget. Veteran costs (healthcare, disability) over 10-30 years are not included and will likely <strong>triple</strong> the direct military spend (Watson Institute).
       </div>
     </div>
   </div>
@@ -791,7 +918,7 @@ details.section[open]>summary{margin-bottom:11px}
   <div class="g3">
     <div class="snap-tile lives"><div class="st-label">Iranian Civilians Killed</div><div class="st-big">3,400+</div><div class="st-sub">9,100+ wounded. UNESCO condemned strikes on civilian infrastructure.</div></div>
     <div class="snap-tile oil"><div class="st-label">Oil Price Shock</div><div class="st-big">+40%</div><div class="st-sub">$74 to $105/bbl Brent crude. Peaked at $115 on Mar 14.</div></div>
-    <div class="snap-tile gold2"><div class="st-label">Gold Price</div><div class="st-big">$4,430</div><div class="st-sub">Safe-haven surge. Up $640 from pre-war $3,790. ATH was $5,589 in Jan.</div></div>
+    <div class="snap-tile gold2"><div class="st-label">Gold Price</div><div class="st-big" id="snap-gold">$4,430</div><div class="st-sub">Safe-haven surge. Up $640 from pre-war $3,790. ATH was $5,589 in Jan.</div></div>
     <div class="snap-tile stocks"><div class="st-label">Global Stocks</div><div class="st-big">-5.5%</div><div class="st-sub">Since Feb 28 (Bloomberg composite). Tech -7.2%, Energy +18%.</div></div>
     <div class="snap-tile gas"><div class="st-label">US Gas Price Rise</div><div class="st-big">+$0.98</div><div class="st-sub">Per gallon in one month. Diesel up $1.62/gal. Airline fuel up 41%.</div></div>
     <div class="snap-tile shipping"><div class="st-label">Shipping Cost Surge</div><div class="st-big">+187%</div><div class="st-sub">Baltic Dry Index. Hormuz closure forces Cape of Good Hope rerouting.</div></div>
@@ -819,53 +946,51 @@ details.section[open]>summary{margin-bottom:11px}
           <div class="tl-dot red"></div>
           <div class="tl-date">Mar 3, 2026</div>
           <div class="tl-title">Strait of Hormuz closes</div>
-          <div class="tl-body">Iran mines and effectively closes the Strait. 21 million barrels per day of oil flow disrupted. Brent crude surges from $74 to $98 in 24 hours. Global shipping in crisis.</div>
+          <div class="tl-body">Iran mines and effectively closes the Strait. 21 million barrels per day of oil flow disrupted. Brent crude surges from $74 to $98 in 24 hours.</div>
         </div>
         <div class="tl-event">
           <div class="tl-dot purple"></div>
           <div class="tl-date">Mar 7, 2026</div>
           <div class="tl-title">Minab school strike</div>
-          <div class="tl-body">47 killed at Shajareh Tayyebeh girls' school in Minab, mostly girls aged 7-12 and their teachers. UNESCO and UN Human Rights condemn the strike. Iran denies any military use of the building. (Hengaw, AP, UNESCO)</div>
+          <div class="tl-body">47 killed at Shajareh Tayyebeh girls' school in Minab, mostly girls aged 7-12 and their teachers. UNESCO and UN Human Rights condemn the strike.</div>
         </div>
         <div class="tl-event">
           <div class="tl-dot red"></div>
           <div class="tl-date">Mar 11, 2026</div>
           <div class="tl-title">Pentagon briefs Congress: $11.3B in 6 days</div>
-          <div class="tl-body">Pentagon tells Senate Armed Services Committee the first six days cost $11.3 billion. Ongoing rate estimated at $1B/day. Sen. Coons calls it "likely an undercount." (NYT, Catie Edmondson)</div>
+          <div class="tl-body">Pentagon tells Senate Armed Services Committee the first six days cost $11.3 billion. Ongoing rate estimated at $1B/day. Sen. Coons calls it "likely an undercount." (NYT)</div>
         </div>
         <div class="tl-event">
           <div class="tl-dot amber"></div>
           <div class="tl-date">Mar 14, 2026</div>
           <div class="tl-title">Brent crude peaks at $115/bbl</div>
-          <div class="tl-body">Oil hits highest since 2022 Ukraine crisis. OPEC+ emergency meeting fails to reach consensus. Saudi Arabia and UAE express concern at economic spillover. PNC raises recession odds above 50% at this price.</div>
+          <div class="tl-body">Oil hits highest since 2022 Ukraine crisis. OPEC+ emergency meeting fails to reach consensus. PNC raises recession odds above 50% at this price.</div>
         </div>
         <div class="tl-event">
           <div class="tl-dot"></div>
           <div class="tl-date">Mar 25-27, 2026</div>
           <div class="tl-title">Ceasefire talks in Oman fail</div>
-          <div class="tl-body">Omani-mediated ceasefire talks collapse after three days. Iran demands complete withdrawal from all regional bases. U.S. refuses. Fighting continues at reduced intensity. Brent crude stabilizes near $105.</div>
+          <div class="tl-body">Omani-mediated ceasefire talks collapse after three days. Iran demands complete withdrawal from all regional bases. U.S. refuses. Brent crude stabilizes near $105.</div>
         </div>
       </div>
     </div>
 
-    <!-- LATEST HEADLINES — LIVE RSS + FALLBACK -->
+    <!-- LATEST HEADLINES — LIVE RSS -->
     <div class="card" style="background:var(--bg2)">
       <div class="news-feed-header">
         <div class="card-label" style="color:var(--t2);margin-bottom:0">Latest Reports</div>
         <span class="news-feed-status nfs-loading" id="news-status">Loading...</span>
       </div>
-      <!-- LIVE NEWS injected here -->
       <div class="live-news-container news-grid" id="live-news-container">
-        <div style="font-size:10px;color:var(--t3);padding:8px 0">Fetching latest news from Al Jazeera and Reuters...</div>
+        <div style="font-size:10px;color:var(--t3);padding:8px 0">Fetching latest news...</div>
       </div>
-      <!-- FALLBACK static headlines always shown below live feed -->
       <div class="news-fallback-label">Verified Reference Reports</div>
       <div class="news-grid">
         <div class="news-item">
           <div class="news-date">Mar 30</div>
           <div class="news-dot red"></div>
           <div>
-            <div class="news-body"><strong>Iran launches fourth wave of drone strikes</strong> targeting U.S. drone base in Kuwait. All intercepted by Patriot batteries. Kuwait City civilians report explosions overnight.</div>
+            <div class="news-body"><strong>Iran launches fourth wave of drone strikes</strong> targeting U.S. drone base in Kuwait. All intercepted by Patriot batteries.</div>
             <div class="news-source">Reuters · AP</div>
           </div>
         </div>
@@ -873,7 +998,7 @@ details.section[open]>summary{margin-bottom:11px}
           <div class="news-date">Mar 29</div>
           <div class="news-dot amber"></div>
           <div>
-            <div class="news-body"><strong>Washington Times:</strong> U.S. economic pain spreading to red-state agriculture as fertilizer costs surge 65% due to Hormuz disruption impacting global potash supply.</div>
+            <div class="news-body"><strong>Washington Times:</strong> U.S. fertilizer costs surge 65% due to Hormuz disruption impacting global potash supply.</div>
             <div class="news-source">Washington Times</div>
           </div>
         </div>
@@ -881,7 +1006,7 @@ details.section[open]>summary{margin-bottom:11px}
           <div class="news-date">Mar 28</div>
           <div class="news-dot"></div>
           <div>
-            <div class="news-body"><strong>IMF issues emergency bulletin:</strong> downgrades global 2026 growth forecast from 3.2% to 2.1%, citing oil shock and trade disruption from Hormuz closure.</div>
+            <div class="news-body"><strong>IMF issues emergency bulletin:</strong> downgrades global 2026 growth forecast from 3.2% to 2.1%, citing oil shock and trade disruption.</div>
             <div class="news-source">IMF · Bloomberg</div>
           </div>
         </div>
@@ -889,7 +1014,7 @@ details.section[open]>summary{margin-bottom:11px}
           <div class="news-date">Mar 27</div>
           <div class="news-dot amber"></div>
           <div>
-            <div class="news-body"><strong>Gold falls from Jan $5,589 peak</strong> to $4,430 as initial panic recedes. Analysts at Goldman, UBS see floor at $4,200 while conflict persists. Silver sets new 13-year high at $67.73.</div>
+            <div class="news-body"><strong>Gold stabilizes at $4,430</strong> from Jan $5,589 peak. Silver sets new 13-year high at $67.73/oz.</div>
             <div class="news-source">CBS News · Fortune · Priority Gold</div>
           </div>
         </div>
@@ -897,7 +1022,7 @@ details.section[open]>summary{margin-bottom:11px}
           <div class="news-date">Mar 26</div>
           <div class="news-dot red"></div>
           <div>
-            <div class="news-body"><strong>UK economy formally in recession</strong> per ONS data, the first G7 nation to enter recession since war began. OECD describes UK as worst-hit major economy.</div>
+            <div class="news-body"><strong>UK economy formally in recession</strong> per ONS data, the first G7 nation since war began.</div>
             <div class="news-source">ONS · OECD · Guardian</div>
           </div>
         </div>
@@ -905,7 +1030,7 @@ details.section[open]>summary{margin-bottom:11px}
           <div class="news-date">Mar 24</div>
           <div class="news-dot amber"></div>
           <div>
-            <div class="news-body"><strong>Qatar announces force majeure</strong> on 12% of LNG contracts to European buyers, citing port security concerns at Ras Laffan. Germany activates emergency gas rationing protocol.</div>
+            <div class="news-body"><strong>Qatar announces force majeure</strong> on 12% of LNG contracts. Germany activates emergency gas rationing.</div>
             <div class="news-source">FT · Al Jazeera</div>
           </div>
         </div>
@@ -942,120 +1067,86 @@ details.section[open]>summary{margin-bottom:11px}
       "47 killed at Shajareh Tayyebeh girls' school in Minab, mostly girls aged 7-12 and their teachers. UNESCO condemned the strike. Iran denies any military presence at the site."
       <cite>Hengaw · AP · UNESCO Statement · March 7, 2026</cite>
     </div>
-    <p class="prose"><strong>Everyday families paying the price.</strong> For ordinary Iranians, this war means shattered hospitals, collapsed electricity grids, and fuel shortages halting ambulances. Iran's economy is forecast to contract by <strong>more than 10% of GDP</strong> in 2026 (Chatham House). Pharmacies have empty shelves. Families cannot refrigerate insulin. Children sit in blacked-out classrooms. The UN warns of a potential humanitarian crisis rivaling Syria.</p>
-    <p class="prose"><strong>American families feeling it at home.</strong> Gas is up <strong>$0.98/gallon</strong> nationwide. Diesel jumped from $3.75 to <strong>$5.37/gallon</strong> (+43% in one month). Every sustained $10 rise in oil costs U.S. households <strong>$450 extra per year</strong> (Moody's). Grocery prices are rising because the Strait of Hormuz controls roughly <strong>one-third of the world's fertilizer exports</strong>, and those shipments have stopped. Airline fares are up 12% on average as jet fuel surges 41%.</p>
-    <p class="prose"><strong>New Zealand is not insulated.</strong> NZ imports roughly 75% of its liquid fuels. Petrol prices have risen sharply, hitting lower-income households hardest. NZ's key trading partners (China, the EU, and the U.S.) are all at elevated recession risk, threatening export revenues for dairy, meat, and wine. The RBNZ is watching closely as imported inflation could force a pause on planned rate cuts. NZ Food Price Index rose 4.2% MoM in March 2026 (Stats NZ preliminary data).</p>
-    <p class="prose"><strong>Global South on the edge.</strong> Debt-laden developing nations already stretched by pandemic recovery are now rationing fuel. Economists warn of a potential <strong>debt crisis wave</strong> across sub-Saharan Africa and Southeast Asia if Northern central banks raise rates to combat war-driven inflation. Pakistan, Egypt, Kenya, and Sri Lanka are already in emergency IMF consultations.</p>
+    <p class="prose"><strong>Everyday families paying the price.</strong> For ordinary Iranians, this war means shattered hospitals, collapsed electricity grids, and fuel shortages halting ambulances. Iran's economy is forecast to contract by <strong>more than 10% of GDP</strong> in 2026 (Chatham House). The UN warns of a potential humanitarian crisis rivaling Syria.</p>
+    <p class="prose"><strong>American families feeling it at home.</strong> Gas is up <strong>$0.98/gallon</strong> nationwide. Diesel jumped from $3.75 to <strong>$5.37/gallon</strong> (+43% in one month). Every sustained $10 rise in oil costs U.S. households <strong>$450 extra per year</strong> (Moody's). Grocery prices are rising because the Strait of Hormuz controls roughly <strong>one-third of the world's fertilizer exports</strong>.</p>
+    <p class="prose"><strong>New Zealand is not insulated.</strong> NZ imports roughly 75% of its liquid fuels. Petrol prices have risen sharply, hitting lower-income households hardest. The RBNZ is watching closely as imported inflation could force a pause on planned rate cuts. NZ Food Price Index rose 4.2% MoM in March 2026 (Stats NZ preliminary data).</p>
+    <p class="prose"><strong>Global South on the edge.</strong> Economists warn of a potential <strong>debt crisis wave</strong> across sub-Saharan Africa and Southeast Asia. Pakistan, Egypt, Kenya, and Sri Lanka are already in emergency IMF consultations.</p>
   </div>
 
   <!-- === SUPPLY CHAIN SECTION === -->
   <div class="section-title">Supply Chain Disruption: The Hidden Costs</div>
   <div class="g3" style="margin-bottom:20px">
-    <div class="sc-tile">
-      <div class="sc-icon">🚢</div>
-      <div class="sc-title">Strait of Hormuz</div>
-      <div class="sc-body"><span class="sc-stat">21M bbl/day blocked</span>Roughly 21% of global oil and 20% of LNG passes through the Strait. Effective closure since Mar 3 is the largest energy supply disruption since the 1973 oil embargo. Ships rerouting via Cape of Good Hope add 14 days and $2-3M per voyage.</div>
-    </div>
-    <div class="sc-tile">
-      <div class="sc-icon">🌾</div>
-      <div class="sc-title">Food and Fertilizer</div>
-      <div class="sc-body"><span class="sc-stat">+65% fertilizer prices</span>Iran and Qatar together supply 30%+ of global potash and urea exports. Hormuz closure has halted these shipments. Global food price index is up 8.3% since February. UN World Food Programme warns of acute food insecurity in 60+ nations by Q3 2026.</div>
-    </div>
-    <div class="sc-tile">
-      <div class="sc-icon">💊</div>
-      <div class="sc-title">Pharmaceuticals</div>
-      <div class="sc-body"><span class="sc-stat">4,000+ drugs at risk</span>Iran produces pharmaceutical intermediates for global supply chains. Sanctions plus conflict have halted these exports. European hospital chains report 40+ critical drug shortages. WHO declares "pharmaceutical supply emergency."</div>
-    </div>
-    <div class="sc-tile">
-      <div class="sc-icon">🔮</div>
-      <div class="sc-title">Helium Supply</div>
-      <div class="sc-body"><span class="sc-stat">40% of world supply halted</span>Qatar is the world's largest helium exporter. Qatar's Ras Laffan port has activated force majeure. Semiconductor fabs, MRI machines, and fiber optic manufacturing are all at risk. Intel and TSMC issued supply warnings.</div>
-    </div>
-    <div class="sc-tile">
-      <div class="sc-icon">✈️</div>
-      <div class="sc-title">Aviation</div>
-      <div class="sc-body"><span class="sc-stat">+41% jet fuel costs</span>Major Asia-Europe flight paths are closed over Iran and much of the Middle East. Flights are diverting over Central Asia, adding 2-4 hours. IATA estimates global aviation industry losses of $23B in 2026 if conflict continues through Q3.</div>
-    </div>
-    <div class="sc-tile">
-      <div class="sc-icon">💻</div>
-      <div class="sc-title">Tech and Chips</div>
-      <div class="sc-body"><span class="sc-stat">Helium + shipping crunch</span>TSMC and Samsung warn of production slowdowns due to helium shortages. Longer shipping routes (+14 days) delay component delivery across Asia-Pacific supply chains. AI data center buildout timelines slipping by 3-6 months (Goldman Sachs supply chain note).</div>
-    </div>
+    <div class="sc-tile"><div class="sc-icon">🚢</div><div class="sc-title">Strait of Hormuz</div><div class="sc-body"><span class="sc-stat">21M bbl/day blocked</span>Roughly 21% of global oil and 20% of LNG passes through the Strait. Effective closure since Mar 3 is the largest energy supply disruption since the 1973 oil embargo. Ships rerouting via Cape of Good Hope add 14 days and $2-3M per voyage.</div></div>
+    <div class="sc-tile"><div class="sc-icon">🌾</div><div class="sc-title">Food and Fertilizer</div><div class="sc-body"><span class="sc-stat">+65% fertilizer prices</span>Iran and Qatar together supply 30%+ of global potash and urea exports. Hormuz closure has halted these shipments. Global food price index up 8.3% since February. UN WFP warns of acute food insecurity in 60+ nations by Q3 2026.</div></div>
+    <div class="sc-tile"><div class="sc-icon">💊</div><div class="sc-title">Pharmaceuticals</div><div class="sc-body"><span class="sc-stat">4,000+ drugs at risk</span>Iran produces pharmaceutical intermediates for global supply chains. European hospital chains report 40+ critical drug shortages. WHO declares "pharmaceutical supply emergency."</div></div>
+    <div class="sc-tile"><div class="sc-icon">🔮</div><div class="sc-title">Helium Supply</div><div class="sc-body"><span class="sc-stat">40% of world supply halted</span>Qatar is the world's largest helium exporter. Ras Laffan port on force majeure. Semiconductor fabs, MRI machines, and fiber optic manufacturing all at risk. Intel and TSMC issued supply warnings.</div></div>
+    <div class="sc-tile"><div class="sc-icon">✈️</div><div class="sc-title">Aviation</div><div class="sc-body"><span class="sc-stat">+41% jet fuel costs</span>Major Asia-Europe flight paths closed over Iran. Flights diverting over Central Asia, adding 2-4 hours. IATA estimates global aviation industry losses of $23B in 2026.</div></div>
+    <div class="sc-tile"><div class="sc-icon">💻</div><div class="sc-title">Tech and Chips</div><div class="sc-body"><span class="sc-stat">Helium + shipping crunch</span>TSMC and Samsung warn of production slowdowns. Longer shipping routes (+14 days) delay component delivery. AI data center buildout timelines slipping by 3-6 months.</div></div>
   </div>
 
   <!-- === HISTORICAL COMPARISON === -->
   <div class="section-title">Historical War Cost Comparison</div>
   <div class="card amber" style="margin-bottom:12px">
     <div class="card-label">U.S. Military Spending Comparison (Inflation-Adjusted to 2026 USD)</div>
-    <table class="war-compare">
-      <thead>
-        <tr>
-          <th>Conflict</th>
-          <th>Duration</th>
-          <th>Direct Military Cost</th>
-          <th>True Total Cost (incl. veterans, interest)</th>
-          <th>Daily Rate</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr class="wc-current">
-          <td class="wc-name">Iran War 2026 (to date)</td>
-          <td style="color:var(--t2)">31 days</td>
-          <td class="wc-cost-cell">~$42B+
-            <div class="wc-bar-bg"><div class="wc-bar" style="width:55%;background:var(--cyan)"></div></div>
-          </td>
-          <td style="color:var(--t3)">Unknown (ongoing)</td>
-          <td style="color:var(--cyan);font-weight:700">$1B/day</td>
-        </tr>
-        <tr>
-          <td class="wc-name">Afghanistan War (2001-2021)</td>
-          <td style="color:var(--t2)">20 years</td>
-          <td class="wc-cost-cell">$2.31 trillion
-            <div class="wc-bar-bg"><div class="wc-bar" style="width:100%;background:var(--amber)"></div></div>
-          </td>
-          <td style="color:var(--t3)">$2.3T (Watson Institute)</td>
-          <td style="color:var(--t3)">$316M/day</td>
-        </tr>
-        <tr>
-          <td class="wc-name">Iraq War (2003-2011)</td>
-          <td style="color:var(--t2)">8.5 years</td>
-          <td class="wc-cost-cell">$1.92 trillion
-            <div class="wc-bar-bg"><div class="wc-bar" style="width:83%;background:var(--amber)"></div></div>
-          </td>
-          <td style="color:var(--t3)">$1.9T (Watson Institute)</td>
-          <td style="color:var(--t3)">$619M/day</td>
-        </tr>
-        <tr>
-          <td class="wc-name">Gulf War (1990-1991)</td>
-          <td style="color:var(--t2)">43 days</td>
-          <td class="wc-cost-cell">$102 billion
-            <div class="wc-bar-bg"><div class="wc-bar" style="width:44%;background:var(--orange)"></div></div>
-          </td>
-          <td style="color:var(--t3)">$102B (most borne by allies)</td>
-          <td style="color:var(--t3)">$2.37B/day</td>
-        </tr>
-        <tr>
-          <td class="wc-name">Vietnam War (1965-1975)</td>
-          <td style="color:var(--t2)">10 years</td>
-          <td class="wc-cost-cell">$900 billion
-            <div class="wc-bar-bg"><div class="wc-bar" style="width:39%;background:var(--red)"></div></div>
-          </td>
-          <td style="color:var(--t3)">$900B+ incl. veterans</td>
-          <td style="color:var(--t3)">$247M/day</td>
-        </tr>
-        <tr>
-          <td class="wc-name">WWII (U.S. share, 1941-1945)</td>
-          <td style="color:var(--t2)">4 years</td>
-          <td class="wc-cost-cell">$4.69 trillion
-            <div class="wc-bar-bg"><div class="wc-bar" style="width:95%;background:var(--red)"></div></div>
-          </td>
-          <td style="color:var(--t3)">Largest in history</td>
-          <td style="color:var(--t3)">$3.2B/day</td>
-        </tr>
-      </tbody>
-    </table>
+    <div class="table-scroll">
+      <table class="war-compare">
+        <thead>
+          <tr>
+            <th>Conflict</th>
+            <th>Duration</th>
+            <th>Direct Military Cost</th>
+            <th>True Total Cost</th>
+            <th>Daily Rate</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="wc-current">
+            <td class="wc-name">Iran War 2026 (to date)</td>
+            <td style="color:var(--t2)">31 days</td>
+            <td class="wc-cost-cell">~$42B+<div class="wc-bar-bg"><div class="wc-bar" style="width:55%;background:var(--cyan)"></div></div></td>
+            <td style="color:var(--t3)">Unknown (ongoing)</td>
+            <td style="color:var(--cyan);font-weight:700">$1B/day</td>
+          </tr>
+          <tr>
+            <td class="wc-name">Afghanistan War (2001-2021)</td>
+            <td style="color:var(--t2)">20 years</td>
+            <td class="wc-cost-cell">$2.31 trillion<div class="wc-bar-bg"><div class="wc-bar" style="width:100%;background:var(--amber)"></div></div></td>
+            <td style="color:var(--t3)">$2.3T (Watson Institute)</td>
+            <td style="color:var(--t3)">$316M/day</td>
+          </tr>
+          <tr>
+            <td class="wc-name">Iraq War (2003-2011)</td>
+            <td style="color:var(--t2)">8.5 years</td>
+            <td class="wc-cost-cell">$1.92 trillion<div class="wc-bar-bg"><div class="wc-bar" style="width:83%;background:var(--amber)"></div></div></td>
+            <td style="color:var(--t3)">$1.9T (Watson Institute)</td>
+            <td style="color:var(--t3)">$619M/day</td>
+          </tr>
+          <tr>
+            <td class="wc-name">Gulf War (1990-1991)</td>
+            <td style="color:var(--t2)">43 days</td>
+            <td class="wc-cost-cell">$102 billion<div class="wc-bar-bg"><div class="wc-bar" style="width:44%;background:var(--orange)"></div></div></td>
+            <td style="color:var(--t3)">$102B (allies share)</td>
+            <td style="color:var(--t3)">$2.37B/day</td>
+          </tr>
+          <tr>
+            <td class="wc-name">Vietnam War (1965-1975)</td>
+            <td style="color:var(--t2)">10 years</td>
+            <td class="wc-cost-cell">$900 billion<div class="wc-bar-bg"><div class="wc-bar" style="width:39%;background:var(--red)"></div></div></td>
+            <td style="color:var(--t3)">$900B+ incl. veterans</td>
+            <td style="color:var(--t3)">$247M/day</td>
+          </tr>
+          <tr>
+            <td class="wc-name">WWII (U.S. share, 1941-1945)</td>
+            <td style="color:var(--t2)">4 years</td>
+            <td class="wc-cost-cell">$4.69 trillion<div class="wc-bar-bg"><div class="wc-bar" style="width:95%;background:var(--red)"></div></div></td>
+            <td style="color:var(--t3)">Largest in history</td>
+            <td style="color:var(--t3)">$3.2B/day</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
     <div class="info-box amber" style="margin-top:12px">
-      <strong>Projecting forward:</strong> If the Iran War continues at $1B/day for a full year, the direct cost reaches $365B. Add veteran care over 30 years (Watson Institute model: veterans costs equal 2-3x direct military spend) and the true total could reach <strong>$1-1.5 trillion</strong>. Compare to the Iraq War's $1.92T for 8.5 years.
+      <strong>Projecting forward:</strong> If the Iran War continues at $1B/day for a full year, the direct cost reaches $365B. Add veteran care over 30 years (Watson Institute model: 2-3x direct military spend) and the true total could reach <strong>$1-1.5 trillion</strong>.
     </div>
   </div>
 
@@ -1065,30 +1156,32 @@ details.section[open]>summary{margin-bottom:11px}
       <div class="card-label" style="margin-bottom:0">Global Economic Pain by Region</div>
       <span class="pt-status" id="pain-table-status">Awaiting currency data...</span>
     </div>
-    <table class="pain-table">
-      <thead>
-        <tr>
-          <th>Region</th>
-          <th>Risk Level</th>
-          <th>Impact / Live Currency</th>
-          <th class="detail">Key Detail</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr data-region="iran"><td class="region">Iran</td><td><span class="level catastrophic" id="pl-iran">Catastrophic</span></td><td style="color:#ff6b6b;font-size:12px;font-weight:700">GDP -10%+<div class="pain-score-bar"><div class="pain-score-fill" style="width:98%;background:#ff6b6b"></div></div></td><td class="detail">Infrastructure destroyed, economy in freefall. 1.8M displaced.</td></tr>
-        <tr data-region="gulf"><td class="region">Gulf States (Qatar, Kuwait, UAE)</td><td><span class="level critical" id="pl-gulf">Critical</span></td><td style="font-size:12px;font-weight:700;color:var(--red)">LNG disrupted<div class="pain-score-bar"><div class="pain-score-fill" id="pb-gulf" style="width:72%;background:var(--red)"></div></div><span class="cur-delta flat" id="cd-gulf">USD-pegged currencies</span></td><td class="detail">Qatar: 40% of world helium supply on force majeure. LNG contracts disrupted.</td></tr>
-        <tr data-region="uk"><td class="region">United Kingdom</td><td><span class="level critical" id="pl-uk">Critical</span></td><td style="font-size:12px;font-weight:700;color:var(--red)">In recession<div class="pain-score-bar"><div class="pain-score-fill" id="pb-uk" style="width:68%;background:var(--red)"></div></div><span class="cur-delta" id="cd-uk">GBP/USD loading...</span></td><td class="detail">First G7 nation in recession. OECD: worst-hit major economy. Inflation above 5%.</td></tr>
-        <tr data-region="germany"><td class="region">Germany and Italy</td><td><span class="level critical" id="pl-germany">Critical</span></td><td style="font-size:12px;font-weight:700;color:var(--red)">Recession likely<div class="pain-score-bar"><div class="pain-score-fill" id="pb-germany" style="width:64%;background:var(--red)"></div></div><span class="cur-delta" id="cd-germany">EUR/USD loading...</span></td><td class="detail">Energy-intensive manufacturing facing 30% cost surcharges. Gas rationing looms.</td></tr>
-        <tr data-region="usa"><td class="region">United States</td><td><span class="level high" id="pl-usa">High</span></td><td style="font-size:12px;font-weight:700;color:var(--amber)">Inflation 3-4%<div class="pain-score-bar"><div class="pain-score-fill" id="pb-usa" style="width:50%;background:var(--amber)"></div></div><span class="cur-delta" id="cd-usa">Oil: loading...</span></td><td class="detail">Goldman 30%, Moody's 48.6% recession odds. Gas up $0.98/gal. Diesel up $1.62.</td></tr>
-        <tr data-region="eurozone"><td class="region">Euro Zone (overall)</td><td><span class="level high" id="pl-eurozone">High</span></td><td style="font-size:12px;font-weight:700;color:var(--amber)">GDP +0.5% only<div class="pain-score-bar"><div class="pain-score-fill" id="pb-eurozone" style="width:45%;background:var(--amber)"></div></div><span class="cur-delta" id="cd-eurozone">EUR/USD loading...</span></td><td class="detail">ECB halted rate cuts. Stagflation warning. ECB emergency meeting scheduled.</td></tr>
-        <tr data-region="australia"><td class="region">Australia</td><td><span class="level elevated" id="pl-australia">Elevated</span></td><td style="font-size:12px;font-weight:700;color:var(--orange)">Fuel costs up<div class="pain-score-bar"><div class="pain-score-fill" id="pb-australia" style="width:36%;background:var(--orange)"></div></div><span class="cur-delta" id="cd-australia">AUD/USD loading...</span></td><td class="detail">Fuel import exposure. RBA raised rates 0.25pp on Mar 18. China trade link at risk.</td></tr>
-        <tr data-region="nz"><td class="region">New Zealand</td><td><span class="level elevated" id="pl-nz">Elevated</span></td><td style="font-size:12px;font-weight:700;color:var(--orange)">Fuel +15%+<div class="pain-score-bar"><div class="pain-score-fill" id="pb-nz" style="width:34%;background:var(--orange)"></div></div><span class="cur-delta" id="cd-nz">NZD/USD loading...</span></td><td class="detail">75% fuel imports. RBNZ paused rate cuts. Food CPI +4.2% MoM (Mar 2026).</td></tr>
-        <tr data-region="japan"><td class="region">Japan</td><td><span class="level high" id="pl-japan">High</span></td><td style="font-size:12px;font-weight:700;color:var(--amber)">Energy shock<div class="pain-score-bar"><div class="pain-score-fill" id="pb-japan" style="width:48%;background:var(--amber)"></div></div><span class="cur-delta" id="cd-japan">JPY/USD loading...</span></td><td class="detail">97% oil imported. Energy import bill surging. BoJ intervention in FX markets.</td></tr>
-        <tr data-region="china"><td class="region">China</td><td><span class="level moderate" id="pl-china">Moderate</span></td><td style="font-size:12px;font-weight:700;color:var(--purple)">Growth under 3%<div class="pain-score-bar"><div class="pain-score-fill" id="pb-china" style="width:22%;background:var(--purple)"></div></div><span class="cur-delta flat" id="cd-china">Diversified energy supply</span></td><td class="detail">Diversified energy mix. Suffers via global demand collapse and trade slowdown.</td></tr>
-        <tr data-region="india"><td class="region">India</td><td><span class="level elevated" id="pl-india">Elevated</span></td><td style="font-size:12px;font-weight:700;color:var(--orange)">Oil import shock<div class="pain-score-bar"><div class="pain-score-fill" id="pb-india" style="width:38%;background:var(--orange)"></div></div><span class="cur-delta" id="cd-india">INR pressure rising</span></td><td class="detail">85% oil imported. Subsidy bill soaring. Rupee under pressure. RBI emergency meeting.</td></tr>
-        <tr data-region="south"><td class="region">Global South (Turkey, Pakistan, Egypt, Kenya...)</td><td><span class="level critical" id="pl-south">Critical</span></td><td style="font-size:12px;font-weight:700;color:var(--red)">Debt crisis risk<div class="pain-score-bar"><div class="pain-score-fill" id="pb-south" style="width:65%;background:var(--red)"></div></div><span class="cur-delta neg" id="cd-south">Multi-currency weakness</span></td><td class="detail">Fuel rationing. Sovereign debt spiral risk. Emergency IMF consultations in 4+ nations.</td></tr>
-      </tbody>
-    </table>
+    <div class="pain-table-scroll">
+      <table class="pain-table">
+        <thead>
+          <tr>
+            <th>Region</th>
+            <th>Risk Level</th>
+            <th>Impact / Live Currency</th>
+            <th class="detail">Key Detail</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr data-region="iran"><td class="region">Iran</td><td><span class="level catastrophic" id="pl-iran">Catastrophic</span></td><td style="color:#ff6b6b;font-size:12px;font-weight:700">GDP -10%+<div class="pain-score-bar"><div class="pain-score-fill" style="width:98%;background:#ff6b6b"></div></div></td><td class="detail">Infrastructure destroyed, economy in freefall. 1.8M displaced.</td></tr>
+          <tr data-region="gulf"><td class="region">Gulf States</td><td><span class="level critical" id="pl-gulf">Critical</span></td><td style="font-size:12px;font-weight:700;color:var(--red)">LNG disrupted<div class="pain-score-bar"><div class="pain-score-fill" id="pb-gulf" style="width:72%;background:var(--red)"></div></div><span class="cur-delta flat" id="cd-gulf">USD-pegged currencies</span></td><td class="detail">Qatar: 40% of world helium supply on force majeure.</td></tr>
+          <tr data-region="uk"><td class="region">United Kingdom</td><td><span class="level critical" id="pl-uk">Critical</span></td><td style="font-size:12px;font-weight:700;color:var(--red)">In recession<div class="pain-score-bar"><div class="pain-score-fill" id="pb-uk" style="width:68%;background:var(--red)"></div></div><span class="cur-delta" id="cd-uk">GBP/USD loading...</span></td><td class="detail">First G7 nation in recession. OECD: worst-hit major economy.</td></tr>
+          <tr data-region="germany"><td class="region">Germany &amp; Italy</td><td><span class="level critical" id="pl-germany">Critical</span></td><td style="font-size:12px;font-weight:700;color:var(--red)">Recession likely<div class="pain-score-bar"><div class="pain-score-fill" id="pb-germany" style="width:64%;background:var(--red)"></div></div><span class="cur-delta" id="cd-germany">EUR/USD loading...</span></td><td class="detail">Energy-intensive manufacturing facing 30% cost surcharges.</td></tr>
+          <tr data-region="usa"><td class="region">United States</td><td><span class="level high" id="pl-usa">High</span></td><td style="font-size:12px;font-weight:700;color:var(--amber)">Inflation 3-4%<div class="pain-score-bar"><div class="pain-score-fill" id="pb-usa" style="width:50%;background:var(--amber)"></div></div><span class="cur-delta" id="cd-usa">Oil: loading...</span></td><td class="detail">Goldman 30%, Moody's 48.6% recession odds. Gas up $0.98/gal.</td></tr>
+          <tr data-region="eurozone"><td class="region">Euro Zone</td><td><span class="level high" id="pl-eurozone">High</span></td><td style="font-size:12px;font-weight:700;color:var(--amber)">GDP +0.5% only<div class="pain-score-bar"><div class="pain-score-fill" id="pb-eurozone" style="width:45%;background:var(--amber)"></div></div><span class="cur-delta" id="cd-eurozone">EUR/USD loading...</span></td><td class="detail">ECB halted rate cuts. Stagflation warning.</td></tr>
+          <tr data-region="australia"><td class="region">Australia</td><td><span class="level elevated" id="pl-australia">Elevated</span></td><td style="font-size:12px;font-weight:700;color:var(--orange)">Fuel costs up<div class="pain-score-bar"><div class="pain-score-fill" id="pb-australia" style="width:36%;background:var(--orange)"></div></div><span class="cur-delta" id="cd-australia">AUD/USD loading...</span></td><td class="detail">Fuel import exposure. RBA raised rates 0.25pp on Mar 18.</td></tr>
+          <tr data-region="nz"><td class="region">New Zealand</td><td><span class="level elevated" id="pl-nz">Elevated</span></td><td style="font-size:12px;font-weight:700;color:var(--orange)">Fuel +15%+<div class="pain-score-bar"><div class="pain-score-fill" id="pb-nz" style="width:34%;background:var(--orange)"></div></div><span class="cur-delta" id="cd-nz">NZD/USD loading...</span></td><td class="detail">75% fuel imports. RBNZ paused rate cuts. Food CPI +4.2% MoM.</td></tr>
+          <tr data-region="japan"><td class="region">Japan</td><td><span class="level high" id="pl-japan">High</span></td><td style="font-size:12px;font-weight:700;color:var(--amber)">Energy shock<div class="pain-score-bar"><div class="pain-score-fill" id="pb-japan" style="width:48%;background:var(--amber)"></div></div><span class="cur-delta" id="cd-japan">JPY/USD loading...</span></td><td class="detail">97% oil imported. Energy import bill surging. BoJ FX intervention.</td></tr>
+          <tr data-region="china"><td class="region">China</td><td><span class="level moderate" id="pl-china">Moderate</span></td><td style="font-size:12px;font-weight:700;color:var(--purple)">Growth under 3%<div class="pain-score-bar"><div class="pain-score-fill" id="pb-china" style="width:22%;background:var(--purple)"></div></div><span class="cur-delta flat" id="cd-china">Diversified energy supply</span></td><td class="detail">Diversified energy mix. Suffers via global demand collapse.</td></tr>
+          <tr data-region="india"><td class="region">India</td><td><span class="level elevated" id="pl-india">Elevated</span></td><td style="font-size:12px;font-weight:700;color:var(--orange)">Oil import shock<div class="pain-score-bar"><div class="pain-score-fill" id="pb-india" style="width:38%;background:var(--orange)"></div></div><span class="cur-delta" id="cd-india">INR pressure rising</span></td><td class="detail">85% oil imported. Subsidy bill soaring. RBI emergency meeting.</td></tr>
+          <tr data-region="south"><td class="region">Global South</td><td><span class="level critical" id="pl-south">Critical</span></td><td style="font-size:12px;font-weight:700;color:var(--red)">Debt crisis risk<div class="pain-score-bar"><div class="pain-score-fill" id="pb-south" style="width:65%;background:var(--red)"></div></div><span class="cur-delta neg" id="cd-south">Multi-currency weakness</span></td><td class="detail">Fuel rationing. Sovereign debt spiral risk. Emergency IMF consultations.</td></tr>
+        </tbody>
+      </table>
+    </div>
     <div style="font-size:9px;color:var(--t3);margin-top:10px;line-height:1.6">
       Risk levels calculated from: currency weakness vs pre-war baseline (Feb 27, 2026) + oil price shock + structural energy import exposure. Data: Frankfurter API + Yahoo Finance. Updates hourly.
     </div>
@@ -1101,18 +1194,14 @@ details.section[open]>summary{margin-bottom:11px}
     <summary>Sources and Methodology</summary>
     <div class="inner-pad">
       <div class="source-list">
-        <p><strong>Cost counter:</strong> Pentagon briefing to Senate Armed Services Committee (Mar 11, 2026) via NYT (Catie Edmondson): $11.3B for first 6 days. $1B/day ongoing via congressional sources (Nancy Youssef, WSJ). Sen. Chris Coons (NBC News): "likely an undercount."</p>
-        <p><strong>Cost breakdown:</strong> Defense analysts cited in WSJ, Defense One, and Breaking Defense. Munitions costs from Congressional Research Service estimates. Carrier strike group cost from Navy budget documents. Veteran cost projections based on Watson Institute Brown University "Costs of War" methodology.</p>
-        <p><strong>Gold and silver prices:</strong> CBS News · Fortune · Priority Gold. $4,430/oz gold and $67.73/oz silver on Mar 27, 2026. Jan 2026 gold all-time high: $5,589.38. Pre-war baseline (Feb 27): approximately $3,790.</p>
-        <p><strong>Oil prices:</strong> Brent crude BZ=F, EIA, Reuters. Pre-war: approximately $74/bbl. Mar 14 peak: $115/bbl. Current: approximately $105/bbl. AAA Newsroom for U.S. gas and diesel data.</p>
+        <p><strong>Cost counter:</strong> Pentagon briefing to Senate Armed Services Committee (Mar 11, 2026) via NYT (Catie Edmondson): $11.3B for first 6 days. $1B/day ongoing. Sen. Chris Coons (NBC News): "likely an undercount."</p>
+        <p><strong>Gold and silver prices:</strong> CBS News · Fortune · Priority Gold. $4,430/oz gold and $67.73/oz silver on Mar 27, 2026. Jan 2026 gold all-time high: $5,589.38.</p>
+        <p><strong>Oil prices:</strong> Brent crude BZ=F, EIA, Reuters. Pre-war: ~$74/bbl. Mar 14 peak: $115/bbl. AAA Newsroom for U.S. gas and diesel data.</p>
         <p><strong>Recession odds:</strong> Goldman Sachs (30%), EY-Parthenon/Gregory Daco (40%), Moody's Analytics/Mark Zandi (48.6%), JP Morgan/Bob Michele (25%), PNC Financial/Gus Faucher. Bloomberg Mar 25 · CBS News · Fortune Mar 25, 2026.</p>
-        <p><strong>Shipping and supply chain:</strong> Baltic Dry Index via Drewry World Container Index. Hormuz statistics via EIA Strait of Hormuz fact sheet. Helium: U.S. Geological Survey, Qatar Petroleum (now QatarEnergy) disclosures. Aviation: IATA economics briefing March 2026.</p>
-        <p><strong>Casualties:</strong> DoD/CENTCOM press releases, Hengaw (independent Kurdish human rights org.), Iranian Red Crescent Society, AP, Reuters, Al Jazeera. All figures are best available estimates. UNHCR for displacement numbers.</p>
-        <p><strong>NZ-specific data:</strong> Stats NZ food price index preliminary data. RBNZ monetary policy statements. NZ Ministry of Business Innovation and Employment fuel import statistics.</p>
-        <p><strong>Historical war costs:</strong> Watson Institute at Brown University "Costs of War" project. Congressional Research Service R40727 (updated through 2024). All figures adjusted to 2026 USD using BLS CPI calculator.</p>
-        <p><strong>Live market data:</strong> Fetched via Yahoo Finance API (GC=F, BZ=F, SI=F, ^GSPC, DX-Y.NYB) through allorigins.win CORS proxy and Frankfurter API for currency rates. Refreshes every 5 minutes. Falls back to last known values if API unavailable. Prices are delayed 15-20 minutes per Yahoo Finance terms.</p>
-        <p><strong>World clocks:</strong> Client-side JavaScript. NZDT = UTC+13 (until Apr 5, 2026 02:00 NZST). EDT = UTC-4 (U.S. DST active since Mar 8). IRST = UTC+3:30 (no DST in Iran). AEDT = UTC+11 (until Apr 5, 2026). Source: IANA timezone database.</p>
-        <p><strong>Timeline events:</strong> Compiled from AP, Reuters, NYT, WSJ, Al Jazeera, and Guardian contemporaneous reporting. All dates UTC.</p>
+        <p><strong>Live recession composite model:</strong> Weighted calculation using: oil price shock vs $74 pre-war baseline (40% weight), currency basket weakness — EUR, GBP, NZD, AUD vs Feb 27 2026 baselines via Frankfurter API (30% weight), S&P 500 performance vs pre-war level (20% weight), gold safe-haven premium above $3,790 (10% weight). Base rate: 15% pre-war. Model calibrated so $74 oil + stable currencies = ~17%.</p>
+        <p><strong>Live market data:</strong> Yahoo Finance API (GC=F, BZ=F, SI=F, ^GSPC, DX-Y.NYB) via allorigins.win CORS proxy. Frankfurter API for currency rates (CORS-native, no key required). Refreshes every hour. Prices delayed 15-20 minutes per Yahoo Finance terms.</p>
+        <p><strong>News feed:</strong> Direct RSS XML fetch via allorigins.win CORS proxy from Al Jazeera, Reuters, and BBC World. Parsed client-side with DOMParser. Falls back to cached articles if APIs unavailable. Filtered by Iran/conflict keywords.</p>
+        <p><strong>Historical war costs:</strong> Watson Institute at Brown University "Costs of War" project. Congressional Research Service R40727. All figures adjusted to 2026 USD using BLS CPI calculator.</p>
       </div>
     </div>
   </details>
@@ -1122,36 +1211,30 @@ details.section[open]>summary{margin-bottom:11px}
       <strong>costoftheiranwar.com</strong> · Independent, non-partisan tracker.<br>
       Cost figures are <strong>conservative estimates</strong> based on the Pentagon's own briefing to Congress.<br>
       Goldman Sachs, Moody's, and EY-Parthenon all suggest the true economic cost is far larger.<br><br>
-      Market data refreshes every 5 minutes via open APIs · Prices delayed 15-20 min (Yahoo Finance)<br>
+      Market data refreshes hourly via open APIs · Prices delayed 15-20 min (Yahoo Finance)<br>
+      Recession indicator: live-calculated from oil + currency + equity data<br>
       <a href="https://www.instagram.com/heyramanraman" target="_blank" rel="noopener">@heyramanraman on Instagram</a><br><br>
-      <span style="color:var(--t3)">Direct war costs: live per-frame · Market data: API-refreshed · Last API pull: <span id="last-api-pull">never</span></span>
+      <span style="color:var(--t3)">Last API pull: <span id="last-api-pull">never</span></span>
     </p>
   </div>
 
 </div><!-- /page -->
 
 <script>
-// === CONFIG ===
+// ============================================================
+// CONFIG
+// ============================================================
 var STRIKE_START    = new Date("2026-02-28T04:00:00Z");
 var FIRST_WEEK_COST = 11300000000;
 var FIRST_WEEK_DAYS = 6;
 var DAILY_RATE      = 1000000000;
-var DATA_TTL        = 60 * 60 * 1000; // 1 hour
+var DATA_TTL        = 60 * 60 * 1000; // 1 hour cache
 
-// === MARKET DATA STATE ===
-var marketData = {
-  gold:   { price: 4430,   change: 0, pct: 0 },
-  oil:    { price: 105,    change: 0, pct: 0 },
-  silver: { price: 67.73, change: 0, pct: 0 },
-  sp500:  { price: null,  change: 0, pct: 0 },
-  dxy:    { price: null,  change: 0, pct: 0 },
-  // Frankfurter: rates = how many foreign units per 1 USD
-  currencies: { GBP: null, EUR: null, JPY: null, AUD: null, NZD: null, CHF: null }
-};
-
-// Pre-war currency baselines (Feb 27, 2026) — value of 1 foreign unit in USD
-var PRE_WAR_USD = { GBP: 1.265, EUR: 1.042, JPY: 0.00664, AUD: 0.635, NZD: 0.605, CHF: 1.115 };
-var OIL_BASELINE = 74; // Brent crude pre-war
+// Pre-war currency baselines (Feb 27, 2026) - value of 1 foreign unit in USD
+var PRE_WAR_USD = { GBP: 1.265, EUR: 1.042, JPY: 0.00664, AUD: 0.635, NZD: 0.605, CHF: 1.115, INR: 0.01200 };
+var OIL_BASELINE  = 74;    // Brent crude pre-war
+var SP_BASELINE   = 5790;  // S&P 500 approx Feb 28 level
+var GOLD_BASELINE = 3790;  // Gold pre-war
 
 // Pain score weights per region: { oilW, curW, base, currencies[] }
 var REGION_WEIGHTS = {
@@ -1168,26 +1251,41 @@ var REGION_WEIGHTS = {
   south:     { oilW: 0.70, curW: 0.4,  base: 14, currencies: ['EUR'] }
 };
 
-// Score to risk level label + class
-function scoreToLevel(score) {
-  if (score >= 72) return { cls: 'catastrophic', label: 'Catastrophic' };
-  if (score >= 48) return { cls: 'critical',     label: 'Critical' };
-  if (score >= 32) return { cls: 'high',          label: 'High' };
-  if (score >= 18) return { cls: 'elevated',      label: 'Elevated' };
-  return              { cls: 'moderate',      label: 'Moderate' };
-}
-
-// Pain badge color by class
 var LEVEL_COLORS = {
   catastrophic: '#ff6b6b', critical: 'var(--red)',
   high: 'var(--amber)', elevated: 'var(--orange)', moderate: 'var(--purple)'
 };
 
+// ============================================================
+// MARKET DATA STATE
+// ============================================================
+var marketData = {
+  gold:   { price: 4430,  change: 0, pct: 0 },
+  oil:    { price: 105,   change: 0, pct: 0 },
+  silver: { price: 67.73, change: 0, pct: 0 },
+  sp500:  { price: null,  change: 0, pct: 0 },
+  dxy:    { price: null,  change: 0, pct: 0 },
+  currencies: {}
+};
+
+// ============================================================
+// UTILS
+// ============================================================
 function pad(n){ return String(n).padStart(2,'0'); }
 function fmtPrice(n, d){ if(n==null) return '...'; return '$'+n.toFixed(d===undefined?2:d); }
 function fmtCost(n){ return '$'+Math.floor(n).toLocaleString('en-US'); }
 
-// === WORLD CLOCKS ===
+function stripHtml(html){
+  return (html||'').replace(/<!\[CDATA\[/g,'').replace(/\]\]>/g,'').replace(/<[^>]+>/g,' ').replace(/\s{2,}/g,' ').replace(/&amp;/g,'&').replace(/&lt;/g,'<').replace(/&gt;/g,'>').replace(/&quot;/g,'"').replace(/&#39;/g,"'").replace(/&nbsp;/g,' ').trim();
+}
+
+if(!AbortSignal.timeout){
+  AbortSignal.timeout=function(ms){var c=new AbortController();setTimeout(function(){c.abort();},ms);return c.signal;};
+}
+
+// ============================================================
+// WORLD CLOCKS
+// ============================================================
 var NZ_DST_END = new Date("2026-04-04T14:00:00Z");
 var AU_DST_END = new Date("2026-04-04T16:00:00Z");
 function clockStr(offsetMs){
@@ -1207,7 +1305,9 @@ function updateClocks(){
   document.getElementById('z-au').textContent=(now<AU_DST_END.getTime())?'AEDT · UTC+11':'AEST · UTC+10';
 }
 
-// === COST COUNTER ===
+// ============================================================
+// COST COUNTER
+// ============================================================
 var lcEl,elEl;
 function tickCost(){
   if(!lcEl){lcEl=document.getElementById('live-cost');elEl=document.getElementById('elapsed');}
@@ -1227,11 +1327,112 @@ function tickCost(){
   }
 }
 
-// === API HELPERS ===
+// ============================================================
+// LIVE RECESSION COMPOSITE CALCULATOR
+// Inputs: oil price, currency basket (EUR,GBP,NZD,AUD vs pre-war), S&P level, gold level
+// Weights: oil 40%, currency 30%, equity 20%, gold safe-haven 10%
+// ============================================================
+function calcLiveRecessionOdds(oilPrice, frankRates, sp500Price, goldPrice){
+  var BASE_RATE = 15; // pre-war baseline %
+
+  // 1. OIL SHOCK component (weight 40%)
+  var oilPct = oilPrice ? ((oilPrice - OIL_BASELINE) / OIL_BASELINE) * 100 : 42;
+  // At +40% oil shock → contributes 40*0.55 = 22pp
+  var oilContrib = Math.max(0, oilPct) * 0.55;
+
+  // 2. CURRENCY BASKET component (weight 30%)
+  // Currency weakening = more stress. Negative pct = weaker
+  var curContrib = 0;
+  if(frankRates && Object.keys(frankRates).length > 0){
+    var curPcts = [];
+    var curKeys = ['EUR','GBP','NZD','AUD'];
+    curKeys.forEach(function(c){
+      if(frankRates[c] && PRE_WAR_USD[c]){
+        var currentInUSD = 1 / frankRates[c];
+        var pct = ((currentInUSD - PRE_WAR_USD[c]) / PRE_WAR_USD[c]) * 100;
+        curPcts.push(pct);
+      }
+    });
+    if(curPcts.length > 0){
+      var avgCurPct = curPcts.reduce(function(a,b){return a+b;},0) / curPcts.length;
+      // Negative = weakening = more stress
+      curContrib = Math.abs(Math.min(0, avgCurPct)) * 1.2;
+    }
+  }
+
+  // 3. EQUITY component (weight 20%)
+  var equityContrib = 0;
+  if(sp500Price && sp500Price > 0){
+    var spDecline = ((SP_BASELINE - sp500Price) / SP_BASELINE) * 100;
+    equityContrib = Math.max(0, spDecline) * 0.9;
+  } else {
+    equityContrib = 5; // fallback: assume -5.5% decline
+  }
+
+  // 4. GOLD safe-haven premium (weight 10%)
+  var goldPremPct = goldPrice ? ((goldPrice - GOLD_BASELINE) / GOLD_BASELINE) * 100 : 17;
+  var goldContrib = Math.max(0, goldPremPct) * 0.18;
+
+  var total = BASE_RATE + oilContrib + curContrib + equityContrib + goldContrib;
+  total = Math.min(70, Math.max(15, total)); // clamp 15-70%
+
+  return {
+    total: total,
+    oilContrib: oilContrib,
+    curContrib: curContrib,
+    equityContrib: equityContrib,
+    goldContrib: goldContrib,
+    oilPct: oilPct,
+    curPcts: curContrib
+  };
+}
+
+function updateRecessionGauge(oilPrice, frankRates, sp500Price, goldPrice){
+  var result = calcLiveRecessionOdds(oilPrice, frankRates, sp500Price, goldPrice);
+  var pct = result.total;
+  var pctStr = pct.toFixed(1);
+
+  // Update gauge display
+  var gaugeEl = document.getElementById('gauge-pct');
+  if(gaugeEl) gaugeEl.innerHTML = pctStr + '<span style="font-size:18px">%</span>';
+
+  var needleEl = document.getElementById('gauge-needle');
+  if(needleEl) needleEl.style.left = Math.min(96, Math.max(4, pct)) + '%';
+
+  var sourceEl = document.getElementById('gauge-source');
+  if(sourceEl) sourceEl.textContent = 'Live calc · oil+currency+equity model · ' + new Date().toLocaleTimeString('en-NZ',{hour:'2-digit',minute:'2-digit'});
+
+  var liveBarEl = document.getElementById('rec-live-bar');
+  if(liveBarEl) liveBarEl.style.width = Math.min(98, pct*2) + '%';
+
+  var livePctEl = document.getElementById('rec-live-pct');
+  if(livePctEl) livePctEl.textContent = pctStr + '%';
+
+  // Update ribbon
+  var ribRec = document.getElementById('rib-rec');
+  if(ribRec) ribRec.textContent = pctStr;
+
+  // Inputs breakdown text
+  var oilStr = oilPrice ? '$'+oilPrice.toFixed(0)+'/bbl (+'+result.oilPct.toFixed(0)+'%)' : '$105/bbl (est.)';
+  var sp5str = sp500Price ? sp500Price.toFixed(0) : 'no data';
+  var hasCur = frankRates && Object.keys(frankRates).length > 0;
+  var inputsEl = document.getElementById('rec-inputs');
+  if(inputsEl){
+    inputsEl.innerHTML =
+      '<span style="color:var(--orange)">Oil:</span> '+oilStr+' → +'+result.oilContrib.toFixed(1)+'pp &nbsp;|&nbsp; '+
+      '<span style="color:var(--cyan)">Currencies:</span> '+(hasCur?'basket live':'est.')+' → +'+result.curContrib.toFixed(1)+'pp &nbsp;|&nbsp; '+
+      '<span style="color:var(--purple)">Equity:</span> S&P '+sp5str+' → +'+result.equityContrib.toFixed(1)+'pp &nbsp;|&nbsp; '+
+      '<span style="color:var(--amber)">Gold:</span> premium → +'+result.goldContrib.toFixed(1)+'pp &nbsp;|&nbsp; '+
+      '<span style="color:var(--t3)">Base: 15%</span>';
+  }
+}
+
+// ============================================================
+// API HELPERS
+// ============================================================
 var CORS_PROXY = 'https://api.allorigins.win/raw?url=';
 var YAHOO_BASE = 'https://query1.finance.yahoo.com/v8/finance/chart/';
-// Frankfurter: all major currencies in one call, CORS-native, no API key
-var FRANK_URL  = 'https://api.frankfurter.app/latest?base=USD&symbols=GBP,EUR,JPY,AUD,NZD,CHF';
+var FRANK_URL  = 'https://api.frankfurter.app/latest?base=USD&symbols=GBP,EUR,JPY,AUD,NZD,CHF,INR';
 
 function setApiStatus(state, msg){
   var pip=document.getElementById('api-status-pip');
@@ -1244,13 +1445,9 @@ function setApiStatus(state, msg){
   txt.style.color=colors[state]||colors.loading;
 }
 
-if(!AbortSignal.timeout){
-  AbortSignal.timeout=function(ms){var c=new AbortController();setTimeout(function(){c.abort();},ms);return c.signal;};
-}
-
 async function fetchYahooSymbol(symbol){
   var url=YAHOO_BASE+encodeURIComponent(symbol)+'?interval=1d&range=5d';
-  var res=await fetch(CORS_PROXY+encodeURIComponent(url),{signal:AbortSignal.timeout(9000)});
+  var res=await fetch(CORS_PROXY+encodeURIComponent(url),{signal:AbortSignal.timeout(10000)});
   if(!res.ok) throw new Error('HTTP '+res.status);
   var json=await res.json();
   var meta=json.chart.result[0].meta;
@@ -1275,14 +1472,23 @@ function updateTile(key,priceStr,changeHtml,barPct,barColor,updStr){
   el=document.getElementById('m-'+key+'-upd');if(el) el.textContent=updStr;
 }
 
-// === PAIN TABLE UPDATE ===
-// Frankfurter rates: { GBP: X } means 1 USD = X GBP. So 1 GBP = 1/X USD.
-// Currency weakening means 1/X < PRE_WAR_USD[cur], i.e. rate X is HIGHER than pre-war rate.
+// ============================================================
+// PAIN TABLE UPDATE
+// ============================================================
 function calcCurrencyPct(cur, frankRates){
   if(!frankRates||!frankRates[cur]) return 0;
   var currentInUSD = 1 / frankRates[cur];
   var preWarInUSD  = PRE_WAR_USD[cur];
-  return ((currentInUSD - preWarInUSD) / preWarInUSD) * 100; // negative = weaker
+  if(!preWarInUSD) return 0;
+  return ((currentInUSD - preWarInUSD) / preWarInUSD) * 100;
+}
+
+function scoreToLevel(score){
+  if(score >= 72) return { cls:'catastrophic', label:'Catastrophic' };
+  if(score >= 48) return { cls:'critical',     label:'Critical' };
+  if(score >= 32) return { cls:'high',          label:'High' };
+  if(score >= 18) return { cls:'elevated',      label:'Elevated' };
+  return              { cls:'moderate',      label:'Moderate' };
 }
 
 function calcPainScore(regionKey, frankRates, oilPrice){
@@ -1290,13 +1496,12 @@ function calcPainScore(regionKey, frankRates, oilPrice){
   var cfg=REGION_WEIGHTS[regionKey];
   if(!cfg) return 20;
   var oilPct=oilPrice?((oilPrice-OIL_BASELINE)/OIL_BASELINE)*100:42;
-  var oilComponent=oilPct*cfg.oilW;
+  var oilComponent=Math.max(0,oilPct)*cfg.oilW;
   var curComponent=0;
-  if(cfg.currencies.length>0){
+  if(cfg.currencies.length>0 && frankRates){
     var avgPct=0;
     cfg.currencies.forEach(function(c){avgPct+=calcCurrencyPct(c,frankRates);});
     avgPct/=cfg.currencies.length;
-    // Negative avgPct = currency weakened = more pain
     curComponent=Math.abs(Math.min(0,avgPct))*cfg.curW*2;
   }
   return Math.min(95, cfg.base + oilComponent + curComponent);
@@ -1305,27 +1510,17 @@ function calcPainScore(regionKey, frankRates, oilPrice){
 function updatePainTable(frankRates){
   var oilPrice=marketData.oil.price||105;
   var now=new Date().toLocaleTimeString('en-NZ',{hour:'2-digit',minute:'2-digit'});
-
   var statusEl=document.getElementById('pain-table-status');
-  if(statusEl) statusEl.textContent='Updated '+now+' via live currency + oil data';
+  if(statusEl) statusEl.textContent = frankRates ? ('Live · '+now+' · Frankfurter + Yahoo') : ('Oil-only · '+now);
 
   var regions=['gulf','uk','germany','usa','eurozone','australia','nz','japan','china','india','south'];
   regions.forEach(function(r){
     var score=calcPainScore(r,frankRates,oilPrice);
     var lvl=scoreToLevel(score);
-    // Update badge
     var badge=document.getElementById('pl-'+r);
-    if(badge){
-      badge.textContent=lvl.label;
-      badge.className='level '+lvl.cls;
-    }
-    // Update score bar
+    if(badge){badge.textContent=lvl.label;badge.className='level '+lvl.cls;}
     var bar=document.getElementById('pb-'+r);
-    if(bar){
-      bar.style.width=Math.min(98,score)+'%';
-      bar.style.background=LEVEL_COLORS[lvl.cls]||'var(--amber)';
-    }
-    // Update currency delta label
+    if(bar){bar.style.width=Math.min(98,score)+'%';bar.style.background=LEVEL_COLORS[lvl.cls]||'var(--amber)';}
     var cdEl=document.getElementById('cd-'+r);
     if(cdEl&&frankRates){
       var cfg=REGION_WEIGHTS[r];
@@ -1344,16 +1539,18 @@ function updatePainTable(frankRates){
   });
 }
 
-// === MARKET DATA FETCH ===
+// ============================================================
+// MARKET DATA FETCH
+// ============================================================
 async function fetchMarketData(){
   setApiStatus('loading','Fetching live data...');
-  try {
-    var cached=JSON.parse(localStorage.getItem('iw_market2')||'null');
+  try{
+    var cached=JSON.parse(localStorage.getItem('iw_market3')||'null');
     if(cached&&(Date.now()-cached.ts)<DATA_TTL){
       applyMarketData(cached.data,true);
       return;
     }
-  } catch(e){}
+  }catch(e){}
 
   var results={};
   var ok=0;
@@ -1365,20 +1562,21 @@ async function fetchMarketData(){
     try{results[syms[i].key]=await fetchYahooSymbol(syms[i].sym);ok++;}
     catch(e){console.warn('Yahoo failed:',syms[i].sym,e.message);}
   }
-  // Frankfurter — all currencies in one CORS-native call
   try{
-    var fRes=await fetch(FRANK_URL,{signal:AbortSignal.timeout(7000)});
+    var fRes=await fetch(FRANK_URL,{signal:AbortSignal.timeout(8000)});
     var fJson=await fRes.json();
     results.currencies=fJson.rates;
     ok++;
-  } catch(e){console.warn('Frankfurter failed:',e.message);}
+  }catch(e){console.warn('Frankfurter failed:',e.message);}
 
   if(ok>0){
-    try{localStorage.setItem('iw_market2',JSON.stringify({ts:Date.now(),data:results}));}catch(e){}
+    try{localStorage.setItem('iw_market3',JSON.stringify({ts:Date.now(),data:results}));}catch(e){}
     applyMarketData(results,false);
-    setApiStatus('live','Live data · 15-20 min delayed · next refresh in 1 hour');
-  } else {
+    setApiStatus('live','Live · 15-20 min delayed · next refresh ~1 hour');
+  }else{
     setApiStatus('offline','API offline · showing last known values');
+    // Still update recession gauge with defaults
+    updateRecessionGauge(105, {}, null, 4430);
   }
 }
 
@@ -1386,43 +1584,76 @@ function applyMarketData(data,fromCache){
   var now=new Date().toLocaleTimeString('en-NZ',{hour:'2-digit',minute:'2-digit'});
   var updStr=fromCache?'Cached · '+now:'Updated '+now;
 
-  if(data.gold){marketData.gold=data.gold;var g=data.gold;var bp=Math.min(100,Math.max(5,((g.price-2000)/(6000-2000))*100));updateTile('gold',fmtPrice(g.price,0)+'/oz',formatChange(g.change,g.pct),bp,'var(--amber)',updStr);}
-  if(data.oil){marketData.oil=data.oil;var o=data.oil;var bp2=Math.min(100,Math.max(5,((o.price-40)/(130-40))*100));updateTile('oil',fmtPrice(o.price,0)+'/bbl',formatChange(o.change,o.pct),bp2,'var(--orange)',updStr);}
-  if(data.silver){marketData.silver=data.silver;var s=data.silver;var bp3=Math.min(100,Math.max(5,((s.price-15)/(100-15))*100));updateTile('silver',fmtPrice(s.price,2)+'/oz',formatChange(s.change,s.pct),bp3,'#cbd5e1',updStr);}
-  if(data.sp500){marketData.sp500=data.sp500;var sp=data.sp500;var bp4=Math.min(100,Math.max(5,((sp.price-3000)/(7000-3000))*100));updateTile('sp500',sp.price?sp.price.toFixed(0):'...',formatChange(sp.change,sp.pct),bp4,'var(--purple)',updStr);}
-  if(data.dxy){marketData.dxy=data.dxy;var dx=data.dxy;var bp5=Math.min(100,Math.max(5,((dx.price-80)/(130-80))*100));updateTile('dxy',dx.price?dx.price.toFixed(2):'...',formatChange(dx.change,dx.pct),bp5,'#a78bfa',updStr);}
+  if(data.gold){
+    marketData.gold=data.gold;
+    var g=data.gold;
+    var bp=Math.min(100,Math.max(5,((g.price-2000)/(6000-2000))*100));
+    updateTile('gold',fmtPrice(g.price,0)+'/oz',formatChange(g.change,g.pct),bp,'var(--amber)',updStr);
+    // Update snap tile
+    var snapG=document.getElementById('snap-gold');
+    if(snapG) snapG.textContent='$'+g.price.toFixed(0);
+  }
+  if(data.oil){
+    marketData.oil=data.oil;
+    var o=data.oil;
+    var bp2=Math.min(100,Math.max(5,((o.price-40)/(130-40))*100));
+    updateTile('oil',fmtPrice(o.price,0)+'/bbl',formatChange(o.change,o.pct),bp2,'var(--orange)',updStr);
+  }
+  if(data.silver){
+    marketData.silver=data.silver;
+    var s=data.silver;
+    var bp3=Math.min(100,Math.max(5,((s.price-15)/(100-15))*100));
+    updateTile('silver',fmtPrice(s.price,2)+'/oz',formatChange(s.change,s.pct),bp3,'#cbd5e1',updStr);
+  }
+  if(data.sp500){
+    marketData.sp500=data.sp500;
+    var sp=data.sp500;
+    var bp4=Math.min(100,Math.max(5,((sp.price-3000)/(7000-3000))*100));
+    updateTile('sp500',sp.price?sp.price.toFixed(0):'...',formatChange(sp.change,sp.pct),bp4,'var(--purple)',updStr);
+  }
+  if(data.dxy){
+    marketData.dxy=data.dxy;
+    var dx=data.dxy;
+    var bp5=Math.min(100,Math.max(5,((dx.price-80)/(130-80))*100));
+    updateTile('dxy',dx.price?dx.price.toFixed(2):'...',formatChange(dx.change,dx.pct),bp5,'#a78bfa',updStr);
+  }
 
   if(data.currencies){
     marketData.currencies=data.currencies;
     var rates=data.currencies;
-    // Update NZD tile
+    // NZD tile
     if(rates.NZD){
       var nzdInUSD=1/rates.NZD;
-      var nzdPreWar=PRE_WAR_USD.NZD;
-      var nzdPct=((nzdInUSD-nzdPreWar)/nzdPreWar)*100;
+      var nzdPrw=PRE_WAR_USD.NZD;
+      var nzdPct=((nzdInUSD-nzdPrw)/nzdPrw)*100;
       var bp6=Math.min(100,Math.max(5,((nzdInUSD-0.40)/(0.80-0.40))*100));
-      var nzdChg=formatChange(nzdInUSD-nzdPreWar,nzdPct);
+      var nzdChg=formatChange(nzdInUSD-nzdPrw,nzdPct);
       var nzdEl=document.getElementById('m-nzd');if(nzdEl) nzdEl.textContent=nzdInUSD.toFixed(4);
       var nzdChgEl=document.getElementById('m-nzd-chg');if(nzdChgEl) nzdChgEl.innerHTML=nzdChg;
-      var nzdBar=document.getElementById('m-nzd-bar');if(nzdBar){nzdBar.style.width=bp6+'%';}
+      var nzdBar=document.getElementById('m-nzd-bar');if(nzdBar) nzdBar.style.width=bp6+'%';
       var nzdUpd=document.getElementById('m-nzd-upd');if(nzdUpd) nzdUpd.textContent=updStr;
     }
-    // Update pain table with live currency data
     updatePainTable(rates);
+    // Update recession gauge with live currency data
+    updateRecessionGauge(
+      (data.oil && data.oil.price) || marketData.oil.price || 105,
+      rates,
+      (data.sp500 && data.sp500.price) || null,
+      (data.gold && data.gold.price) || marketData.gold.price || 4430
+    );
   } else {
-    // Update pain table with oil price only (no currency data)
     updatePainTable(null);
+    updateRecessionGauge(
+      (data.oil && data.oil.price) || 105,
+      {},
+      (data.sp500 && data.sp500.price) || null,
+      (data.gold && data.gold.price) || 4430
+    );
   }
 
-  // Update ribbon gold/oil
   updateRibbonPrices();
   var pullEl=document.getElementById('last-api-pull');
   if(pullEl) pullEl.textContent=fromCache?'cached at '+now:now;
-  var footerEl=document.querySelector('.footer p');
-  if(footerEl){
-    var fUpd=footerEl.querySelector('#footer-refresh-note');
-    if(!fUpd){var sp=document.createElement('span');sp.id='footer-refresh-note';footerEl.appendChild(sp);}
-  }
 }
 
 function updateRibbonPrices(){
@@ -1434,29 +1665,33 @@ function updateRibbonPrices(){
   ['rib-silver','rib-silver2'].forEach(function(id){var el=document.getElementById(id);if(el) el.textContent=silvStr;});
 }
 
-// === LIVE NEWS FEED ===
-// rss2json.com: free, CORS-safe, no API key, converts RSS XML to JSON in browser
-var RSS2JSON = 'https://api.rss2json.com/v1/api.json?rss_url=';
+// ============================================================
+// LIVE NEWS FEED — Direct RSS XML via allorigins.win + DOMParser
+// More reliable than rss2json.com which rate-limits freely
+// ============================================================
 var NEWS_FEEDS = [
-  { url: 'https://www.aljazeera.com/xml/rss/all.xml',         source: 'Al Jazeera' },
-  { url: 'https://feeds.reuters.com/reuters/worldNews',        source: 'Reuters' },
-  { url: 'https://rss.cnn.com/rss/edition_world.rss',         source: 'CNN' }
+  { url:'https://www.aljazeera.com/xml/rss/all.xml',                    source:'Al Jazeera' },
+  { url:'https://feeds.bbci.co.uk/news/world/rss.xml',                  source:'BBC World' },
+  { url:'https://rss.cnn.com/rss/edition_world.rss',                    source:'CNN World' }
 ];
-// Keywords to filter relevant articles
-var WAR_KEYWORDS = ['iran','israel','hormuz','tehran','irgc','nuclear','persian gulf',
-  'hezbollah','houthi','war','ceasefire','oil shock','sanctions','trump iran',
-  'operation','strait','kharg','airstrike','missile','drone','middle east conflict'];
 
-function isRelevant(item){
-  var text=((item.title||'')+(item.description||'')+(item.content||'')).toLowerCase();
+var WAR_KEYWORDS = ['iran','israel','hormuz','tehran','irgc','nuclear','persian gulf',
+  'hezbollah','houthi','ceasefire','oil shock','sanctions','operation',
+  'strait','airstrike','missile','drone','middle east','war cost','pentagon',
+  'brent crude','recession','gold price'];
+
+function isRelevant(title, desc){
+  var text = ((title||'')+(desc||'')).toLowerCase();
   return WAR_KEYWORDS.some(function(kw){return text.indexOf(kw)>=0;});
 }
 
 function relativeDate(pubDate){
   try{
     var d=new Date(pubDate);
+    if(isNaN(d.getTime())) return '';
     var diff=Date.now()-d.getTime();
     var mins=Math.floor(diff/60000);
+    if(mins<2) return 'just now';
     if(mins<60) return mins+'m ago';
     var hrs=Math.floor(mins/60);
     if(hrs<24) return hrs+'h ago';
@@ -1464,98 +1699,112 @@ function relativeDate(pubDate){
   }catch(e){return '';}
 }
 
-function stripHtml(html){
-  return (html||'').replace(/<[^>]+>/g,'').replace(/&[a-z]+;/gi,' ').trim();
-}
-
-async function fetchOneFeed(feedObj){
-  var apiUrl=RSS2JSON+encodeURIComponent(feedObj.url)+'&count=20';
-  var res=await fetch(apiUrl,{signal:AbortSignal.timeout(8000)});
-  if(!res.ok) throw new Error('HTTP '+res.status);
-  var json=await res.json();
-  if(json.status!=='ok') throw new Error('RSS error: '+json.status);
-  return (json.items||[]).map(function(item){
-    return {
-      title:  stripHtml(item.title||''),
-      desc:   stripHtml(item.description||item.content||'').slice(0,160),
-      date:   item.pubDate||'',
-      link:   item.link||'#',
-      source: feedObj.source
-    };
-  }).filter(isRelevant);
+// Fetch one RSS feed by fetching raw XML via CORS proxy and parsing with DOMParser
+async function fetchOneFeedXML(feedObj){
+  var proxyUrl = 'https://api.allorigins.win/raw?url=' + encodeURIComponent(feedObj.url);
+  var res = await fetch(proxyUrl, {signal: AbortSignal.timeout(9000)});
+  if(!res.ok) throw new Error('HTTP ' + res.status);
+  var xml = await res.text();
+  var parser = new DOMParser();
+  var doc = parser.parseFromString(xml, 'text/xml');
+  var items = Array.from(doc.querySelectorAll('item'));
+  if(items.length === 0) throw new Error('No items in feed');
+  var results = [];
+  items.forEach(function(item){
+    var title = stripHtml(item.querySelector('title') ? item.querySelector('title').textContent : '');
+    var descEl = item.querySelector('description');
+    var desc   = descEl ? stripHtml(descEl.textContent) : '';
+    var pubDate = item.querySelector('pubDate') ? item.querySelector('pubDate').textContent : '';
+    var linkEl  = item.querySelector('link');
+    var link    = '#';
+    if(linkEl){
+      // <link> in RSS can be text node between tags (not attr)
+      link = linkEl.textContent || linkEl.getAttribute('href') || '#';
+    }
+    if(isRelevant(title, desc)){
+      results.push({title:title, desc:desc.slice(0,180), date:pubDate, link:link.trim(), source:feedObj.source});
+    }
+  });
+  return results;
 }
 
 async function fetchLiveNews(){
-  var statusEl=document.getElementById('news-status');
-  var container=document.getElementById('live-news-container');
-  if(!statusEl||!container) return;
+  var statusEl  = document.getElementById('news-status');
+  var container = document.getElementById('live-news-container');
+  if(!statusEl || !container) return;
 
   // Check cache (1 hour)
   try{
-    var cached=JSON.parse(localStorage.getItem('iw_news')||'null');
-    if(cached&&(Date.now()-cached.ts)<DATA_TTL&&cached.items&&cached.items.length>0){
-      renderNews(cached.items,true,statusEl,container);
+    var cached = JSON.parse(localStorage.getItem('iw_news2')||'null');
+    if(cached && (Date.now()-cached.ts) < DATA_TTL && cached.items && cached.items.length > 0){
+      renderNews(cached.items, true, statusEl, container);
       return;
     }
   }catch(e){}
 
-  statusEl.className='news-feed-status nfs-loading';
-  statusEl.textContent='Fetching...';
+  statusEl.className = 'news-feed-status nfs-loading';
+  statusEl.textContent = 'Fetching...';
 
-  var allItems=[];
-  var feedsOk=0;
-  for(var i=0;i<NEWS_FEEDS.length;i++){
+  var allItems = [];
+  var feedsOk  = 0;
+
+  for(var i = 0; i < NEWS_FEEDS.length; i++){
     try{
-      var items=await fetchOneFeed(NEWS_FEEDS[i]);
-      allItems=allItems.concat(items);
+      var items = await fetchOneFeedXML(NEWS_FEEDS[i]);
+      allItems  = allItems.concat(items);
       feedsOk++;
-    }catch(e){console.warn('News feed failed:',NEWS_FEEDS[i].source,e.message);}
+    }catch(e){
+      console.warn('News feed failed:', NEWS_FEEDS[i].source, e.message);
+    }
   }
 
-  // Sort by date descending, deduplicate by title similarity
-  allItems.sort(function(a,b){return new Date(b.date)-new Date(a.date);});
-  var seen={};
-  var deduped=allItems.filter(function(item){
-    var key=item.title.toLowerCase().slice(0,40);
+  // Sort by date desc, dedupe by title prefix
+  allItems.sort(function(a,b){ return new Date(b.date)-new Date(a.date); });
+  var seen = {};
+  var deduped = allItems.filter(function(item){
+    var key = item.title.toLowerCase().replace(/[^a-z0-9]/g,'').slice(0,35);
     if(seen[key]) return false;
-    seen[key]=true;
+    seen[key] = true;
     return true;
-  }).slice(0,8);
+  }).slice(0, 8);
 
-  if(deduped.length>0){
-    try{localStorage.setItem('iw_news',JSON.stringify({ts:Date.now(),items:deduped}));}catch(e){}
-    renderNews(deduped,false,statusEl,container);
-  } else {
-    statusEl.className='news-feed-status nfs-error';
-    statusEl.textContent='Live feed unavailable';
-    container.innerHTML='<div style="font-size:10px;color:var(--t3);padding:6px 0">Could not load live news. See verified reports below.</div>';
+  if(deduped.length > 0){
+    try{ localStorage.setItem('iw_news2', JSON.stringify({ts:Date.now(), items:deduped})); }catch(e){}
+    renderNews(deduped, false, statusEl, container);
+  }else{
+    statusEl.className = 'news-feed-status nfs-error';
+    statusEl.textContent = 'Live feed unavailable';
+    container.innerHTML = '<div style="font-size:10px;color:var(--t3);padding:6px 0">Could not load live news. See verified reports below.</div>';
   }
 }
 
-function renderNews(items,fromCache,statusEl,container){
-  var now=new Date().toLocaleTimeString('en-NZ',{hour:'2-digit',minute:'2-digit'});
-  statusEl.className='news-feed-status '+(fromCache?'nfs-cached':'nfs-live');
-  statusEl.textContent=fromCache?('Cached · '+now):('Live · '+items.length+' articles · '+now);
-
-  var html=items.map(function(item){
-    // Pick dot color: red for combat/military, amber for economic, default for other
-    var txt=item.title.toLowerCase();
-    var dotCls= /strike|attack|kill|missile|drone|dead|bomb|explosion/.test(txt)?'red':
-                /oil|gold|market|recession|economy|price|inflation/.test(txt)?'amber':'';
+function renderNews(items, fromCache, statusEl, container){
+  var now = new Date().toLocaleTimeString('en-NZ',{hour:'2-digit',minute:'2-digit'});
+  statusEl.className = 'news-feed-status ' + (fromCache ? 'nfs-cached' : 'nfs-live');
+  statusEl.textContent = fromCache ? ('Cached · '+now) : ('Live · '+items.length+' articles · '+now);
+  var html = items.map(function(item){
+    var txt    = item.title.toLowerCase();
+    var dotCls = /strike|attack|kill|missile|drone|dead|bomb|explosion|airstrike/.test(txt) ? 'red' :
+                 /oil|gold|market|recession|economy|price|inflation/.test(txt) ? 'amber' : '';
+    var safeLink = (item.link && item.link !== '#') ?
+      '<a href="'+item.link+'" target="_blank" rel="noopener" style="color:var(--t1);text-decoration:none"><strong>'+item.title+'</strong></a>' :
+      '<strong>'+item.title+'</strong>';
     return '<div class="news-item">'+
       '<div class="news-date">'+relativeDate(item.date)+'</div>'+
       '<div class="news-dot '+dotCls+'"></div>'+
       '<div>'+
-        '<div class="news-body"><a href="'+item.link+'" target="_blank" rel="noopener" class="news-source-link" style="color:var(--t1);text-decoration:none"><strong>'+item.title+'</strong></a></div>'+
-        '<div class="news-body" style="margin-top:2px">'+item.desc+'</div>'+
+        '<div class="news-body">'+safeLink+'</div>'+
+        (item.desc ? '<div class="news-body" style="margin-top:2px">'+item.desc+'</div>' : '')+
         '<div class="news-source">'+item.source+'</div>'+
       '</div>'+
     '</div>';
   }).join('');
-  container.innerHTML=html||'<div style="font-size:10px;color:var(--t3);padding:6px 0">No relevant articles found at this time.</div>';
+  container.innerHTML = html || '<div style="font-size:10px;color:var(--t3);padding:6px 0">No relevant articles found.</div>';
 }
 
-// === SHARE FUNCTIONS ===
+// ============================================================
+// SHARE FUNCTIONS
+// ============================================================
 function shareToX(){
   var ms=Date.now()-STRIKE_START.getTime();
   var days=Math.floor(ms/864e5);
@@ -1586,15 +1835,20 @@ function copyLink(){
   }
 }
 
-// === MAIN LOOP ===
-function mainTick(){tickCost();updateClocks();requestAnimationFrame(mainTick);}
+// ============================================================
+// INIT
+// ============================================================
+// Show default recession gauge while loading
+updateRecessionGauge(105, {}, null, 4430);
+
+function mainTick(){ tickCost(); updateClocks(); requestAnimationFrame(mainTick); }
 requestAnimationFrame(mainTick);
 
-// Stagger fetches so they don't compete on page load
+// Stagger fetches
 fetchMarketData();
-setTimeout(fetchLiveNews, 1200);
+setTimeout(fetchLiveNews, 800);
 
-// Both refresh hourly
+// Refresh hourly
 setInterval(fetchMarketData, DATA_TTL);
 setInterval(fetchLiveNews,   DATA_TTL);
 </script>
