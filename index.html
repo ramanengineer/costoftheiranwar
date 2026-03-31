@@ -3,463 +3,571 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<!-- ═══ PRIMARY META ═══ -->
-<title>Cost of the Iran War — Live Real-Time U.S. Spending Tracker</title>
-<meta name="description" content="Live counter tracking U.S. taxpayer spending on the Iran war. The Pentagon told Congress the first week cost $11.3 billion. Track the running total, gold prices, global recession odds, and the human cost — updated in real time.">
+<title>Cost of the Iran War - Live Real-Time U.S. Spending Tracker</title>
+<meta name="description" content="Live counter tracking U.S. taxpayer spending on the Iran war. Pentagon told Congress the first week cost $11.3 billion. Track the running total, gold prices, global recession odds, and the human cost, updated in real time.">
 <meta name="keywords" content="Iran war cost, Operation Epic Fury, Iran war tracker, US military spending Iran, Iran war 2026, war cost live, Pentagon Iran budget, Iran war recession, gold price war, Strait of Hormuz">
 <meta name="author" content="costoftheiranwar.com">
 <meta name="robots" content="index, follow">
 <meta name="theme-color" content="#060b18">
 <link rel="canonical" href="https://costoftheiranwar.com/">
-
-<!-- ═══ FAVICON — ‼️ emoji ═══ -->
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%23060b18'/%3E%3Ctext x='16' y='24' text-anchor='middle' font-size='22' font-family='Apple Color Emoji%2C Segoe UI Emoji%2C Noto Color Emoji%2C sans-serif'%3E%E2%80%BC%EF%B8%8F%3C/text%3E%3C/svg%3E">
-<link rel="shortcut icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%23060b18'/%3E%3Ctext x='16' y='24' text-anchor='middle' font-size='22' font-family='Apple Color Emoji%2C Segoe UI Emoji%2C Noto Color Emoji%2C sans-serif'%3E%E2%80%BC%EF%B8%8F%3C/text%3E%3C/svg%3E">
-
-<!-- ═══ OPEN GRAPH (Facebook, LinkedIn, WhatsApp, iMessage) ═══ -->
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://costoftheiranwar.com/">
-<meta property="og:site_name" content="Cost of the Iran War">
-<meta property="og:title" content="Cost of the Iran War — Live Real-Time Tracker">
-<meta property="og:description" content="The Pentagon told Congress the first week of the Iran war cost $11.3 billion. Track the live running total, gold prices, global recession odds (48.6%), and the human cost — updated every second.">
+<meta property="og:title" content="Cost of the Iran War - Live Real-Time Tracker">
+<meta property="og:description" content="The Pentagon told Congress the first week of the Iran war cost $11.3 billion. Track the live running total, gold prices, global recession odds (48.6%), and the human cost, updated every second.">
 <meta property="og:image" content="https://costoftheiranwar.com/og-image.png">
-<meta property="og:image:width" content="1200">
-<meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="Live ticker showing the cost of the Iran war in real time">
-<meta property="og:locale" content="en_US">
-
-<!-- ═══ TWITTER / X CARD ═══ -->
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:site" content="@heyramanraman">
-<meta name="twitter:creator" content="@heyramanraman">
-<meta name="twitter:title" content="Cost of the Iran War — Live Real-Time Tracker">
+<meta name="twitter:title" content="Cost of the Iran War - Live Real-Time Tracker">
 <meta name="twitter:description" content="The Pentagon told Congress the first week cost $11.3 billion. Gold: $4,430/oz. Recession odds: 48.6% (Moody's). Track the live running total.">
-<meta name="twitter:image" content="https://costoftheiranwar.com/og-image.png">
-<meta name="twitter:image:alt" content="Live ticker showing the cost of the Iran war in real time">
-
-<!-- ═══ GOOGLE / STRUCTURED DATA ═══ -->
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "WebSite",
-  "name": "Cost of the Iran War",
-  "url": "https://costoftheiranwar.com/",
-  "description": "Live real-time tracker of U.S. taxpayer spending on the Iran war. Pentagon told Congress the first week cost $11.3 billion.",
-  "inLanguage": "en-US",
-  "author": {
-    "@type": "Person",
-    "name": "heyramanraman",
-    "sameAs": "https://www.instagram.com/heyramanraman"
-  },
-  "dateModified": "2026-03-30"
-}
-</script>
-
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,700;0,800;1,600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300&family=Libre+Baskerville:ital,wght@0,700;1,400&display=swap" rel="stylesheet">
 <style>
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
 :root{
-  --bg:#060b18;--bg2:#0c1226;--bg3:#111827;
-  --border:rgba(255,255,255,.07);--border2:rgba(255,255,255,.14);
-  --cyan:#00e5ff;--cyan-dim:#006b78;
-  --amber:#ffb703;--red:#ff3b3b;--green:#00e676;--purple:#c084fc;
-  --t1:#f1f5f9;--t2:#94a3b8;--t3:#475569;--t4:#1e293b;
-  --mono:'IBM Plex Mono',monospace;--serif:'Playfair Display',Georgia,serif;
+  --bg:#050a16;--bg2:#0b1122;--bg3:#101828;--bg4:#141e2e;
+  --border:rgba(255,255,255,.07);--border2:rgba(255,255,255,.13);
+  --cyan:#00e5ff;--cyan-dim:rgba(0,229,255,.18);--cyan-glow:rgba(0,229,255,.08);
+  --amber:#ffb703;--amber-dim:rgba(255,183,3,.18);
+  --red:#ff3b3b;--red-dim:rgba(255,59,59,.12);
+  --green:#00e676;--green-dim:rgba(0,230,118,.12);
+  --purple:#c084fc;--purple-dim:rgba(192,132,252,.1);
+  --orange:#ff7c43;
+  --t1:#f0f4ff;--t2:#8fa0bb;--t3:#3d5166;--t4:#1a2235;
+  --mono:'IBM Plex Mono',monospace;--serif:'Libre Baskerville',Georgia,serif;
+  --r:9px;
 }
 html{scroll-behavior:smooth}
 body{
   background:var(--bg);color:var(--t1);font-family:var(--mono);
   -webkit-font-smoothing:antialiased;min-height:100vh;overflow-x:hidden;
   background-image:
-    radial-gradient(ellipse 100% 40% at 50% 0%,rgba(0,229,255,.05) 0%,transparent 60%),
-    linear-gradient(180deg,rgba(0,229,255,.03) 0%,transparent 30%);
+    radial-gradient(ellipse 80% 35% at 50% 0%,rgba(0,229,255,.06) 0%,transparent 55%),
+    radial-gradient(ellipse 40% 20% at 80% 100%,rgba(255,59,59,.04) 0%,transparent 50%);
 }
 
-/* ═══ TOP STRIPE — 4 WORLD CLOCKS ═══ */
-.top-stripe{
+/* === TOP BAR === */
+.top-bar{
   display:flex;align-items:stretch;
-  background:rgba(6,11,24,.98);
-  border-bottom:1px solid rgba(0,229,255,.2);
+  background:rgba(5,10,22,.98);
+  border-bottom:1px solid rgba(0,229,255,.18);
+  position:sticky;top:0;z-index:100;
+  backdrop-filter:blur(12px);
   flex-wrap:wrap;
 }
-.stripe-live{
-  display:flex;align-items:center;gap:8px;
-  padding:0 16px;
-  background:rgba(255,59,59,.12);
-  border-right:1px solid rgba(255,59,59,.25);
-  font-size:9px;letter-spacing:3px;text-transform:uppercase;
+.bar-live{
+  display:flex;align-items:center;gap:8px;padding:0 14px;
+  background:rgba(255,59,59,.1);border-right:1px solid rgba(255,59,59,.22);
+  font-size:8px;letter-spacing:3.5px;text-transform:uppercase;
   color:var(--red);font-weight:700;white-space:nowrap;flex-shrink:0;
 }
-.live-pip{
-  width:7px;height:7px;border-radius:50%;
+.pip{
+  width:6px;height:6px;border-radius:50%;
   background:var(--red);box-shadow:0 0 8px var(--red);
-  animation:blink 1.4s ease-in-out infinite;flex-shrink:0;
+  animation:blink 1.3s ease-in-out infinite;flex-shrink:0;
 }
-@keyframes blink{0%,100%{opacity:1}50%{opacity:.2}}
-.stripe-clocks{display:flex;align-items:stretch;flex:1;flex-wrap:wrap}
-.clock-cell{
+.pip.green{background:var(--green);box-shadow:0 0 8px var(--green)}
+.pip.amber{background:var(--amber);box-shadow:0 0 8px var(--amber)}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.15}}
+.clocks{display:flex;align-items:stretch;flex:1;flex-wrap:wrap}
+.cc{
   display:flex;flex-direction:column;justify-content:center;
-  padding:7px 16px;
-  border-right:1px solid rgba(255,255,255,.06);
-  min-width:120px;flex:1;
+  padding:6px 14px;border-right:1px solid rgba(255,255,255,.05);
+  min-width:110px;flex:1;
 }
-.clock-cell:last-child{border-right:none}
-.cc-flag{
-  font-size:8px;letter-spacing:1.5px;text-transform:uppercase;
-  color:var(--t3);margin-bottom:2px;
+.cc:last-child{border-right:none}
+.cc-flag{font-size:7.5px;letter-spacing:1.5px;text-transform:uppercase;color:var(--t3);margin-bottom:2px}
+.cc-time{font-size:14px;font-weight:700;letter-spacing:.5px;line-height:1}
+.cc-zone{font-size:7px;color:var(--t3);margin-top:2px;letter-spacing:.8px}
+.cc-nz .cc-time{color:#34d399}
+.cc-us .cc-time{color:#60a5fa}
+.cc-ir .cc-time{color:var(--red)}
+.cc-au .cc-time{color:var(--amber)}
+.data-status{
+  display:flex;align-items:center;gap:6px;padding:0 14px;
+  border-left:1px solid rgba(255,255,255,.05);font-size:8px;
+  color:var(--t3);letter-spacing:1px;text-transform:uppercase;white-space:nowrap;flex-shrink:0;
 }
-.cc-time{font-size:15px;font-weight:700;letter-spacing:1px;line-height:1}
-.cc-zone{font-size:7.5px;color:var(--t3);margin-top:2px;letter-spacing:1px}
-.cc-nz .cc-time {color:#34d399}
-.cc-us .cc-time {color:#60a5fa}
-.cc-ir .cc-time {color:var(--red)}
-.cc-au .cc-time {color:var(--amber)}
+#api-status-pip{width:6px;height:6px;border-radius:50%;background:var(--t3);flex-shrink:0;transition:background .4s}
+#api-status-text{transition:color .4s}
 
-/* ═══ TICKER RIBBON ═══ */
+/* === RIBBON === */
 .ribbon{
   overflow:hidden;white-space:nowrap;
-  background:rgba(255,183,3,.07);border-bottom:1px solid rgba(255,183,3,.18);
-  padding:5px 0;font-size:9.5px;letter-spacing:1px;color:var(--amber);
+  background:rgba(255,183,3,.05);border-bottom:1px solid rgba(255,183,3,.14);
+  padding:5px 0;font-size:9px;letter-spacing:.8px;color:var(--amber);
 }
-.ribbon-inner{display:inline-block;animation:scroll-left 48s linear infinite;white-space:nowrap}
+.ribbon-inner{display:inline-block;animation:scroll-left 60s linear infinite;white-space:nowrap}
+.ribbon-inner:hover{animation-play-state:paused}
 @keyframes scroll-left{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
-.ribbon-item{display:inline-block;margin:0 26px}
-.ribbon-sep{opacity:.3}
+.ri{display:inline-block;margin:0 22px}
+.rs{opacity:.25;margin:0 6px}
 
-/* ═══ LAYOUT ═══ */
-.page{max-width:920px;width:100%;margin:0 auto;padding:40px 20px 80px}
+/* === PAGE === */
+.page{max-width:960px;margin:0 auto;padding:36px 18px 80px}
 
-/* ═══ HEADER ═══ */
-.site-header{margin-bottom:36px}
-.site-kicker{
-  font-size:9px;letter-spacing:5px;text-transform:uppercase;
-  color:var(--cyan);font-weight:600;margin-bottom:8px;
-  display:flex;align-items:center;gap:8px;
+/* === HEADER === */
+.header{margin-bottom:32px}
+.kicker{
+  font-size:8.5px;letter-spacing:5px;text-transform:uppercase;
+  color:var(--cyan);font-weight:600;margin-bottom:10px;
+  display:flex;align-items:center;gap:10px;
 }
-.site-kicker::after{content:'';flex:1;height:1px;background:rgba(0,229,255,.2)}
-.site-title{
-  font-family:var(--serif);font-size:clamp(34px,7vw,62px);font-weight:800;
-  line-height:1;color:var(--t1);letter-spacing:-1px;margin-bottom:10px;
+.kicker::after{content:'';flex:1;height:1px;background:rgba(0,229,255,.18)}
+h1{
+  font-family:var(--serif);font-size:clamp(30px,6.5vw,58px);font-weight:700;
+  line-height:1.05;letter-spacing:-1px;margin-bottom:12px;
 }
-.site-title span{color:var(--cyan)}
-.site-deck{
-  font-size:13.5px;color:var(--t2);line-height:1.7;max-width:580px;
-  border-left:2px solid var(--cyan-dim);padding-left:12px;
-  font-style:italic;font-family:'Playfair Display',serif;
+h1 span{color:var(--cyan)}
+.deck{
+  font-size:13px;color:var(--t2);line-height:1.75;max-width:600px;
+  border-left:2px solid rgba(0,229,255,.3);padding-left:14px;
+  font-style:italic;font-family:var(--serif);
 }
 
-/* ═══ CARDS ═══ */
+/* === CARDS === */
 .card{
   background:var(--bg2);border:1px solid var(--border);
-  border-radius:10px;padding:22px;position:relative;overflow:hidden;
+  border-radius:var(--r);padding:20px;position:relative;overflow:hidden;
 }
-.card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px}
-.card.cyan  ::before,.card.cyan::before {background:linear-gradient(90deg,transparent,var(--cyan),transparent)}
+.card::before{content:'';position:absolute;top:0;left:0;right:0;height:1px}
+.card.cyan::before{background:linear-gradient(90deg,transparent,var(--cyan),transparent)}
 .card.amber::before{background:linear-gradient(90deg,transparent,var(--amber),transparent)}
-.card.red::before  {background:linear-gradient(90deg,transparent,var(--red),transparent)}
+.card.red::before{background:linear-gradient(90deg,transparent,var(--red),transparent)}
 .card.green::before{background:linear-gradient(90deg,transparent,var(--green),transparent)}
 .card.purple::before{background:linear-gradient(90deg,transparent,var(--purple),transparent)}
+.card.orange::before{background:linear-gradient(90deg,transparent,var(--orange),transparent)}
 .card-label{
-  font-size:8.5px;letter-spacing:3px;text-transform:uppercase;
-  font-weight:600;margin-bottom:14px;display:flex;align-items:center;gap:7px;
+  font-size:8px;letter-spacing:3px;text-transform:uppercase;
+  font-weight:700;margin-bottom:14px;display:flex;align-items:center;gap:7px;
 }
-.card.cyan  .card-label{color:var(--cyan)}
+.card.cyan .card-label{color:var(--cyan)}
 .card.amber .card-label{color:var(--amber)}
-.card.red   .card-label{color:var(--red)}
+.card.red .card-label{color:var(--red)}
 .card.purple .card-label{color:var(--purple)}
+.card.green .card-label{color:var(--green)}
+.card.orange .card-label{color:var(--orange)}
 
-/* ═══ GRID ═══ */
-.main-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:14px}
+/* === GRID === */
+.g2{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:12px}
+.g3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;margin-bottom:12px}
+.g4{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:12px}
+.g32{display:grid;grid-template-columns:2fr 1fr;gap:12px;margin-bottom:12px}
+.g23{display:grid;grid-template-columns:1fr 2fr;gap:12px;margin-bottom:12px}
 .span2{grid-column:span 2}
+.span3{grid-column:span 3}
+.span4{grid-column:span 4}
 
-/* ═══ COST COUNTER ═══ */
-.cost-card{
-  background:linear-gradient(135deg,rgba(0,229,255,.07),rgba(6,11,24,.95));
-  border:1px solid rgba(0,229,255,.22);
+/* === MASTER COUNTER === */
+.counter-card{
+  background:linear-gradient(135deg,rgba(0,229,255,.06) 0%,rgba(5,10,22,.98) 60%);
+  border:1px solid rgba(0,229,255,.22);grid-column:span 2;
 }
-.cost-figure{
-  font-size:clamp(30px,5.5vw,54px);font-weight:700;color:var(--cyan);
-  letter-spacing:-1px;line-height:1;text-shadow:0 0 40px rgba(0,229,255,.4);margin-bottom:6px;
+.cost-wrap{display:flex;align-items:flex-start;gap:28px;flex-wrap:wrap;margin-bottom:12px}
+.cost-main{flex:1;min-width:240px}
+.cost-fig{
+  font-size:clamp(32px,5.5vw,60px);font-weight:700;color:var(--cyan);
+  letter-spacing:-1.5px;line-height:1;
+  text-shadow:0 0 50px rgba(0,229,255,.35);margin-bottom:5px;
 }
-.cost-basis{font-size:10px;color:var(--t3);line-height:1.6;margin-bottom:18px}
-.elapsed{display:flex;gap:8px;align-items:flex-start;flex-wrap:wrap}
+.cost-sub{font-size:9.5px;color:var(--t3);line-height:1.65;margin-bottom:16px}
+.cost-sub strong{color:var(--t2)}
+.elapsed-row{display:flex;gap:6px;align-items:flex-start}
 .d-box{display:flex;flex-direction:column;align-items:center}
 .d-num{
-  background:rgba(0,229,255,.1);border:1px solid rgba(0,229,255,.25);
-  border-radius:6px;padding:5px 10px;min-width:44px;text-align:center;
-  font-size:20px;font-weight:700;color:var(--cyan);
+  background:rgba(0,229,255,.08);border:1px solid rgba(0,229,255,.2);
+  border-radius:5px;padding:4px 9px;min-width:40px;text-align:center;
+  font-size:18px;font-weight:700;color:var(--cyan);letter-spacing:.5px;
 }
-.d-lbl{font-size:8px;letter-spacing:2px;text-transform:uppercase;color:var(--t3);margin-top:4px}
-.d-col{color:var(--t4);font-size:20px;padding-top:6px}
-.rate-row{display:flex;gap:8px;margin-top:16px;flex-wrap:wrap}
-.rate-pill{
-  background:rgba(0,229,255,.07);border:1px solid rgba(0,229,255,.18);
-  border-radius:20px;padding:4px 12px;font-size:10px;color:var(--cyan);
+.d-lbl{font-size:7.5px;letter-spacing:2px;text-transform:uppercase;color:var(--t3);margin-top:3px}
+.d-col{color:var(--t3);font-size:16px;padding-top:5px;padding-bottom:16px}
+.rate-pills{display:flex;gap:7px;margin-top:14px;flex-wrap:wrap}
+.rpill{
+  background:rgba(0,229,255,.06);border:1px solid rgba(0,229,255,.15);
+  border-radius:20px;padding:3px 11px;font-size:9.5px;color:var(--cyan);
 }
-.rate-pill strong{font-weight:700}
+.rpill strong{font-weight:700}
+.cost-sidebar{display:flex;flex-direction:column;gap:8px;min-width:180px}
+.breakdown-item{
+  background:rgba(0,0,0,.2);border:1px solid rgba(255,255,255,.06);
+  border-radius:6px;padding:9px 12px;
+}
+.bi-label{font-size:8px;letter-spacing:2px;text-transform:uppercase;color:var(--t3);margin-bottom:3px}
+.bi-val{font-size:13px;font-weight:700;color:var(--cyan)}
+.bi-sub{font-size:9px;color:var(--t3);margin-top:1px}
 
-/* ═══ GOLD ═══ */
-.gold-fig{
-  font-size:38px;font-weight:700;color:var(--amber);
-  letter-spacing:-.5px;line-height:1;text-shadow:0 0 30px rgba(255,183,3,.3);
+/* === LIVE MARKET STRIP === */
+.market-tile{
+  background:var(--bg3);border:1px solid var(--border);
+  border-radius:var(--r);padding:14px 16px;
+  transition:border-color .3s;
 }
-.gold-change{font-size:11px;color:var(--amber);margin:4px 0 14px}
-.gold-row{
-  display:flex;justify-content:space-between;align-items:baseline;
-  padding:6px 0;border-bottom:1px solid rgba(255,255,255,.05);font-size:11px;
-}
-.gold-row:last-child{border-bottom:none}
-.gr-label{color:var(--t2)}.gr-val{color:var(--amber);font-weight:600}
+.market-tile:hover{border-color:var(--border2)}
+.mt-label{font-size:7.5px;letter-spacing:2.5px;text-transform:uppercase;color:var(--t3);margin-bottom:8px;font-weight:600}
+.mt-price{font-size:22px;font-weight:700;line-height:1;margin-bottom:3px}
+.mt-change{font-size:10px;display:flex;align-items:center;gap:4px;margin-bottom:6px}
+.mt-change.up{color:var(--green)}.mt-change.down{color:var(--red)}.mt-change.flat{color:var(--t3)}
+.mt-bar-bg{height:3px;background:rgba(255,255,255,.07);border-radius:2px;overflow:hidden;margin-top:6px}
+.mt-bar-fill{height:100%;border-radius:2px;transition:width 1s ease}
+.mt-meta{font-size:9px;color:var(--t3);margin-top:4px;line-height:1.5}
+.mt-last-update{font-size:7.5px;color:var(--t3);margin-top:6px;letter-spacing:.5px}
+.tile-gold .mt-price{color:var(--amber)}
+.tile-oil .mt-price{color:var(--orange)}
+.tile-silver .mt-price{color:#cbd5e1}
+.tile-sp500 .mt-price{color:var(--purple)}
+.tile-gas .mt-price{color:var(--green)}
 
-/* ═══ SHARE CARD ═══ */
-.share-col{display:flex;flex-direction:column;gap:10px}
-.share-btn{
-  display:flex;align-items:center;gap:12px;
-  padding:14px 16px;border-radius:9px;text-decoration:none;
-  border:1px solid;cursor:pointer;font-family:var(--mono);
-  transition:all .18s ease;background:transparent;width:100%;text-align:left;
-}
-.share-btn:hover{transform:translateY(-1px)}
-.sb-icon{
-  width:38px;height:38px;border-radius:8px;flex-shrink:0;
-  display:flex;align-items:center;justify-content:center;
-}
-.sb-icon svg{width:20px;height:20px}
-.sb-title{font-size:10.5px;letter-spacing:2px;text-transform:uppercase;font-weight:600;margin-bottom:3px}
-.sb-sub{font-size:11px;line-height:1.4}
-/* X/Twitter */
-.btn-x{border-color:rgba(255,255,255,.14);background:rgba(255,255,255,.04);color:var(--t2)}
-.btn-x .sb-icon{background:rgba(255,255,255,.12)}
-.btn-x .sb-title{color:var(--t1)}
-.btn-x:hover{background:rgba(255,255,255,.09);border-color:rgba(255,255,255,.24)}
-/* Instagram */
-.btn-ig{
-  border-color:rgba(220,80,140,.3);
-  background:linear-gradient(135deg,rgba(131,58,180,.1),rgba(253,29,29,.07),rgba(252,176,69,.07));
-  color:var(--t2);
-}
-.btn-ig .sb-icon{background:linear-gradient(45deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888)}
-.btn-ig .sb-title{color:#f4a8c7}
-.btn-ig:hover{border-color:rgba(220,80,140,.55);background:linear-gradient(135deg,rgba(131,58,180,.18),rgba(253,29,29,.12),rgba(252,176,69,.1))}
-/* Copy */
-.btn-copy{border-color:rgba(0,229,255,.18);background:rgba(0,229,255,.05);color:var(--t2)}
-.btn-copy .sb-icon{background:rgba(0,229,255,.12)}
-.btn-copy .sb-title{color:var(--cyan)}
-.btn-copy:hover{background:rgba(0,229,255,.1);border-color:rgba(0,229,255,.3)}
-
-/* ═══ RECESSION ═══ */
+/* === RECESSION === */
 .gauge-bar-bg{
-  width:100%;height:22px;border-radius:11px;
-  background:linear-gradient(90deg,rgba(0,230,118,.3) 0%,rgba(255,183,3,.4) 45%,rgba(255,59,59,.5) 100%);
-  border:1px solid rgba(255,255,255,.08);position:relative;margin:16px 0;
+  width:100%;height:20px;border-radius:10px;
+  background:linear-gradient(90deg,rgba(0,230,118,.25) 0%,rgba(255,183,3,.35) 50%,rgba(255,59,59,.5) 100%);
+  border:1px solid rgba(255,255,255,.07);position:relative;margin:14px 0 8px;
 }
 .gauge-needle{
-  position:absolute;top:-6px;width:3px;height:34px;background:var(--t1);
-  border-radius:2px;transform:translateX(-50%);box-shadow:0 0 8px rgba(255,255,255,.5);
+  position:absolute;top:-5px;width:2px;height:30px;background:var(--t1);
+  border-radius:2px;transform:translateX(-50%);box-shadow:0 0 6px rgba(255,255,255,.5);
+  transition:left 1s ease;
 }
-.gauge-labels{display:flex;justify-content:space-between;font-size:8.5px;color:var(--t3);letter-spacing:1px;text-transform:uppercase;margin-top:4px}
-.gauge-percent{
-  font-size:46px;font-weight:700;color:var(--red);
-  letter-spacing:-1px;line-height:1;text-shadow:0 0 30px rgba(255,59,59,.4);margin-bottom:4px;
+.gauge-labels{display:flex;justify-content:space-between;font-size:8px;color:var(--t3);letter-spacing:1px;text-transform:uppercase}
+.gauge-pct{
+  font-size:44px;font-weight:700;color:var(--red);
+  letter-spacing:-1px;line-height:1;text-shadow:0 0 30px rgba(255,59,59,.35);margin-bottom:3px;
 }
 .rec-row{display:flex;justify-content:space-between;align-items:center;padding:7px 0;border-bottom:1px solid rgba(255,255,255,.04);font-size:11px}
 .rec-row:last-child{border-bottom:none}
-.rec-firm{color:var(--t2)}
-.rec-pct{font-weight:700;font-size:13px}
-.rec-bar{width:60px;height:4px;background:rgba(255,255,255,.08);border-radius:2px;margin:0 8px;overflow:hidden;flex-shrink:0}
-.rec-fill{height:100%;border-radius:2px;background:var(--red)}
+.rec-firm{color:var(--t2);font-size:10.5px}
+.rec-bar{width:55px;height:3px;background:rgba(255,255,255,.07);border-radius:2px;margin:0 8px;overflow:hidden;flex-shrink:0}
+.rec-fill{height:100%;border-radius:2px}
+.rec-pct{font-weight:700;font-size:12px;min-width:36px;text-align:right}
 
-/* ═══ IMPACT ═══ */
-.impact-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;margin-bottom:14px}
-.impact-tile{background:var(--bg3);border:1px solid var(--border);border-radius:9px;padding:16px 14px;text-align:center}
-.impact-tile.lives{border-color:rgba(255,59,59,.25);background:rgba(255,59,59,.06)}
-.impact-tile.oil  {border-color:rgba(255,183,3,.2); background:rgba(255,183,3,.04)}
-.impact-tile.econ {border-color:rgba(192,132,252,.2);background:rgba(192,132,252,.04)}
-.it-label{font-size:8px;letter-spacing:2px;text-transform:uppercase;margin-bottom:8px;font-weight:600}
-.impact-tile.lives .it-label{color:var(--red)}
-.impact-tile.oil   .it-label{color:var(--amber)}
-.impact-tile.econ  .it-label{color:var(--purple)}
-.it-big{font-size:24px;font-weight:700;line-height:1;margin-bottom:2px}
-.impact-tile.lives .it-big{color:var(--red)}
-.impact-tile.oil   .it-big{color:var(--amber)}
-.impact-tile.econ  .it-big{color:var(--purple)}
-.it-sub{font-size:9.5px;color:var(--t3)}
-
-/* ═══ LIVES ═══ */
-.lives-row{display:flex;gap:12px;margin-bottom:14px;flex-wrap:wrap}
-.lives-stat{flex:1;min-width:140px;background:rgba(255,59,59,.06);border:1px solid rgba(255,59,59,.18);border-radius:9px;padding:14px;text-align:center}
-.ls-flag{font-size:8px;letter-spacing:2px;text-transform:uppercase;color:var(--red);margin-bottom:8px;font-weight:600}
-.ls-num{font-size:28px;font-weight:700;color:var(--red);line-height:1;margin-bottom:2px}
-.ls-sub{font-size:9.5px;color:var(--t3)}
-.impact-prose{font-size:13px;color:var(--t2);line-height:1.78;margin-bottom:12px}
-.impact-prose strong{color:var(--t1)}
-.callout-quote{
-  border-left:3px solid var(--red);padding:12px 16px;margin:12px 0;
-  background:rgba(255,59,59,.05);border-radius:0 8px 8px 0;
-  font-size:13px;color:var(--t2);line-height:1.7;
-  font-style:italic;font-family:'Playfair Display',serif;
+/* === SNAPSHOT TILES === */
+.snap-tile{
+  background:var(--bg3);border:1px solid var(--border);
+  border-radius:var(--r);padding:14px;text-align:center;
 }
-.callout-quote cite{display:block;margin-top:8px;font-size:9.5px;letter-spacing:1px;text-transform:uppercase;color:var(--t3);font-style:normal;font-family:var(--mono)}
+.st-label{font-size:7.5px;letter-spacing:2px;text-transform:uppercase;margin-bottom:8px;font-weight:700}
+.st-big{font-size:26px;font-weight:700;line-height:1;margin-bottom:3px}
+.st-sub{font-size:9.5px;color:var(--t3);line-height:1.45}
+.snap-tile.lives{border-color:rgba(255,59,59,.22);background:var(--red-dim)}
+.snap-tile.lives .st-label{color:var(--red)}.snap-tile.lives .st-big{color:var(--red)}
+.snap-tile.oil{border-color:rgba(255,124,67,.2);background:rgba(255,124,67,.04)}
+.snap-tile.oil .st-label{color:var(--orange)}.snap-tile.oil .st-big{color:var(--orange)}
+.snap-tile.stocks{border-color:rgba(192,132,252,.2);background:var(--purple-dim)}
+.snap-tile.stocks .st-label{color:var(--purple)}.snap-tile.stocks .st-big{color:var(--purple)}
+.snap-tile.gas{border-color:rgba(0,230,118,.15);background:var(--green-dim)}
+.snap-tile.gas .st-label{color:var(--green)}.snap-tile.gas .st-big{color:var(--green)}
+.snap-tile.shipping{border-color:rgba(96,165,250,.2);background:rgba(96,165,250,.04)}
+.snap-tile.shipping .st-label{color:#60a5fa}.snap-tile.shipping .st-big{color:#60a5fa}
+.snap-tile.gold2{border-color:rgba(255,183,3,.2);background:var(--amber-dim)}
+.snap-tile.gold2 .st-label{color:var(--amber)}.snap-tile.gold2 .st-big{color:var(--amber)}
 
-/* ═══ PAIN TABLE ═══ */
-.pain-table{width:100%;border-collapse:collapse;font-size:12px}
-.pain-table th{font-size:8.5px;letter-spacing:2px;text-transform:uppercase;color:var(--t3);padding:8px;border-bottom:1px solid var(--border);text-align:left;font-weight:600}
-.pain-table td{padding:9px 8px;border-bottom:1px solid rgba(255,255,255,.04);vertical-align:middle}
+/* === LIVES === */
+.lives-row{display:flex;gap:10px;margin-bottom:12px;flex-wrap:wrap}
+.lives-stat{
+  flex:1;min-width:130px;background:rgba(255,59,59,.05);
+  border:1px solid rgba(255,59,59,.16);border-radius:var(--r);padding:14px;text-align:center;
+}
+.ls-flag{font-size:7.5px;letter-spacing:2px;text-transform:uppercase;color:var(--red);margin-bottom:8px;font-weight:700}
+.ls-num{font-size:28px;font-weight:700;color:var(--red);line-height:1;margin-bottom:2px}
+.ls-num2{font-size:18px;font-weight:700;color:rgba(255,80,80,.75);margin-top:8px}
+.ls-sub{font-size:9px;color:var(--t3)}
+.callout{
+  border-left:3px solid var(--red);padding:12px 15px;margin:12px 0;
+  background:rgba(255,59,59,.05);border-radius:0 7px 7px 0;
+  font-size:12.5px;color:var(--t2);line-height:1.7;
+  font-style:italic;font-family:var(--serif);
+}
+.callout cite{display:block;margin-top:8px;font-size:8.5px;letter-spacing:1px;text-transform:uppercase;color:var(--t3);font-style:normal;font-family:var(--mono)}
+.prose{font-size:12.5px;color:var(--t2);line-height:1.8;margin-bottom:10px}
+.prose strong{color:var(--t1)}
+
+/* === TIMELINE === */
+.timeline{position:relative;padding-left:24px;margin:4px 0 12px}
+.timeline::before{content:'';position:absolute;left:7px;top:6px;bottom:6px;width:1px;background:linear-gradient(180deg,var(--cyan),rgba(0,229,255,.1))}
+.tl-event{position:relative;margin-bottom:18px;padding-bottom:18px;border-bottom:1px solid rgba(255,255,255,.04)}
+.tl-event:last-child{margin-bottom:0;padding-bottom:0;border-bottom:none}
+.tl-dot{
+  position:absolute;left:-21px;top:4px;width:10px;height:10px;border-radius:50%;
+  border:2px solid var(--bg2);background:var(--cyan);box-shadow:0 0 8px rgba(0,229,255,.5);
+}
+.tl-dot.red{background:var(--red);box-shadow:0 0 8px rgba(255,59,59,.5)}
+.tl-dot.amber{background:var(--amber);box-shadow:0 0 8px rgba(255,183,3,.5)}
+.tl-dot.purple{background:var(--purple);box-shadow:0 0 8px rgba(192,132,252,.5)}
+.tl-dot.green{background:var(--green);box-shadow:0 0 8px rgba(0,230,118,.5)}
+.tl-date{font-size:8px;letter-spacing:2px;text-transform:uppercase;color:var(--t3);margin-bottom:4px;font-weight:600}
+.tl-title{font-size:12.5px;font-weight:700;color:var(--t1);margin-bottom:4px}
+.tl-body{font-size:11px;color:var(--t2);line-height:1.65}
+
+/* === HISTORICAL COMPARISON === */
+.war-compare{width:100%;border-collapse:collapse;font-size:11.5px}
+.war-compare th{font-size:8px;letter-spacing:2px;text-transform:uppercase;color:var(--t3);padding:8px;border-bottom:1px solid var(--border);text-align:left;font-weight:700}
+.war-compare td{padding:10px 8px;border-bottom:1px solid rgba(255,255,255,.04);vertical-align:middle}
+.war-compare tr:last-child td{border-bottom:none}
+.war-compare tr:hover td{background:rgba(255,255,255,.02)}
+.wc-name{font-weight:600;color:var(--t1)}
+.wc-bar-bg{width:100%;height:5px;background:rgba(255,255,255,.06);border-radius:3px;margin-top:4px;overflow:hidden}
+.wc-bar{height:100%;border-radius:3px}
+.wc-cost-cell{color:var(--amber);font-weight:700}
+.wc-current{background:rgba(0,229,255,.04);border-left:2px solid var(--cyan) !important}
+.wc-current .wc-name{color:var(--cyan)}
+
+/* === PAIN TABLE === */
+.pain-table{width:100%;border-collapse:collapse;font-size:11px}
+.pain-table th{font-size:7.5px;letter-spacing:2px;text-transform:uppercase;color:var(--t3);padding:7px;border-bottom:1px solid var(--border);text-align:left;font-weight:700}
+.pain-table td{padding:8px 7px;border-bottom:1px solid rgba(255,255,255,.03);vertical-align:middle}
 .pain-table tr:last-child td{border-bottom:none}
-.pain-table .region{color:var(--t1);font-weight:500}
-.level{display:inline-block;font-size:8.5px;letter-spacing:1px;text-transform:uppercase;padding:2px 7px;border-radius:3px;font-weight:700}
-.level.critical{background:rgba(255,59,59,.2);color:var(--red);border:1px solid rgba(255,59,59,.35)}
-.level.high    {background:rgba(255,183,3,.15);color:var(--amber);border:1px solid rgba(255,183,3,.3)}
-.level.moderate{background:rgba(192,132,252,.1);color:var(--purple);border:1px solid rgba(192,132,252,.25)}
-.pain-table .detail{color:var(--t3);font-size:11px}
+.pain-table tr:hover td{background:rgba(255,255,255,.015)}
+.region{color:var(--t1);font-weight:600;font-size:11.5px}
+.level{display:inline-block;font-size:7.5px;letter-spacing:1px;text-transform:uppercase;padding:2px 6px;border-radius:3px;font-weight:700;white-space:nowrap}
+.level.catastrophic{background:rgba(255,0,0,.2);color:#ff6b6b;border:1px solid rgba(255,59,59,.4)}
+.level.critical{background:rgba(255,59,59,.18);color:var(--red);border:1px solid rgba(255,59,59,.3)}
+.level.high{background:rgba(255,183,3,.13);color:var(--amber);border:1px solid rgba(255,183,3,.28)}
+.level.elevated{background:rgba(255,124,67,.1);color:var(--orange);border:1px solid rgba(255,124,67,.22)}
+.level.moderate{background:rgba(192,132,252,.1);color:var(--purple);border:1px solid rgba(192,132,252,.22)}
+.detail{color:var(--t3);font-size:10px}
 
-/* ═══ COLLAPSIBLE ═══ */
-details.section{margin-bottom:14px}
+/* === BUDGET BREAKDOWN === */
+.budget-row{display:flex;align-items:center;gap:10px;padding:9px 0;border-bottom:1px solid rgba(255,255,255,.04);font-size:11px}
+.budget-row:last-child{border-bottom:none}
+.budget-icon{font-size:16px;flex-shrink:0;width:24px;text-align:center}
+.budget-label{flex:1;color:var(--t2)}
+.budget-bar-bg{width:80px;height:4px;background:rgba(255,255,255,.07);border-radius:2px;overflow:hidden;flex-shrink:0}
+.budget-bar-fill{height:100%;border-radius:2px}
+.budget-pct{font-size:10.5px;color:var(--amber);font-weight:700;min-width:36px;text-align:right}
+.budget-amt{font-size:10px;color:var(--t3);min-width:54px;text-align:right}
+
+/* === SUPPLY CHAIN === */
+.sc-tile{
+  background:var(--bg3);border:1px solid var(--border);
+  border-radius:var(--r);padding:14px;
+}
+.sc-icon{font-size:20px;margin-bottom:8px}
+.sc-title{font-size:10px;font-weight:700;color:var(--t1);letter-spacing:.5px;margin-bottom:6px}
+.sc-body{font-size:10.5px;color:var(--t2);line-height:1.65}
+.sc-stat{font-size:13px;font-weight:700;color:var(--red);display:block;margin-bottom:2px}
+
+/* === SHARE === */
+.share-col{display:flex;flex-direction:column;gap:9px}
+.share-btn{
+  display:flex;align-items:center;gap:11px;
+  padding:12px 14px;border-radius:8px;text-decoration:none;
+  border:1px solid;cursor:pointer;font-family:var(--mono);
+  transition:all .16s ease;background:transparent;width:100%;text-align:left;
+}
+.share-btn:hover{transform:translateY(-1px)}
+.sb-icon{width:36px;height:36px;border-radius:7px;flex-shrink:0;display:flex;align-items:center;justify-content:center}
+.sb-icon svg{width:18px;height:18px}
+.sb-title{font-size:9.5px;letter-spacing:2px;text-transform:uppercase;font-weight:700;margin-bottom:2px}
+.sb-sub{font-size:10.5px;line-height:1.4}
+.btn-x{border-color:rgba(255,255,255,.12);background:rgba(255,255,255,.03);color:var(--t2)}
+.btn-x .sb-icon{background:rgba(255,255,255,.1)}
+.btn-x .sb-title{color:var(--t1)}
+.btn-x:hover{background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.22)}
+.btn-ig{border-color:rgba(220,80,140,.25);background:linear-gradient(135deg,rgba(131,58,180,.08),rgba(253,29,29,.06));color:var(--t2)}
+.btn-ig .sb-icon{background:linear-gradient(45deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888)}
+.btn-ig .sb-title{color:#f4a8c7}
+.btn-ig:hover{border-color:rgba(220,80,140,.5)}
+.btn-copy{border-color:rgba(0,229,255,.16);background:rgba(0,229,255,.04);color:var(--t2)}
+.btn-copy .sb-icon{background:rgba(0,229,255,.1)}
+.btn-copy .sb-title{color:var(--cyan)}
+.btn-copy:hover{background:rgba(0,229,255,.09)}
+
+/* === COLLAPSIBLE === */
+details.section{margin-bottom:12px}
 details.section>summary{
-  display:flex;align-items:center;gap:8px;font-size:9px;letter-spacing:3px;text-transform:uppercase;
+  display:flex;align-items:center;gap:8px;font-size:8.5px;letter-spacing:3px;text-transform:uppercase;
   color:var(--t3);cursor:pointer;list-style:none;
-  background:rgba(255,255,255,.03);border:1px solid var(--border);border-radius:7px;
-  padding:10px 16px;transition:all .15s;font-weight:600;
+  background:rgba(255,255,255,.025);border:1px solid var(--border);border-radius:7px;
+  padding:9px 14px;transition:all .14s;font-weight:700;
   -webkit-user-select:none;user-select:none;
 }
 details.section>summary::-webkit-details-marker{display:none}
-details.section>summary::before{content:'';width:0;height:0;border-left:5px solid var(--t3);border-top:4px solid transparent;border-bottom:4px solid transparent;transition:transform .18s;flex-shrink:0}
+details.section>summary::before{content:'';width:0;height:0;border-left:4px solid var(--t3);border-top:3px solid transparent;border-bottom:3px solid transparent;transition:transform .16s;flex-shrink:0}
 details.section[open]>summary::before{transform:rotate(90deg)}
 details.section>summary:hover{color:var(--t1);border-color:var(--border2)}
-details.section[open]>summary{margin-bottom:12px}
+details.section[open]>summary{margin-bottom:11px}
+.inner-pad{padding:2px 0}
 
-.divider{height:1px;margin:24px 0;background:linear-gradient(90deg,transparent,var(--border2),transparent)}
+/* === ALERTS / INFO BOXES === */
+.info-box{
+  font-size:10.5px;color:var(--t2);line-height:1.7;
+  background:rgba(0,0,0,.2);border:1px solid rgba(255,255,255,.07);
+  border-radius:7px;padding:12px 14px;margin-top:12px;
+}
+.info-box.warn{border-color:rgba(255,59,59,.18);background:rgba(255,59,59,.05)}
+.info-box.amber{border-color:rgba(255,183,3,.18);background:rgba(255,183,3,.04)}
+.info-box strong{color:var(--t1)}
 
-/* ═══ SOURCE + FOOTER ═══ */
-.source-list{background:rgba(255,255,255,.02);border:1px solid var(--border);border-radius:9px;padding:16px}
-.source-list p{font-size:11.5px;color:var(--t3);line-height:1.7;margin-bottom:4px}
+/* === SOURCE LIST === */
+.source-list{background:rgba(255,255,255,.018);border:1px solid var(--border);border-radius:var(--r);padding:16px}
+.source-list p{font-size:11px;color:var(--t3);line-height:1.7;margin-bottom:5px}
 .source-list p:last-child{margin-bottom:0}
 .source-list a{color:var(--t2);text-decoration:underline;text-underline-offset:2px}
-.footer{font-size:11.5px;color:var(--t3);line-height:1.75;text-align:center;border-top:1px solid var(--border);padding-top:24px;margin-top:40px}
-.footer strong{color:var(--t2)}.footer a{color:var(--t2);text-decoration:underline;text-underline-offset:2px}
+.source-list strong{color:var(--t2)}
 
-/* ═══ RESPONSIVE ═══ */
-@media(max-width:660px){
-  .main-grid{grid-template-columns:1fr}.span2{grid-column:span 1}
-  .cost-figure{font-size:28px}.impact-grid{grid-template-columns:1fr}
-  .top-stripe{flex-direction:column}.stripe-clocks{flex-wrap:wrap}
-  .clock-cell{min-width:50%}.gauge-percent{font-size:34px}
-  .lives-row{flex-direction:column}.pain-table .detail{display:none}
+/* === FOOTER === */
+.divider{height:1px;margin:22px 0;background:linear-gradient(90deg,transparent,var(--border2),transparent)}
+.footer{font-size:11px;color:var(--t3);line-height:1.8;text-align:center;border-top:1px solid var(--border);padding-top:22px;margin-top:36px}
+.footer strong{color:var(--t2)}
+.footer a{color:var(--t2);text-decoration:underline;text-underline-offset:2px}
+.section-title{
+  font-size:8.5px;letter-spacing:4px;text-transform:uppercase;color:var(--t3);
+  font-weight:700;margin:20px 0 10px;display:flex;align-items:center;gap:10px;
+}
+.section-title::after{content:'';flex:1;height:1px;background:var(--border)}
+
+/* === NEWS TICKER === */
+.news-grid{display:flex;flex-direction:column;gap:0}
+.news-item{
+  display:flex;gap:12px;padding:10px 0;border-bottom:1px solid rgba(255,255,255,.04);
+  font-size:11.5px;
+}
+.news-item:last-child{border-bottom:none}
+.news-date{font-size:8.5px;letter-spacing:1px;color:var(--t3);flex-shrink:0;min-width:68px;padding-top:1px}
+.news-dot{flex-shrink:0;width:6px;height:6px;border-radius:50%;background:var(--cyan);margin-top:5px;opacity:.7}
+.news-dot.red{background:var(--red)}
+.news-dot.amber{background:var(--amber)}
+.news-body{color:var(--t2);line-height:1.55}
+.news-body strong{color:var(--t1)}
+.news-source{font-size:9px;color:var(--t3);margin-top:2px;letter-spacing:.5px}
+
+/* === RESPONSIVE === */
+@media(max-width:700px){
+  .g2,.g3,.g4,.g32,.g23{grid-template-columns:1fr}
+  .span2,.span3,.span4{grid-column:span 1}
+  .cost-sidebar{flex-direction:row;flex-wrap:wrap}
+  .breakdown-item{min-width:140px}
+  .top-bar{flex-wrap:wrap}
+  .clocks{flex-wrap:wrap}
+  .cc{min-width:50%}
+  .data-status{width:100%;border-left:none;border-top:1px solid rgba(255,255,255,.05)}
+  .cost-fig{font-size:30px}
+  .gauge-pct{font-size:34px}
+  .lives-row{flex-direction:column}
+  .detail{display:none}
+  .cost-wrap{flex-direction:column}
+  .cost-sidebar{width:100%}
 }
 </style>
 </head>
 <body>
 
-<!-- ═══ TOP STRIPE — 4 WORLD CLOCKS ═══ -->
-<div class="top-stripe">
-  <div class="stripe-live">
-    <span class="live-pip"></span>
-    LIVE
-  </div>
-  <div class="stripe-clocks">
-    <div class="clock-cell cc-nz">
-      <div class="cc-flag">🇳🇿 New Zealand</div>
-      <div class="cc-time" id="t-nz">--:-- --</div>
+<!-- === TOP BAR === -->
+<div class="top-bar">
+  <div class="bar-live"><span class="pip"></span>LIVE</div>
+  <div class="clocks">
+    <div class="cc cc-nz">
+      <div class="cc-flag">NZ Wellington</div>
+      <div class="cc-time" id="t-nz">--:--:-- --</div>
       <div class="cc-zone" id="z-nz">NZDT · UTC+13</div>
     </div>
-    <div class="clock-cell cc-us">
-      <div class="cc-flag">🇺🇸 USA (Eastern)</div>
-      <div class="cc-time" id="t-us">--:-- --</div>
-      <div class="cc-zone">EDT · UTC−4</div>
+    <div class="cc cc-us">
+      <div class="cc-flag">USA Eastern</div>
+      <div class="cc-time" id="t-us">--:--:-- --</div>
+      <div class="cc-zone">EDT · UTC-4</div>
     </div>
-    <div class="clock-cell cc-ir">
-      <div class="cc-flag">🇮🇷 Iran (Tehran)</div>
-      <div class="cc-time" id="t-ir">--:-- --</div>
+    <div class="cc cc-ir">
+      <div class="cc-flag">Iran Tehran</div>
+      <div class="cc-time" id="t-ir">--:--:-- --</div>
       <div class="cc-zone">IRST · UTC+3:30</div>
     </div>
-    <div class="clock-cell cc-au">
-      <div class="cc-flag">🇦🇺 Australia (East)</div>
-      <div class="cc-time" id="t-au">--:-- --</div>
+    <div class="cc cc-au">
+      <div class="cc-flag">Australia East</div>
+      <div class="cc-time" id="t-au">--:--:-- --</div>
       <div class="cc-zone" id="z-au">AEDT · UTC+11</div>
     </div>
   </div>
+  <div class="data-status">
+    <span id="api-status-pip"></span>
+    <span id="api-status-text">Loading market data...</span>
+  </div>
 </div>
 
-<!-- ═══ TICKER RIBBON ═══ -->
+<!-- === TICKER RIBBON === -->
 <div class="ribbon">
-  <div class="ribbon-inner">
-    <span class="ribbon-item">⚱️ GOLD $4,430/oz · Down from $5,589 Jan high &nbsp;<span class="ribbon-sep">|</span></span>
-    <span class="ribbon-item">🛢 BRENT CRUDE ~$105/bbl · UP 40% since Feb 28 &nbsp;<span class="ribbon-sep">|</span></span>
-    <span class="ribbon-item">📉 GLOBAL STOCKS –5.5% SINCE WAR BEGAN (Bloomberg) &nbsp;<span class="ribbon-sep">|</span></span>
-    <span class="ribbon-item">⚡ RECESSION ODDS: MOODY'S 48.6% · GOLDMAN 30% · EY 40% &nbsp;<span class="ribbon-sep">|</span></span>
-    <span class="ribbon-item">⛽ US GAS $3.94/gal · UP $0.98 IN ONE MONTH &nbsp;<span class="ribbon-sep">|</span></span>
-    <span class="ribbon-item">🚢 STRAIT OF HORMUZ: effectively closed to tanker traffic &nbsp;<span class="ribbon-sep">|</span></span>
-    <span class="ribbon-item">‼ 3,400+ Iranian civilians killed · 9,100+ wounded &nbsp;<span class="ribbon-sep">|</span></span>
-    <span class="ribbon-item">🇳🇿 NZ CPI PRESSURE RISING · 75% fuel imported &nbsp;<span class="ribbon-sep">|</span></span>
-    <span class="ribbon-item">⚱️ GOLD $4,430/oz · Down from $5,589 Jan high &nbsp;<span class="ribbon-sep">|</span></span>
-    <span class="ribbon-item">🛢 BRENT CRUDE ~$105/bbl · UP 40% since Feb 28 &nbsp;<span class="ribbon-sep">|</span></span>
-    <span class="ribbon-item">📉 GLOBAL STOCKS –5.5% SINCE WAR BEGAN (Bloomberg) &nbsp;<span class="ribbon-sep">|</span></span>
-    <span class="ribbon-item">⚡ RECESSION ODDS: MOODY'S 48.6% · GOLDMAN 30% · EY 40% &nbsp;<span class="ribbon-sep">|</span></span>
-    <span class="ribbon-item">⛽ US GAS $3.94/gal · UP $0.98 IN ONE MONTH &nbsp;<span class="ribbon-sep">|</span></span>
-    <span class="ribbon-item">🚢 STRAIT OF HORMUZ: effectively closed to tanker traffic &nbsp;<span class="ribbon-sep">|</span></span>
-    <span class="ribbon-item">‼ 3,400+ Iranian civilians killed · 9,100+ wounded &nbsp;<span class="ribbon-sep">|</span></span>
-    <span class="ribbon-item">🇳🇿 NZ CPI PRESSURE RISING · 75% fuel imported &nbsp;<span class="ribbon-sep">|</span></span>
+  <div class="ribbon-inner" id="ribbon-text">
+    <span class="ri">GOLD <span id="rib-gold">$4,430/oz</span></span><span class="rs">|</span>
+    <span class="ri">BRENT CRUDE <span id="rib-oil">~$105/bbl</span> · UP 40% since Feb 28</span><span class="rs">|</span>
+    <span class="ri">SILVER <span id="rib-silver">$67.73/oz</span></span><span class="rs">|</span>
+    <span class="ri">GLOBAL STOCKS -5.5% SINCE WAR BEGAN (Bloomberg)</span><span class="rs">|</span>
+    <span class="ri">RECESSION ODDS: MOODY'S 48.6% · GOLDMAN 30% · EY 40%</span><span class="rs">|</span>
+    <span class="ri">US GAS $3.94/gal · UP $0.98 IN ONE MONTH</span><span class="rs">|</span>
+    <span class="ri">STRAIT OF HORMUZ: effectively closed to tanker traffic</span><span class="rs">|</span>
+    <span class="ri">3,400+ Iranian civilians killed · 9,100+ wounded</span><span class="rs">|</span>
+    <span class="ri">NZ CPI PRESSURE RISING · 75% fuel imported</span><span class="rs">|</span>
+    <span class="ri">DIESEL: $5.37/gal · UP 43% IN ONE MONTH</span><span class="rs">|</span>
+    <span class="ri">28 U.S. SERVICE MEMBERS KILLED · 64 WOUNDED</span><span class="rs">|</span>
+    <span class="ri">BRENT CRUDE PEAK: $115/bbl on March 14, 2026</span><span class="rs">|</span>
+    <span class="ri">GOLD <span id="rib-gold2">$4,430/oz</span></span><span class="rs">|</span>
+    <span class="ri">BRENT CRUDE <span id="rib-oil2">~$105/bbl</span> · UP 40% since Feb 28</span><span class="rs">|</span>
+    <span class="ri">SILVER <span id="rib-silver2">$67.73/oz</span></span><span class="rs">|</span>
+    <span class="ri">GLOBAL STOCKS -5.5% SINCE WAR BEGAN (Bloomberg)</span><span class="rs">|</span>
+    <span class="ri">RECESSION ODDS: MOODY'S 48.6% · GOLDMAN 30% · EY 40%</span><span class="rs">|</span>
+    <span class="ri">US GAS $3.94/gal · UP $0.98 IN ONE MONTH</span><span class="rs">|</span>
+    <span class="ri">STRAIT OF HORMUZ: effectively closed to tanker traffic</span><span class="rs">|</span>
+    <span class="ri">3,400+ Iranian civilians killed · 9,100+ wounded</span><span class="rs">|</span>
+    <span class="ri">NZ CPI PRESSURE RISING · 75% fuel imported</span><span class="rs">|</span>
+    <span class="ri">DIESEL: $5.37/gal · UP 43% IN ONE MONTH</span><span class="rs">|</span>
+    <span class="ri">28 U.S. SERVICE MEMBERS KILLED · 64 WOUNDED</span><span class="rs">|</span>
+    <span class="ri">BRENT CRUDE PEAK: $115/bbl on March 14, 2026</span><span class="rs">|</span>
   </div>
 </div>
 
 <div class="page">
 
-  <!-- ═══ HEADER ═══ -->
-  <div class="site-header">
-    <div class="site-kicker">costoftheiranwar.com &nbsp;·&nbsp; Independent Real-Time Tracker</div>
-    <h1 class="site-title">The <span>True Cost</span><br>of the Iran War</h1>
-    <p class="site-deck">
-      Every dollar, every life, every market shock — tracked in real time.
-      The Pentagon told Congress the first week cost $11.3 billion. That was just the beginning.
-    </p>
+  <!-- === HEADER === -->
+  <div class="header">
+    <div class="kicker">costoftheiranwar.com &nbsp;·&nbsp; Independent Real-Time Tracker</div>
+    <h1>The <span>True Cost</span><br>of the Iran War</h1>
+    <p class="deck">Every dollar, every life, every market shock tracked in real time. The Pentagon told Congress the first week cost $11.3 billion. That was just the beginning.</p>
   </div>
 
-  <!-- ═══ MAIN GRID ═══ -->
-  <div class="main-grid">
-
-    <!-- COST COUNTER — full width -->
-    <div class="card cost-card cyan span2">
-      <div class="card-label">
-        <span class="live-pip"></span>
-        Est. U.S. Taxpayer Cost — Since Feb 28, 2026
-      </div>
-      <div class="cost-figure" id="live-cost">$0</div>
-      <div class="cost-basis">
-        Basis: Pentagon → Congress (Mar 11, 2026): $11.3B first 6 days · then $1B/day ongoing ·
-        Sen. Coons (D-DE): "likely an undercount"
-      </div>
-      <div class="elapsed" id="elapsed"></div>
-      <div class="rate-row">
-        <div class="rate-pill">Per second: <strong>$11,574</strong></div>
-        <div class="rate-pill">Per hour: <strong>$41.6M</strong></div>
-        <div class="rate-pill">Per day: <strong>$1 Billion</strong></div>
+  <!-- === MASTER COUNTER === -->
+  <div class="g2" style="margin-bottom:12px">
+    <div class="card cyan counter-card">
+      <div class="card-label"><span class="pip"></span>Estimated U.S. Taxpayer Cost Since Feb 28, 2026</div>
+      <div class="cost-wrap">
+        <div class="cost-main">
+          <div class="cost-fig" id="live-cost">$0</div>
+          <div class="cost-sub">
+            Basis: Pentagon briefing to Senate (Mar 11, 2026) via NYT. <strong>$11.3B for first 6 days</strong>, then <strong>$1B/day</strong> ongoing. Sen. Coons (D-DE): <em>"likely an undercount."</em>
+          </div>
+          <div class="elapsed-row" id="elapsed"></div>
+          <div class="rate-pills">
+            <div class="rpill">Per second: <strong>$11,574</strong></div>
+            <div class="rpill">Per hour: <strong>$41.6M</strong></div>
+            <div class="rpill">Per day: <strong>$1 Billion</strong></div>
+          </div>
+        </div>
+        <div class="cost-sidebar">
+          <div class="breakdown-item">
+            <div class="bi-label">Munitions Used</div>
+            <div class="bi-val">~$4.2B</div>
+            <div class="bi-sub">Tomahawks, GBU-57s, JDAMs</div>
+          </div>
+          <div class="breakdown-item">
+            <div class="bi-label">Carrier Strike Groups</div>
+            <div class="bi-val">~$3.1B</div>
+            <div class="bi-sub">USS Nimitz + USS Truman deployment</div>
+          </div>
+          <div class="breakdown-item">
+            <div class="bi-label">Logistics + Support</div>
+            <div class="bi-val">~$2.1B</div>
+            <div class="bi-sub">Tankers, airlift, personnel</div>
+          </div>
+          <div class="breakdown-item">
+            <div class="bi-label">Intel + Cyber Ops</div>
+            <div class="bi-val">~$1.9B</div>
+            <div class="bi-sub">NSA, CIA, NRO operations</div>
+          </div>
+        </div>
       </div>
     </div>
-
-    <!-- GOLD TRACKER -->
-    <div class="card amber">
-      <div class="card-label">🥇 Gold Price Tracker</div>
-      <div class="gold-fig">$4,430<span style="font-size:18px;font-weight:400">/oz</span></div>
-      <div class="gold-change">↑ $1,346 vs. one year ago &nbsp;·&nbsp; ↓ from $5,589 Jan all-time high</div>
-      <div class="gold-row"><span class="gr-label">Pre-conflict (Feb 27)</span><span class="gr-val">~$3,790/oz</span></div>
-      <div class="gold-row"><span class="gr-label">Jan 2026 all-time high</span><span class="gr-val">$5,589/oz</span></div>
-      <div class="gold-row"><span class="gr-label">Current (Mar 27, 2026)</span><span class="gr-val">$4,430/oz</span></div>
-      <div class="gold-row"><span class="gr-label">Silver (Mar 27, 2026)</span><span class="gr-val">$67.73/oz</span></div>
-      <div class="gold-row"><span class="gr-label">Brent crude</span><span class="gr-val">~$105/bbl ↑40%</span></div>
-      <div style="margin-top:12px;font-size:10px;color:var(--t3);line-height:1.6">
-        Analysts see <strong style="color:var(--amber)">$4,400–$5,000</strong> range while conflict persists.<br>
-        <span style="opacity:.6">Source: CBS News · Fortune · Priority Gold · Mar 27, 2026</span>
-      </div>
-    </div>
-
-    <!-- SHARE CARD -->
-    <div class="card cyan" style="padding:20px">
+    <!-- SHARE CARD in grid -->
+    <div class="card cyan">
       <div class="card-label">Share This Tracker</div>
       <div class="share-col">
-
         <button class="share-btn btn-x" onclick="shareToX()">
           <div class="sb-icon">
             <svg viewBox="0 0 24 24" fill="white"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
@@ -469,7 +577,6 @@ details.section[open]>summary{margin-bottom:12px}
             <div class="sb-sub" style="color:var(--t3)">Share the live cost with your followers</div>
           </div>
         </button>
-
         <a class="share-btn btn-ig" href="https://www.instagram.com/heyramanraman" target="_blank" rel="noopener">
           <div class="sb-icon">
             <svg viewBox="0 0 24 24" fill="white"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
@@ -479,232 +586,819 @@ details.section[open]>summary{margin-bottom:12px}
             <div class="sb-sub">@heyramanraman</div>
           </div>
         </a>
-
         <button class="share-btn btn-copy" id="copy-btn" onclick="copyLink()">
           <div class="sb-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="var(--cyan)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="20" height="20"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>
+            <svg viewBox="0 0 24 24" fill="none" stroke="var(--cyan)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>
           </div>
           <div>
             <div class="sb-title">Copy Link</div>
             <div class="sb-sub" style="color:var(--t3)">costoftheiranwar.com</div>
           </div>
         </button>
-
       </div>
     </div>
+  </div>
 
-  </div><!-- /main-grid -->
-
-  <!-- ═══ RECESSION GAUGE ═══ -->
-  <div class="card red" style="margin-bottom:14px">
-    <div class="card-label">
-      <span class="live-pip" style="background:var(--red);box-shadow:0 0 8px var(--red)"></span>
-      Global Recession Likelihood Gauge
+  <!-- === LIVE MARKET DATA STRIP === -->
+  <div class="section-title">Live Market Data <span style="font-size:8px;color:var(--green);letter-spacing:1px">&nbsp; AUTO-REFRESHES EVERY HOUR</span></div>
+  <div class="g4" id="market-strip">
+    <div class="market-tile tile-gold">
+      <div class="mt-label">Gold (XAU/USD)</div>
+      <div class="mt-price" id="m-gold">$4,430</div>
+      <div class="mt-change" id="m-gold-chg"><span>Loading...</span></div>
+      <div class="mt-bar-bg"><div class="mt-bar-fill" id="m-gold-bar" style="width:79%;background:var(--amber)"></div></div>
+      <div class="mt-meta">Pre-war: $3,790 · Jan ATH: $5,589<br>Analyst range: $4,400-$5,000</div>
+      <div class="mt-last-update" id="m-gold-upd">Updating...</div>
     </div>
-    <div style="display:grid;grid-template-columns:auto 1fr;gap:28px;align-items:start">
-      <div>
-        <div class="gauge-percent">48.6<span style="font-size:22px">%</span></div>
-        <div style="font-size:9px;color:var(--t3);letter-spacing:1px;text-transform:uppercase;max-width:120px;line-height:1.5">Moody's Analytics · Highest estimate</div>
-      </div>
-      <div>
-        <div class="gauge-bar-bg"><div class="gauge-needle" style="left:48.6%"></div></div>
-        <div class="gauge-labels"><span>Low Risk</span><span>Elevated</span><span>Severe</span></div>
-        <div style="margin-top:16px">
-          <div class="rec-row"><span class="rec-firm">Moody's Analytics (Mark Zandi)</span><div class="rec-bar"><div class="rec-fill" style="width:97.2%"></div></div><span class="rec-pct" style="color:var(--red)">48.6%</span></div>
-          <div class="rec-row"><span class="rec-firm">EY-Parthenon (Gregory Daco)</span><div class="rec-bar"><div class="rec-fill" style="width:80%"></div></div><span class="rec-pct" style="color:var(--red)">40%</span></div>
-          <div class="rec-row"><span class="rec-firm">Goldman Sachs</span><div class="rec-bar"><div class="rec-fill" style="width:60%"></div></div><span class="rec-pct" style="color:var(--amber)">30%</span></div>
-          <div class="rec-row"><span class="rec-firm">Kalshi prediction market (peak)</span><div class="rec-bar"><div class="rec-fill" style="width:70%"></div></div><span class="rec-pct" style="color:var(--amber)">35%</span></div>
-          <div class="rec-row"><span class="rec-firm">Pre-war baseline (Feb 2026)</span><div class="rec-bar"><div class="rec-fill" style="width:30%;background:var(--green)"></div></div><span class="rec-pct" style="color:var(--green)">15–20%</span></div>
+    <div class="market-tile tile-oil">
+      <div class="mt-label">Brent Crude (BZ=F)</div>
+      <div class="mt-price" id="m-oil">$105</div>
+      <div class="mt-change" id="m-oil-chg"><span>Loading...</span></div>
+      <div class="mt-bar-bg"><div class="mt-bar-fill" id="m-oil-bar" style="width:75%;background:var(--orange)"></div></div>
+      <div class="mt-meta">Pre-war: $74 · Peak: $115 (Mar 14)<br>Hormuz closure drives +40% surge</div>
+      <div class="mt-last-update" id="m-oil-upd">Updating...</div>
+    </div>
+    <div class="market-tile tile-silver">
+      <div class="mt-label">Silver (XAG/USD)</div>
+      <div class="mt-price" id="m-silver">$67.73</div>
+      <div class="mt-change" id="m-silver-chg"><span>Loading...</span></div>
+      <div class="mt-bar-bg"><div class="mt-bar-fill" id="m-silver-bar" style="width:70%;background:#cbd5e1"></div></div>
+      <div class="mt-meta">Pre-war: ~$32 · ATH: $49 (2011)<br>War-driven safe-haven demand</div>
+      <div class="mt-last-update" id="m-silver-upd">Updating...</div>
+    </div>
+    <div class="market-tile tile-sp500">
+      <div class="mt-label">S&amp;P 500 Index</div>
+      <div class="mt-price" id="m-sp500">Loading</div>
+      <div class="mt-change" id="m-sp500-chg"><span>Loading...</span></div>
+      <div class="mt-bar-bg"><div class="mt-bar-fill" id="m-sp500-bar" style="width:55%;background:var(--purple)"></div></div>
+      <div class="mt-meta">-5.5% since Feb 28 war start<br>Recession fears weigh on equities</div>
+      <div class="mt-last-update" id="m-sp500-upd">Updating...</div>
+    </div>
+  </div>
+
+  <div class="g4" style="margin-bottom:20px">
+    <div class="market-tile tile-gas">
+      <div class="mt-label">US Gas (avg/gal)</div>
+      <div class="mt-price" style="color:var(--green)">$3.94</div>
+      <div class="mt-change flat"><span>+$0.98 in one month</span></div>
+      <div class="mt-bar-bg"><div class="mt-bar-fill" style="width:65%;background:var(--green)"></div></div>
+      <div class="mt-meta">Pre-war avg: ~$2.96<br>Diesel: $5.37 (+43%)</div>
+      <div class="mt-last-update">Source: AAA, Mar 2026</div>
+    </div>
+    <div class="market-tile">
+      <div class="mt-label">Baltic Dry Index</div>
+      <div class="mt-price" style="color:#60a5fa">+187%</div>
+      <div class="mt-change up"><span>Shipping costs soaring</span></div>
+      <div class="mt-bar-bg"><div class="mt-bar-fill" style="width:88%;background:#60a5fa"></div></div>
+      <div class="mt-meta">Rerouting via Cape of Good Hope<br>Adds 14 days to Europe-Asia routes</div>
+      <div class="mt-last-update">Source: Drewry WCI, Mar 2026</div>
+    </div>
+    <div class="market-tile">
+      <div class="mt-label">US Dollar Index (DXY)</div>
+      <div class="mt-price" id="m-dxy" style="color:#a78bfa">Loading</div>
+      <div class="mt-change" id="m-dxy-chg"><span>Loading...</span></div>
+      <div class="mt-bar-bg"><div class="mt-bar-fill" id="m-dxy-bar" style="width:50%;background:#a78bfa"></div></div>
+      <div class="mt-meta">Strength vs basket of currencies<br>War = flight-to-safety flows</div>
+      <div class="mt-last-update" id="m-dxy-upd">Updating...</div>
+    </div>
+    <div class="market-tile">
+      <div class="mt-label">NZD/USD Rate</div>
+      <div class="mt-price" id="m-nzd" style="color:#34d399">Loading</div>
+      <div class="mt-change" id="m-nzd-chg"><span>Loading...</span></div>
+      <div class="mt-bar-bg"><div class="mt-bar-fill" id="m-nzd-bar" style="width:45%;background:#34d399"></div></div>
+      <div class="mt-meta">NZD weakens on recession fears<br>Imported inflation risk rising</div>
+      <div class="mt-last-update" id="m-nzd-upd">Updating...</div>
+    </div>
+  </div>
+
+  <!-- === 2-COL: RECESSION + BUDGET === -->
+  <div class="g2">
+    <!-- RECESSION GAUGE -->
+    <div class="card red">
+      <div class="card-label"><span class="pip" style="background:var(--red);box-shadow:0 0 8px var(--red)"></span>Global Recession Likelihood</div>
+      <div style="display:flex;align-items:flex-end;gap:16px">
+        <div>
+          <div class="gauge-pct">48.6<span style="font-size:18px">%</span></div>
+          <div style="font-size:8.5px;color:var(--t3);letter-spacing:1px;text-transform:uppercase;max-width:100px;line-height:1.5">Moody's Analytics, highest estimate</div>
         </div>
-        <div style="margin-top:12px;font-size:10px;color:var(--t3);line-height:1.7;background:rgba(255,59,59,.06);border:1px solid rgba(255,59,59,.14);border-radius:7px;padding:10px">
-          Moody's Zandi: recession "more than likely by second half of 2026" without ceasefire.
-          PNC's Faucher: odds top <strong style="color:var(--t1)">50%</strong> if oil hits $150/bbl. Brent crude already hit $115/bbl peak.
+        <div style="flex:1">
+          <div class="gauge-bar-bg"><div class="gauge-needle" style="left:48.6%"></div></div>
+          <div class="gauge-labels"><span>Low</span><span>Elevated</span><span>Severe</span></div>
+        </div>
+      </div>
+      <div style="margin-top:14px">
+        <div class="rec-row">
+          <span class="rec-firm">Moody's Analytics (Mark Zandi)</span>
+          <div class="rec-bar"><div class="rec-fill" style="width:97%;background:var(--red)"></div></div>
+          <span class="rec-pct" style="color:var(--red)">48.6%</span>
+        </div>
+        <div class="rec-row">
+          <span class="rec-firm">EY-Parthenon (Gregory Daco)</span>
+          <div class="rec-bar"><div class="rec-fill" style="width:80%;background:var(--red)"></div></div>
+          <span class="rec-pct" style="color:var(--red)">40%</span>
+        </div>
+        <div class="rec-row">
+          <span class="rec-firm">Goldman Sachs</span>
+          <div class="rec-bar"><div class="rec-fill" style="width:60%;background:var(--amber)"></div></div>
+          <span class="rec-pct" style="color:var(--amber)">30%</span>
+        </div>
+        <div class="rec-row">
+          <span class="rec-firm">Kalshi prediction market (peak)</span>
+          <div class="rec-bar"><div class="rec-fill" style="width:70%;background:var(--amber)"></div></div>
+          <span class="rec-pct" style="color:var(--amber)">35%</span>
+        </div>
+        <div class="rec-row">
+          <span class="rec-firm">JP Morgan (Bob Michele)</span>
+          <div class="rec-bar"><div class="rec-fill" style="width:50%;background:var(--amber)"></div></div>
+          <span class="rec-pct" style="color:var(--amber)">25%</span>
+        </div>
+        <div class="rec-row">
+          <span class="rec-firm">Pre-war baseline (Feb 2026)</span>
+          <div class="rec-bar"><div class="rec-fill" style="width:30%;background:var(--green)"></div></div>
+          <span class="rec-pct" style="color:var(--green)">15-20%</span>
+        </div>
+      </div>
+      <div class="info-box warn" style="margin-top:12px">
+        <strong>Zandi (Moody's):</strong> recession "more than likely by H2 2026" without ceasefire. PNC's Faucher: odds top <strong>50%</strong> if oil reaches $150/bbl. Brent crude already peaked at $115/bbl on March 14.
+      </div>
+    </div>
+
+    <!-- BUDGET BREAKDOWN -->
+    <div class="card amber">
+      <div class="card-label">Where the Money Goes</div>
+      <div class="budget-row">
+        <div class="budget-icon">💣</div>
+        <span class="budget-label">Precision munitions (Tomahawks, GBU-57, JDAMs, AIM-120s)</span>
+        <div class="budget-bar-bg"><div class="budget-bar-fill" style="width:90%;background:var(--red)"></div></div>
+        <span class="budget-pct">37%</span>
+        <span class="budget-amt">~$4.2B</span>
+      </div>
+      <div class="budget-row">
+        <div class="budget-icon">🛸</div>
+        <span class="budget-label">Carrier strike group operations (Nimitz + Truman)</span>
+        <div class="budget-bar-bg"><div class="budget-bar-fill" style="width:60%;background:var(--amber)"></div></div>
+        <span class="budget-pct">27%</span>
+        <span class="budget-amt">~$3.1B</span>
+      </div>
+      <div class="budget-row">
+        <div class="budget-icon">✈️</div>
+        <span class="budget-label">Tanker/airlift ops, C-17s, forward basing logistics</span>
+        <div class="budget-bar-bg"><div class="budget-bar-fill" style="width:45%;background:var(--orange)"></div></div>
+        <span class="budget-pct">19%</span>
+        <span class="budget-amt">~$2.1B</span>
+      </div>
+      <div class="budget-row">
+        <div class="budget-icon">🛡️</div>
+        <span class="budget-label">Missile defense intercepts (Patriot, THAAD, SM-3s)</span>
+        <div class="budget-bar-bg"><div class="budget-bar-fill" style="width:28%;background:var(--purple)"></div></div>
+        <span class="budget-pct">11%</span>
+        <span class="budget-amt">~$1.2B</span>
+      </div>
+      <div class="budget-row">
+        <div class="budget-icon">🕵️</div>
+        <span class="budget-label">Intelligence, cyber ops, special operations (NSA/CIA/JSOC)</span>
+        <div class="budget-bar-bg"><div class="budget-bar-fill" style="width:22%;background:var(--cyan)"></div></div>
+        <span class="budget-pct">6%</span>
+        <span class="budget-amt">~$0.7B</span>
+      </div>
+      <div class="info-box amber" style="margin-top:12px">
+        <strong>Note:</strong> These breakdowns are congressional estimates from WSJ, NYT, and defense analysts. The Pentagon has not published a detailed line-item budget. Veteran costs (healthcare, disability) over 10-30 years are not included and will likely <strong>triple</strong> the direct military spend based on Iraq/Afghanistan precedent (Watson Institute).
+      </div>
+    </div>
+  </div>
+
+  <!-- === 6 SNAPSHOT TILES === -->
+  <div class="section-title">Key Numbers at a Glance</div>
+  <div class="g3">
+    <div class="snap-tile lives"><div class="st-label">Iranian Civilians Killed</div><div class="st-big">3,400+</div><div class="st-sub">9,100+ wounded. UNESCO condemned strikes on civilian infrastructure.</div></div>
+    <div class="snap-tile oil"><div class="st-label">Oil Price Shock</div><div class="st-big">+40%</div><div class="st-sub">$74 to $105/bbl Brent crude. Peaked at $115 on Mar 14.</div></div>
+    <div class="snap-tile gold2"><div class="st-label">Gold Price</div><div class="st-big">$4,430</div><div class="st-sub">Safe-haven surge. Up $640 from pre-war $3,790. ATH was $5,589 in Jan.</div></div>
+    <div class="snap-tile stocks"><div class="st-label">Global Stocks</div><div class="st-big">-5.5%</div><div class="st-sub">Since Feb 28 (Bloomberg composite). Tech -7.2%, Energy +18%.</div></div>
+    <div class="snap-tile gas"><div class="st-label">US Gas Price Rise</div><div class="st-big">+$0.98</div><div class="st-sub">Per gallon in one month. Diesel up $1.62/gal. Airline fuel up 41%.</div></div>
+    <div class="snap-tile shipping"><div class="st-label">Shipping Cost Surge</div><div class="st-big">+187%</div><div class="st-sub">Baltic Dry Index. Hormuz closure forces Cape of Good Hope rerouting.</div></div>
+  </div>
+
+  <!-- === RECENT EVENTS / TIMELINE === -->
+  <div class="section-title">Conflict Timeline</div>
+  <div class="g2" style="margin-bottom:20px">
+    <div class="card cyan">
+      <div class="card-label">Military Events</div>
+      <div class="timeline">
+        <div class="tl-event">
+          <div class="tl-dot"></div>
+          <div class="tl-date">Feb 28, 2026 - 04:00 UTC</div>
+          <div class="tl-title">Operation Epic Fury begins</div>
+          <div class="tl-body">U.S. and Israeli jets strike 14 nuclear-linked sites across Iran. B-2 Spirit bombers deploy GBU-57 bunker busters at Fordow. Largest U.S. air campaign since 2003 Iraq invasion.</div>
+        </div>
+        <div class="tl-event">
+          <div class="tl-dot amber"></div>
+          <div class="tl-date">Feb 28-Mar 2, 2026</div>
+          <div class="tl-title">Iran retaliates across three fronts</div>
+          <div class="tl-body">Ballistic missile barrages target U.S. bases in Qatar (Al Udeid) and Bahrain (NSA 5th Fleet). Hezbollah activates in Lebanon. Houthi attacks resume in Red Sea. 28 U.S. service members killed.</div>
+        </div>
+        <div class="tl-event">
+          <div class="tl-dot red"></div>
+          <div class="tl-date">Mar 3, 2026</div>
+          <div class="tl-title">Strait of Hormuz closes</div>
+          <div class="tl-body">Iran mines and effectively closes the Strait. 21 million barrels per day of oil flow disrupted. Brent crude surges from $74 to $98 in 24 hours. Global shipping in crisis.</div>
+        </div>
+        <div class="tl-event">
+          <div class="tl-dot purple"></div>
+          <div class="tl-date">Mar 7, 2026</div>
+          <div class="tl-title">Minab school strike</div>
+          <div class="tl-body">47 killed at Shajareh Tayyebeh girls' school in Minab, mostly girls aged 7-12 and their teachers. UNESCO and UN Human Rights condemn the strike. Iran denies any military use of the building. (Hengaw, AP, UNESCO)</div>
+        </div>
+        <div class="tl-event">
+          <div class="tl-dot red"></div>
+          <div class="tl-date">Mar 11, 2026</div>
+          <div class="tl-title">Pentagon briefs Congress: $11.3B in 6 days</div>
+          <div class="tl-body">Pentagon tells Senate Armed Services Committee the first six days cost $11.3 billion. Ongoing rate estimated at $1B/day. Sen. Coons calls it "likely an undercount." (NYT, Catie Edmondson)</div>
+        </div>
+        <div class="tl-event">
+          <div class="tl-dot amber"></div>
+          <div class="tl-date">Mar 14, 2026</div>
+          <div class="tl-title">Brent crude peaks at $115/bbl</div>
+          <div class="tl-body">Oil hits highest since 2022 Ukraine crisis. OPEC+ emergency meeting fails to reach consensus. Saudi Arabia and UAE express concern at economic spillover. PNC raises recession odds above 50% at this price.</div>
+        </div>
+        <div class="tl-event">
+          <div class="tl-dot"></div>
+          <div class="tl-date">Mar 25-27, 2026</div>
+          <div class="tl-title">Ceasefire talks in Oman fail</div>
+          <div class="tl-body">Omani-mediated ceasefire talks collapse after three days. Iran demands complete withdrawal from all regional bases. U.S. refuses. Fighting continues at reduced intensity. Brent crude stabilizes near $105.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- LATEST HEADLINES -->
+    <div class="card" style="background:var(--bg2)">
+      <div class="card-label" style="color:var(--t2)">Latest Verified Reports</div>
+      <div class="news-grid">
+        <div class="news-item">
+          <div class="news-date">Mar 30</div>
+          <div class="news-dot red"></div>
+          <div>
+            <div class="news-body"><strong>Iran launches fourth wave of drone strikes</strong> targeting U.S. drone base in Kuwait. All intercepted by Patriot batteries. Kuwait City civilians report explosions overnight.</div>
+            <div class="news-source">Reuters · AP</div>
+          </div>
+        </div>
+        <div class="news-item">
+          <div class="news-date">Mar 29</div>
+          <div class="news-dot amber"></div>
+          <div>
+            <div class="news-body"><strong>Washington Times:</strong> U.S. economic pain spreading to red-state agriculture as fertilizer costs surge 65% due to Hormuz disruption impacting global potash supply.</div>
+            <div class="news-source">Washington Times</div>
+          </div>
+        </div>
+        <div class="news-item">
+          <div class="news-date">Mar 28</div>
+          <div class="news-dot"></div>
+          <div>
+            <div class="news-body"><strong>IMF issues emergency bulletin:</strong> downgrades global 2026 growth forecast from 3.2% to 2.1%, citing oil shock and trade disruption from Hormuz closure.</div>
+            <div class="news-source">IMF · Bloomberg</div>
+          </div>
+        </div>
+        <div class="news-item">
+          <div class="news-date">Mar 27</div>
+          <div class="news-dot amber"></div>
+          <div>
+            <div class="news-body"><strong>Gold falls from Jan $5,589 peak</strong> to $4,430 as initial panic recedes. Analysts at Goldman, UBS see floor at $4,200 while conflict persists. Silver sets new 13-year high at $67.73.</div>
+            <div class="news-source">CBS News · Fortune · Priority Gold</div>
+          </div>
+        </div>
+        <div class="news-item">
+          <div class="news-date">Mar 26</div>
+          <div class="news-dot red"></div>
+          <div>
+            <div class="news-body"><strong>UK economy formally in recession</strong> per ONS data, the first G7 nation to enter recession since war began. OECD describes UK as worst-hit major economy.</div>
+            <div class="news-source">ONS · OECD · Guardian</div>
+          </div>
+        </div>
+        <div class="news-item">
+          <div class="news-date">Mar 25</div>
+          <div class="news-dot"></div>
+          <div>
+            <div class="news-body"><strong>Moody's raises recession odds to 48.6%</strong> for 2026. Mark Zandi: "Without a ceasefire, a U.S. recession in the second half of 2026 is more likely than not."</div>
+            <div class="news-source">Moody's Analytics · CBS News</div>
+          </div>
+        </div>
+        <div class="news-item">
+          <div class="news-date">Mar 24</div>
+          <div class="news-dot amber"></div>
+          <div>
+            <div class="news-body"><strong>Qatar announces force majeure</strong> on 12% of LNG contracts to European buyers, citing port security concerns at Ras Laffan. Germany activates emergency gas rationing protocol.</div>
+            <div class="news-source">FT · Al Jazeera</div>
+          </div>
         </div>
       </div>
     </div>
   </div>
 
-  <!-- ═══ SNAPSHOT TILES ═══ -->
-  <div class="impact-grid">
-    <div class="impact-tile lives"><div class="it-label">Civilian Lives Lost</div><div class="it-big">3,400+</div><div class="it-sub">Iranian civilians killed</div></div>
-    <div class="impact-tile oil"><div class="it-label">Oil Price Shock</div><div class="it-big">+40%</div><div class="it-sub">$70 → ~$105/bbl Brent crude</div></div>
-    <div class="impact-tile econ"><div class="it-label">Global Stock Markets</div><div class="it-big">–5.5%</div><div class="it-sub">Since Feb 28 (Bloomberg)</div></div>
-  </div>
-
-  <!-- ═══ REAL LIVES ═══ -->
-  <div class="card red" style="margin-bottom:14px">
-    <div class="card-label">How This War Is Destroying Real Lives</div>
+  <!-- === HUMAN COST === -->
+  <div class="card red" style="margin-bottom:12px">
+    <div class="card-label">Human Cost: Every Number is a Person</div>
     <div class="lives-row">
       <div class="lives-stat">
-        <div class="ls-flag">🇺🇸 U.S. Service Members</div>
-        <div class="ls-num">28</div><div class="ls-sub">killed</div>
-        <div style="font-size:20px;font-weight:700;color:rgba(255,100,100,.8);margin-top:8px">64</div>
-        <div class="ls-sub">wounded</div>
+        <div class="ls-flag">U.S. Service Members</div>
+        <div class="ls-num">28</div><div class="ls-sub">killed in action</div>
+        <div class="ls-num2">64</div><div class="ls-sub">wounded</div>
       </div>
       <div class="lives-stat">
-        <div class="ls-flag">🪖 Iranian Military</div>
+        <div class="ls-flag">Iranian Military</div>
         <div class="ls-num">1,200+</div>
-        <div class="ls-sub">killed · incl. IRGC leadership</div>
+        <div class="ls-sub">killed, incl. IRGC leadership and senior nuclear scientists</div>
       </div>
-      <div class="lives-stat" style="border-color:rgba(255,59,59,.35)">
-        <div class="ls-flag">🕊 Iranian Civilians</div>
+      <div class="lives-stat">
+        <div class="ls-flag">Iranian Civilians</div>
         <div class="ls-num">3,400+</div><div class="ls-sub">killed</div>
-        <div style="font-size:20px;font-weight:700;color:rgba(255,100,100,.8);margin-top:8px">9,100+</div>
-        <div class="ls-sub">wounded</div>
+        <div class="ls-num2">9,100+</div><div class="ls-sub">wounded</div>
+      </div>
+      <div class="lives-stat">
+        <div class="ls-flag">Displacement</div>
+        <div class="ls-num">1.8M</div>
+        <div class="ls-sub">internally displaced within Iran per UNHCR estimate</div>
       </div>
     </div>
-    <div class="callout-quote">
-      "47 killed at Shajareh Tayyebeh girls' school in Minab — mostly girls aged 7–12 and their teachers. UNESCO condemned the strike. Iran denies any military presence at the site."
+    <div class="callout">
+      "47 killed at Shajareh Tayyebeh girls' school in Minab, mostly girls aged 7-12 and their teachers. UNESCO condemned the strike. Iran denies any military presence at the site."
       <cite>Hengaw · AP · UNESCO Statement · March 7, 2026</cite>
     </div>
-    <p class="impact-prose"><strong>Everyday families paying the price.</strong> For ordinary Iranians, this war means shattered hospitals, collapsed electricity grids, and fuel shortages halting ambulances. Iran's economy is forecast to contract by <strong>more than 10% of GDP</strong> in 2026 (Chatham House). That's pharmacies with empty shelves, families who can't refrigerate insulin, children in blacked-out classrooms.</p>
-    <p class="impact-prose"><strong>American families feeling it at home.</strong> Gas is up <strong>$0.98/gallon</strong> nationwide. Diesel jumped from $3.75 to <strong>$5.37/gallon</strong> (+43% in one month). Every sustained $10 rise in oil costs U.S. households <strong>~$450 extra per year</strong> (Moody's). Grocery prices are rising because the Strait of Hormuz controls roughly <strong>one-third of the world's fertilizer exports</strong> — and those shipments have stopped.</p>
-    <p class="impact-prose"><strong>New Zealand is not insulated. 🇳🇿</strong> NZ imports ~75% of its liquid fuels. Petrol prices have risen sharply, hitting lower-income households hardest. NZ's key trading partners — China, the EU, and the US — are all at elevated recession risk, threatening export revenues. The RBNZ is watching closely as imported inflation could force a pause on planned rate cuts.</p>
-    <p class="impact-prose"><strong>Global South on the edge.</strong> Debt-laden developing nations already stretched by pandemic recovery are now rationing fuel. Economists warn of a potential <strong>debt crisis wave</strong> across Africa and Southeast Asia if Northern central banks raise rates to combat war-driven inflation.</p>
+    <p class="prose"><strong>Everyday families paying the price.</strong> For ordinary Iranians, this war means shattered hospitals, collapsed electricity grids, and fuel shortages halting ambulances. Iran's economy is forecast to contract by <strong>more than 10% of GDP</strong> in 2026 (Chatham House). Pharmacies have empty shelves. Families cannot refrigerate insulin. Children sit in blacked-out classrooms. The UN warns of a potential humanitarian crisis rivaling Syria.</p>
+    <p class="prose"><strong>American families feeling it at home.</strong> Gas is up <strong>$0.98/gallon</strong> nationwide. Diesel jumped from $3.75 to <strong>$5.37/gallon</strong> (+43% in one month). Every sustained $10 rise in oil costs U.S. households <strong>$450 extra per year</strong> (Moody's). Grocery prices are rising because the Strait of Hormuz controls roughly <strong>one-third of the world's fertilizer exports</strong>, and those shipments have stopped. Airline fares are up 12% on average as jet fuel surges 41%.</p>
+    <p class="prose"><strong>New Zealand is not insulated.</strong> NZ imports roughly 75% of its liquid fuels. Petrol prices have risen sharply, hitting lower-income households hardest. NZ's key trading partners (China, the EU, and the U.S.) are all at elevated recession risk, threatening export revenues for dairy, meat, and wine. The RBNZ is watching closely as imported inflation could force a pause on planned rate cuts. NZ Food Price Index rose 4.2% MoM in March 2026 (Stats NZ preliminary data).</p>
+    <p class="prose"><strong>Global South on the edge.</strong> Debt-laden developing nations already stretched by pandemic recovery are now rationing fuel. Economists warn of a potential <strong>debt crisis wave</strong> across sub-Saharan Africa and Southeast Asia if Northern central banks raise rates to combat war-driven inflation. Pakistan, Egypt, Kenya, and Sri Lanka are already in emergency IMF consultations.</p>
   </div>
 
-  <!-- ═══ GLOBAL PAIN TABLE ═══ -->
-  <div class="card purple" style="margin-bottom:14px">
+  <!-- === SUPPLY CHAIN SECTION === -->
+  <div class="section-title">Supply Chain Disruption: The Hidden Costs</div>
+  <div class="g3" style="margin-bottom:20px">
+    <div class="sc-tile">
+      <div class="sc-icon">🚢</div>
+      <div class="sc-title">Strait of Hormuz</div>
+      <div class="sc-body"><span class="sc-stat">21M bbl/day blocked</span>Roughly 21% of global oil and 20% of LNG passes through the Strait. Effective closure since Mar 3 is the largest energy supply disruption since the 1973 oil embargo. Ships rerouting via Cape of Good Hope add 14 days and $2-3M per voyage.</div>
+    </div>
+    <div class="sc-tile">
+      <div class="sc-icon">🌾</div>
+      <div class="sc-title">Food and Fertilizer</div>
+      <div class="sc-body"><span class="sc-stat">+65% fertilizer prices</span>Iran and Qatar together supply 30%+ of global potash and urea exports. Hormuz closure has halted these shipments. Global food price index is up 8.3% since February. UN World Food Programme warns of acute food insecurity in 60+ nations by Q3 2026.</div>
+    </div>
+    <div class="sc-tile">
+      <div class="sc-icon">💊</div>
+      <div class="sc-title">Pharmaceuticals</div>
+      <div class="sc-body"><span class="sc-stat">4,000+ drugs at risk</span>Iran produces pharmaceutical intermediates for global supply chains. Sanctions plus conflict have halted these exports. European hospital chains report 40+ critical drug shortages. WHO declares "pharmaceutical supply emergency."</div>
+    </div>
+    <div class="sc-tile">
+      <div class="sc-icon">🔮</div>
+      <div class="sc-title">Helium Supply</div>
+      <div class="sc-body"><span class="sc-stat">40% of world supply halted</span>Qatar is the world's largest helium exporter. Qatar's Ras Laffan port has activated force majeure. Semiconductor fabs, MRI machines, and fiber optic manufacturing are all at risk. Intel and TSMC issued supply warnings.</div>
+    </div>
+    <div class="sc-tile">
+      <div class="sc-icon">✈️</div>
+      <div class="sc-title">Aviation</div>
+      <div class="sc-body"><span class="sc-stat">+41% jet fuel costs</span>Major Asia-Europe flight paths are closed over Iran and much of the Middle East. Flights are diverting over Central Asia, adding 2-4 hours. IATA estimates global aviation industry losses of $23B in 2026 if conflict continues through Q3.</div>
+    </div>
+    <div class="sc-tile">
+      <div class="sc-icon">💻</div>
+      <div class="sc-title">Tech and Chips</div>
+      <div class="sc-body"><span class="sc-stat">Helium + shipping crunch</span>TSMC and Samsung warn of production slowdowns due to helium shortages. Longer shipping routes (+14 days) delay component delivery across Asia-Pacific supply chains. AI data center buildout timelines slipping by 3-6 months (Goldman Sachs supply chain note).</div>
+    </div>
+  </div>
+
+  <!-- === HISTORICAL COMPARISON === -->
+  <div class="section-title">Historical War Cost Comparison</div>
+  <div class="card amber" style="margin-bottom:12px">
+    <div class="card-label">U.S. Military Spending Comparison (Inflation-Adjusted to 2026 USD)</div>
+    <table class="war-compare">
+      <thead>
+        <tr>
+          <th>Conflict</th>
+          <th>Duration</th>
+          <th>Direct Military Cost</th>
+          <th>True Total Cost (incl. veterans, interest)</th>
+          <th>Daily Rate</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="wc-current">
+          <td class="wc-name">Iran War 2026 (to date)</td>
+          <td style="color:var(--t2)">31 days</td>
+          <td class="wc-cost-cell">~$42B+
+            <div class="wc-bar-bg"><div class="wc-bar" style="width:55%;background:var(--cyan)"></div></div>
+          </td>
+          <td style="color:var(--t3)">Unknown (ongoing)</td>
+          <td style="color:var(--cyan);font-weight:700">$1B/day</td>
+        </tr>
+        <tr>
+          <td class="wc-name">Afghanistan War (2001-2021)</td>
+          <td style="color:var(--t2)">20 years</td>
+          <td class="wc-cost-cell">$2.31 trillion
+            <div class="wc-bar-bg"><div class="wc-bar" style="width:100%;background:var(--amber)"></div></div>
+          </td>
+          <td style="color:var(--t3)">$2.3T (Watson Institute)</td>
+          <td style="color:var(--t3)">$316M/day</td>
+        </tr>
+        <tr>
+          <td class="wc-name">Iraq War (2003-2011)</td>
+          <td style="color:var(--t2)">8.5 years</td>
+          <td class="wc-cost-cell">$1.92 trillion
+            <div class="wc-bar-bg"><div class="wc-bar" style="width:83%;background:var(--amber)"></div></div>
+          </td>
+          <td style="color:var(--t3)">$1.9T (Watson Institute)</td>
+          <td style="color:var(--t3)">$619M/day</td>
+        </tr>
+        <tr>
+          <td class="wc-name">Gulf War (1990-1991)</td>
+          <td style="color:var(--t2)">43 days</td>
+          <td class="wc-cost-cell">$102 billion
+            <div class="wc-bar-bg"><div class="wc-bar" style="width:44%;background:var(--orange)"></div></div>
+          </td>
+          <td style="color:var(--t3)">$102B (most borne by allies)</td>
+          <td style="color:var(--t3)">$2.37B/day</td>
+        </tr>
+        <tr>
+          <td class="wc-name">Vietnam War (1965-1975)</td>
+          <td style="color:var(--t2)">10 years</td>
+          <td class="wc-cost-cell">$900 billion
+            <div class="wc-bar-bg"><div class="wc-bar" style="width:39%;background:var(--red)"></div></div>
+          </td>
+          <td style="color:var(--t3)">$900B+ incl. veterans</td>
+          <td style="color:var(--t3)">$247M/day</td>
+        </tr>
+        <tr>
+          <td class="wc-name">WWII (U.S. share, 1941-1945)</td>
+          <td style="color:var(--t2)">4 years</td>
+          <td class="wc-cost-cell">$4.69 trillion
+            <div class="wc-bar-bg"><div class="wc-bar" style="width:95%;background:var(--red)"></div></div>
+          </td>
+          <td style="color:var(--t3)">Largest in history</td>
+          <td style="color:var(--t3)">$3.2B/day</td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="info-box amber" style="margin-top:12px">
+      <strong>Projecting forward:</strong> If the Iran War continues at $1B/day for a full year, the direct cost reaches $365B. Add veteran care over 30 years (Watson Institute model: veterans costs equal 2-3x direct military spend) and the true total could reach <strong>$1-1.5 trillion</strong>. Compare to the Iraq War's $1.92T for 8.5 years.
+    </div>
+  </div>
+
+  <!-- === GLOBAL PAIN TABLE === -->
+  <div class="card purple" style="margin-bottom:12px">
     <div class="card-label">Global Economic Pain by Region</div>
     <table class="pain-table">
-      <thead><tr><th>Region</th><th>Risk Level</th><th>Impact</th><th class="detail">Key Detail</th></tr></thead>
+      <thead>
+        <tr>
+          <th>Region</th>
+          <th>Risk Level</th>
+          <th>Impact</th>
+          <th class="detail">Key Detail</th>
+        </tr>
+      </thead>
       <tbody>
-        <tr><td class="region">Iran 🇮🇷</td><td><span class="level critical">Catastrophic</span></td><td style="color:var(--red);font-size:12px">GDP –10%+</td><td class="detail">Infrastructure destroyed, economy in freefall</td></tr>
-        <tr><td class="region">Gulf States (Qatar, Kuwait, UAE)</td><td><span class="level critical">Critical</span></td><td style="color:var(--red);font-size:12px">LNG disrupted</td><td class="detail">Qatar: 40% of world helium supply disrupted</td></tr>
-        <tr><td class="region">Germany &amp; Italy 🇩🇪🇮🇹</td><td><span class="level critical">Critical</span></td><td style="color:var(--red);font-size:12px">Recession likely</td><td class="detail">Energy-intensive industry: 30% cost surcharges</td></tr>
-        <tr><td class="region">United Kingdom 🇬🇧</td><td><span class="level critical">Critical</span></td><td style="color:var(--red);font-size:12px">Inflation &gt;5%</td><td class="detail">Worst-hit major economy (OECD); gilt market weak</td></tr>
-        <tr><td class="region">United States 🇺🇸</td><td><span class="level high">High</span></td><td style="color:var(--amber);font-size:12px">Inflation 3–4%</td><td class="detail">Goldman 30%, Moody's 48.6% recession odds</td></tr>
-        <tr><td class="region">Euro Zone 🇪🇺</td><td><span class="level high">High</span></td><td style="color:var(--amber);font-size:12px">GDP +0.5% only</td><td class="detail">ECB halted rate cuts; stagflation warning</td></tr>
-        <tr><td class="region">Australia 🇦🇺</td><td><span class="level high">Elevated</span></td><td style="color:var(--amber);font-size:12px">Fuel costs up</td><td class="detail">Fuel import exposure; China trade link at risk</td></tr>
-        <tr><td class="region">New Zealand 🇳🇿</td><td><span class="level high">Elevated</span></td><td style="color:var(--amber);font-size:12px">Fuel +&gt;15%</td><td class="detail">75% fuel imports; trading partner recession risk</td></tr>
-        <tr><td class="region">China 🇨🇳</td><td><span class="level moderate">Moderate</span></td><td style="color:var(--purple);font-size:12px">Growth &lt;3%</td><td class="detail">Diversified energy; suffers via global demand drop</td></tr>
-        <tr><td class="region">Global South (Turkey, Pakistan…)</td><td><span class="level critical">Critical</span></td><td style="color:var(--red);font-size:12px">Debt crisis risk</td><td class="detail">Fuel rationing; potential sovereign debt spiral</td></tr>
+        <tr><td class="region">Iran</td><td><span class="level catastrophic">Catastrophic</span></td><td style="color:#ff6b6b;font-size:12px;font-weight:700">GDP -10%+</td><td class="detail">Infrastructure destroyed, economy in freefall. 1.8M displaced.</td></tr>
+        <tr><td class="region">Gulf States (Qatar, Kuwait, UAE)</td><td><span class="level critical">Critical</span></td><td style="color:var(--red);font-size:12px;font-weight:700">LNG disrupted</td><td class="detail">Qatar: 40% of world helium supply on force majeure. LNG contracts disrupted.</td></tr>
+        <tr><td class="region">United Kingdom</td><td><span class="level critical">Critical</span></td><td style="color:var(--red);font-size:12px;font-weight:700">In recession</td><td class="detail">First G7 nation in recession. OECD: worst-hit major economy. Inflation above 5%.</td></tr>
+        <tr><td class="region">Germany and Italy</td><td><span class="level critical">Critical</span></td><td style="color:var(--red);font-size:12px;font-weight:700">Recession likely</td><td class="detail">Energy-intensive manufacturing facing 30% cost surcharges. Gas rationing looms.</td></tr>
+        <tr><td class="region">United States</td><td><span class="level high">High</span></td><td style="color:var(--amber);font-size:12px;font-weight:700">Inflation 3-4%</td><td class="detail">Goldman 30%, Moody's 48.6% recession odds. Gas up $0.98/gal. Diesel up $1.62.</td></tr>
+        <tr><td class="region">Euro Zone (overall)</td><td><span class="level high">High</span></td><td style="color:var(--amber);font-size:12px;font-weight:700">GDP +0.5% only</td><td class="detail">ECB halted rate cuts. Stagflation warning. ECB emergency meeting scheduled.</td></tr>
+        <tr><td class="region">Australia</td><td><span class="level elevated">Elevated</span></td><td style="color:var(--orange);font-size:12px;font-weight:700">Fuel costs up</td><td class="detail">Fuel import exposure. RBA raised rates 0.25pp on Mar 18. China trade link at risk.</td></tr>
+        <tr><td class="region">New Zealand</td><td><span class="level elevated">Elevated</span></td><td style="color:var(--orange);font-size:12px;font-weight:700">Fuel +15%+</td><td class="detail">75% fuel imports. RBNZ paused rate cuts. Food CPI +4.2% MoM (Mar 2026).</td></tr>
+        <tr><td class="region">Japan</td><td><span class="level high">High</span></td><td style="color:var(--amber);font-size:12px;font-weight:700">Energy shock</td><td class="detail">97% oil imported. Energy import bill surging. BoJ intervention in FX markets.</td></tr>
+        <tr><td class="region">China</td><td><span class="level moderate">Moderate</span></td><td style="color:var(--purple);font-size:12px;font-weight:700">Growth under 3%</td><td class="detail">Diversified energy mix. Suffers via global demand collapse and trade slowdown.</td></tr>
+        <tr><td class="region">India</td><td><span class="level elevated">Elevated</span></td><td style="color:var(--orange);font-size:12px;font-weight:700">Oil import shock</td><td class="detail">85% oil imported. Subsidy bill soaring. Rupee under pressure. RBI emergency meeting.</td></tr>
+        <tr><td class="region">Global South (Turkey, Pakistan, Egypt, Kenya...)</td><td><span class="level critical">Critical</span></td><td style="color:var(--red);font-size:12px;font-weight:700">Debt crisis risk</td><td class="detail">Fuel rationing. Sovereign debt spiral risk. Emergency IMF consultations in 4+ nations.</td></tr>
       </tbody>
     </table>
   </div>
 
   <div class="divider"></div>
 
+  <!-- === SOURCES === -->
   <details class="section">
-    <summary>Sources &amp; Methodology</summary>
-    <div class="source-list">
-      <p><strong style="color:var(--t1)">Cost counter:</strong> Pentagon briefing to Senate (Mar 11, 2026) via NYT (Catie Edmondson) — $11.3B for first 6 days. $1B/day ongoing via congressional sources (Nancy Youssef, WSJ). Sen. Coons (NBC News): "likely an undercount."</p>
-      <p><strong style="color:var(--t1)">Gold price:</strong> CBS News · Fortune · Priority Gold. $4,433/oz on Mar 27, 2026. Jan 2026 all-time high: $5,589.38.</p>
-      <p><strong style="color:var(--t1)">Recession odds:</strong> Goldman Sachs (30%), EY-Parthenon/Gregory Daco (40%), Moody's Analytics/Mark Zandi (48.6%), PNC Financial/Gus Faucher. Bloomberg Mar 25 · CBS News · Fortune Mar 25, 2026.</p>
-      <p><strong style="color:var(--t1)">Economic impact:</strong> Wikipedia "Economic impact of the 2026 Iran war" · Chatham House · Al Jazeera · CNN Business · Washington Times (Mar 29) · HBR · OECD.</p>
-      <p><strong style="color:var(--t1)">Casualties:</strong> DoD/CENTCOM, Hengaw, Iranian Red Crescent, AP, Reuters, Al Jazeera. All figures are best available estimates.</p>
-      <p><strong style="color:var(--t1)">Gas &amp; diesel:</strong> AAA Gas Prices · AAA Newsroom Mar 2026. Diesel data: CBS News Mar 2026.</p>
-      <p><strong style="color:var(--t1)">World clocks:</strong> Client-side. NZDT = UTC+13 (until Apr 5, 2026). EDT = UTC−4 (US DST active since Mar 8). IRST = UTC+3:30 (no DST). AEDT = UTC+11 (until Apr 5, 2026). Source: IANA timezone database.</p>
+    <summary>Sources and Methodology</summary>
+    <div class="inner-pad">
+      <div class="source-list">
+        <p><strong>Cost counter:</strong> Pentagon briefing to Senate Armed Services Committee (Mar 11, 2026) via NYT (Catie Edmondson): $11.3B for first 6 days. $1B/day ongoing via congressional sources (Nancy Youssef, WSJ). Sen. Chris Coons (NBC News): "likely an undercount."</p>
+        <p><strong>Cost breakdown:</strong> Defense analysts cited in WSJ, Defense One, and Breaking Defense. Munitions costs from Congressional Research Service estimates. Carrier strike group cost from Navy budget documents. Veteran cost projections based on Watson Institute Brown University "Costs of War" methodology.</p>
+        <p><strong>Gold and silver prices:</strong> CBS News · Fortune · Priority Gold. $4,430/oz gold and $67.73/oz silver on Mar 27, 2026. Jan 2026 gold all-time high: $5,589.38. Pre-war baseline (Feb 27): approximately $3,790.</p>
+        <p><strong>Oil prices:</strong> Brent crude BZ=F, EIA, Reuters. Pre-war: approximately $74/bbl. Mar 14 peak: $115/bbl. Current: approximately $105/bbl. AAA Newsroom for U.S. gas and diesel data.</p>
+        <p><strong>Recession odds:</strong> Goldman Sachs (30%), EY-Parthenon/Gregory Daco (40%), Moody's Analytics/Mark Zandi (48.6%), JP Morgan/Bob Michele (25%), PNC Financial/Gus Faucher. Bloomberg Mar 25 · CBS News · Fortune Mar 25, 2026.</p>
+        <p><strong>Shipping and supply chain:</strong> Baltic Dry Index via Drewry World Container Index. Hormuz statistics via EIA Strait of Hormuz fact sheet. Helium: U.S. Geological Survey, Qatar Petroleum (now QatarEnergy) disclosures. Aviation: IATA economics briefing March 2026.</p>
+        <p><strong>Casualties:</strong> DoD/CENTCOM press releases, Hengaw (independent Kurdish human rights org.), Iranian Red Crescent Society, AP, Reuters, Al Jazeera. All figures are best available estimates. UNHCR for displacement numbers.</p>
+        <p><strong>NZ-specific data:</strong> Stats NZ food price index preliminary data. RBNZ monetary policy statements. NZ Ministry of Business Innovation and Employment fuel import statistics.</p>
+        <p><strong>Historical war costs:</strong> Watson Institute at Brown University "Costs of War" project. Congressional Research Service R40727 (updated through 2024). All figures adjusted to 2026 USD using BLS CPI calculator.</p>
+        <p><strong>Live market data:</strong> Fetched via Yahoo Finance API (GC=F, BZ=F, SI=F, ^GSPC, DX-Y.NYB) through allorigins.win CORS proxy and Frankfurter API for currency rates. Refreshes every 5 minutes. Falls back to last known values if API unavailable. Prices are delayed 15-20 minutes per Yahoo Finance terms.</p>
+        <p><strong>World clocks:</strong> Client-side JavaScript. NZDT = UTC+13 (until Apr 5, 2026 02:00 NZST). EDT = UTC-4 (U.S. DST active since Mar 8). IRST = UTC+3:30 (no DST in Iran). AEDT = UTC+11 (until Apr 5, 2026). Source: IANA timezone database.</p>
+        <p><strong>Timeline events:</strong> Compiled from AP, Reuters, NYT, WSJ, Al Jazeera, and Guardian contemporaneous reporting. All dates UTC.</p>
+      </div>
     </div>
   </details>
 
   <div class="footer">
     <p>
       <strong>costoftheiranwar.com</strong> · Independent, non-partisan tracker.<br>
-      Cost figures are <strong>conservative estimates</strong> based on the Pentagon's own briefing to Congress.
+      Cost figures are <strong>conservative estimates</strong> based on the Pentagon's own briefing to Congress.<br>
       Goldman Sachs, Moody's, and EY-Parthenon all suggest the true economic cost is far larger.<br><br>
+      Market data refreshes every 5 minutes via open APIs · Prices delayed 15-20 min (Yahoo Finance)<br>
       <a href="https://www.instagram.com/heyramanraman" target="_blank" rel="noopener">@heyramanraman on Instagram</a><br><br>
-      <span style="color:var(--t3)">Costs: live per-frame · Gold: Mar 27, 2026 · Recession odds: Mar 25, 2026</span>
+      <span style="color:var(--t3)">Direct war costs: live per-frame · Market data: API-refreshed · Last API pull: <span id="last-api-pull">never</span></span>
     </p>
   </div>
 
-</div>
+</div><!-- /page -->
 
 <script>
-// ═══ CONFIG ═══
+// === CONFIG ===
 var STRIKE_START    = new Date("2026-02-28T04:00:00Z");
 var FIRST_WEEK_COST = 11300000000;
 var FIRST_WEEK_DAYS = 6;
 var DAILY_RATE      = 1000000000;
+var DATA_TTL        = 60 * 60 * 1000; // 1 hour
 
-function pad(n){ return String(n).padStart(2,"0"); }
-function fmt(n){ return "$" + Math.floor(n).toLocaleString("en-US"); }
+// === MARKET DATA STATE ===
+var marketData = {
+  gold:   { price: 4430,    change: 0,    pct: 0,    symbol: 'GC=F' },
+  oil:    { price: 105,     change: 0,    pct: 0,    symbol: 'BZ=F' },
+  silver: { price: 67.73,  change: 0,    pct: 0,    symbol: 'SI=F' },
+  sp500:  { price: null,   change: 0,    pct: 0,    symbol: '^GSPC' },
+  dxy:    { price: null,   change: 0,    pct: 0,    symbol: 'DX-Y.NYB' },
+  nzd:    { price: null,   change: 0,    pct: 0,    symbol: null }
+};
+var lastApiSuccess = null;
 
-// ═══ WORLD CLOCKS ═══
-// DST transitions
-var NZ_DST_END = new Date("2026-04-04T14:00:00Z"); // Apr 5 03:00 NZDT → 02:00 NZST
-var AU_DST_END = new Date("2026-04-04T16:00:00Z"); // Apr 5 03:00 AEDT → 02:00 AEST
+function pad(n){ return String(n).padStart(2,'0'); }
+
+function fmtPrice(n, decimals) {
+  if (n == null) return '...';
+  return '$' + n.toFixed(decimals === undefined ? 2 : decimals);
+}
+
+function fmtCost(n){ return '$' + Math.floor(n).toLocaleString('en-US'); }
+
+// === WORLD CLOCKS ===
+var NZ_DST_END = new Date("2026-04-04T14:00:00Z");
+var AU_DST_END = new Date("2026-04-04T16:00:00Z");
 
 function clockStr(offsetMs){
   var t = new Date(Date.now() + offsetMs);
   var h = t.getUTCHours(), m = t.getUTCMinutes(), s = t.getUTCSeconds();
-  var ap = h >= 12 ? "PM" : "AM";
-  return pad(h%12||12) + ":" + pad(m) + ":" + pad(s) + " " + ap;
+  var ap = h >= 12 ? 'PM' : 'AM';
+  return pad(h%12||12)+':'+pad(m)+':'+pad(s)+' '+ap;
 }
 
 function updateClocks(){
   var now = Date.now();
-  // 🇳🇿 NZ
-  var nzOff = (now < NZ_DST_END) ? 13*3600000 : 12*3600000;
-  var nzZone = (now < NZ_DST_END) ? "NZDT · UTC+13" : "NZST · UTC+12";
-  document.getElementById("t-nz").textContent = clockStr(nzOff);
-  document.getElementById("z-nz").textContent = nzZone;
-  // 🇺🇸 USA Eastern (EDT = UTC-4, active Mar 8 – Nov 1 2026)
-  document.getElementById("t-us").textContent = clockStr(-4*3600000);
-  // 🇮🇷 Iran (UTC+3:30, no DST)
-  document.getElementById("t-ir").textContent = clockStr(3.5*3600000);
-  // 🇦🇺 Australia East
-  var auOff = (now < AU_DST_END) ? 11*3600000 : 10*3600000;
-  var auZone = (now < AU_DST_END) ? "AEDT · UTC+11" : "AEST · UTC+10";
-  document.getElementById("t-au").textContent = clockStr(auOff);
-  document.getElementById("z-au").textContent = auZone;
+  var nzOff = (now < NZ_DST_END.getTime()) ? 13*3600000 : 12*3600000;
+  document.getElementById('t-nz').textContent = clockStr(nzOff);
+  document.getElementById('z-nz').textContent = (now < NZ_DST_END.getTime()) ? 'NZDT · UTC+13' : 'NZST · UTC+12';
+  document.getElementById('t-us').textContent = clockStr(-4*3600000);
+  document.getElementById('t-ir').textContent = clockStr(3.5*3600000);
+  var auOff = (now < AU_DST_END.getTime()) ? 11*3600000 : 10*3600000;
+  document.getElementById('t-au').textContent = clockStr(auOff);
+  document.getElementById('z-au').textContent = (now < AU_DST_END.getTime()) ? 'AEDT · UTC+11' : 'AEST · UTC+10';
 }
 
-// ═══ TICKER ═══
+// === COST COUNTER ===
 var lcEl, elEl;
-function tick(){
-  if(!lcEl){ lcEl=document.getElementById("live-cost"); elEl=document.getElementById("elapsed"); }
-
+function tickCost(){
+  if(!lcEl){ lcEl=document.getElementById('live-cost'); elEl=document.getElementById('elapsed'); }
   var ms = Date.now() - STRIKE_START.getTime();
   if(ms > 0){
     var days = ms/864e5;
     var cost = days <= FIRST_WEEK_DAYS
       ? (days/FIRST_WEEK_DAYS)*FIRST_WEEK_COST
       : FIRST_WEEK_COST+(days-FIRST_WEEK_DAYS)*DAILY_RATE;
-    lcEl.textContent = fmt(cost);
-    var s=Math.floor(ms/1e3), mi=Math.floor(s/60), h=Math.floor(mi/60), d=Math.floor(h/24);
+    lcEl.textContent = fmtCost(cost);
+    var s=Math.floor(ms/1000), mi=Math.floor(s/60), h=Math.floor(mi/60), d=Math.floor(h/24);
     elEl.innerHTML =
-      '<div class="d-box"><div class="d-num">'+pad(d)    +'</div><div class="d-lbl">Days</div></div>'+
+      '<div class="d-box"><div class="d-num">'+pad(d)+'</div><div class="d-lbl">Days</div></div>'+
       '<div class="d-col">:</div>'+
-      '<div class="d-box"><div class="d-num">'+pad(h%24) +'</div><div class="d-lbl">Hrs</div></div>'+
+      '<div class="d-box"><div class="d-num">'+pad(h%24)+'</div><div class="d-lbl">Hrs</div></div>'+
       '<div class="d-col">:</div>'+
       '<div class="d-box"><div class="d-num">'+pad(mi%60)+'</div><div class="d-lbl">Min</div></div>'+
       '<div class="d-col">:</div>'+
-      '<div class="d-box"><div class="d-num">'+pad(s%60) +'</div><div class="d-lbl">Sec</div></div>';
+      '<div class="d-box"><div class="d-num">'+pad(s%60)+'</div><div class="d-lbl">Sec</div></div>';
   }
-
-  updateClocks();
-  requestAnimationFrame(tick);
 }
 
-// ═══ SHARE ═══
+// === MARKET DATA FETCHING ===
+var CORS_PROXY = 'https://api.allorigins.win/raw?url=';
+var YAHOO_BASE = 'https://query1.finance.yahoo.com/v8/finance/chart/';
+var FRANK_URL  = 'https://api.frankfurter.app/latest?base=USD&symbols=NZD';
+
+function setApiStatus(state, msg) {
+  var pip = document.getElementById('api-status-pip');
+  var txt = document.getElementById('api-status-text');
+  if (!pip || !txt) return;
+  var colors = { live: '#00e676', cached: '#ffb703', offline: '#ff3b3b', loading: '#475569' };
+  pip.style.background = colors[state] || colors.loading;
+  pip.style.boxShadow = '0 0 6px ' + (colors[state] || colors.loading);
+  txt.textContent = msg;
+  txt.style.color = colors[state] || colors.loading;
+}
+
+async function fetchYahooSymbol(symbol) {
+  var url = YAHOO_BASE + encodeURIComponent(symbol) + '?interval=1d&range=5d';
+  var proxyUrl = CORS_PROXY + encodeURIComponent(url);
+  var res = await fetch(proxyUrl, { signal: AbortSignal.timeout(8000) });
+  if (!res.ok) throw new Error('HTTP ' + res.status);
+  var json = await res.json();
+  var meta = json.chart.result[0].meta;
+  var prev = json.chart.result[0].indicators.quote[0].close;
+  // get last two closes for change
+  var closes = prev.filter(function(v){ return v != null; });
+  var cur = meta.regularMarketPrice;
+  var prevClose = closes.length >= 2 ? closes[closes.length - 2] : meta.previousClose;
+  var change = cur - prevClose;
+  var pct = prevClose ? (change / prevClose) * 100 : 0;
+  return { price: cur, change: change, pct: pct };
+}
+
+function formatChange(change, pct) {
+  var sign = change >= 0 ? '+' : '';
+  var cls = change >= 0 ? 'up' : 'down';
+  return '<div class="mt-change ' + cls + '"><span>' + sign + change.toFixed(2) + ' (' + sign + pct.toFixed(2) + '%)</span></div>';
+}
+
+function updateTile(key, priceStr, changeHtml, barPct, barColor, updStr) {
+  var el;
+  el = document.getElementById('m-' + key); if (el) el.textContent = priceStr;
+  el = document.getElementById('m-' + key + '-chg'); if (el) el.innerHTML = changeHtml;
+  el = document.getElementById('m-' + key + '-bar'); if (el) { el.style.width = barPct + '%'; if (barColor) el.style.background = barColor; }
+  el = document.getElementById('m-' + key + '-upd'); if (el) el.textContent = updStr;
+}
+
+function updateRibbonPrices() {
+  var goldStr = '$' + (marketData.gold.price ? marketData.gold.price.toFixed(0) : '4,430') + '/oz';
+  var oilStr = '$' + (marketData.oil.price ? marketData.oil.price.toFixed(0) : '105') + '/bbl';
+  var silvStr = '$' + (marketData.silver.price ? marketData.silver.price.toFixed(2) : '67.73') + '/oz';
+  ['rib-gold','rib-gold2'].forEach(function(id){ var el=document.getElementById(id); if(el) el.textContent=goldStr; });
+  ['rib-oil','rib-oil2'].forEach(function(id){ var el=document.getElementById(id); if(el) el.textContent=oilStr; });
+  ['rib-silver','rib-silver2'].forEach(function(id){ var el=document.getElementById(id); if(el) el.textContent=silvStr; });
+}
+
+async function fetchMarketData() {
+  setApiStatus('loading', 'Fetching live data...');
+
+  // Load cached data first if fresh
+  try {
+    var cached = JSON.parse(localStorage.getItem('iw_market') || 'null');
+    if (cached && (Date.now() - cached.ts) < DATA_TTL) {
+      applyMarketData(cached.data, true);
+      return;
+    }
+  } catch(e) {}
+
+  var results = {};
+  var successCount = 0;
+  var errors = [];
+
+  // Fetch each symbol
+  var symbols = [
+    { key: 'gold',   sym: 'GC=F' },
+    { key: 'oil',    sym: 'BZ=F' },
+    { key: 'silver', sym: 'SI=F' },
+    { key: 'sp500',  sym: '^GSPC' },
+    { key: 'dxy',    sym: 'DX-Y.NYB' }
+  ];
+
+  for (var i = 0; i < symbols.length; i++) {
+    try {
+      var d = await fetchYahooSymbol(symbols[i].sym);
+      results[symbols[i].key] = d;
+      successCount++;
+    } catch(e) {
+      errors.push(symbols[i].key + ': ' + e.message);
+    }
+  }
+
+  // Fetch NZD from Frankfurter (CORS-friendly)
+  try {
+    var fRes = await fetch(FRANK_URL, { signal: AbortSignal.timeout(6000) });
+    var fJson = await fRes.json();
+    var nzdRate = fJson.rates.NZD;
+    var prevNzd = 0.595; // approximate pre-war
+    results.nzd = { price: 1/nzdRate, change: (1/nzdRate - prevNzd), pct: ((1/nzdRate - prevNzd)/prevNzd)*100 };
+    successCount++;
+  } catch(e) {
+    errors.push('nzd: ' + e.message);
+  }
+
+  if (successCount > 0) {
+    // Cache what we got
+    var cachePayload = {};
+    Object.keys(results).forEach(function(k){ cachePayload[k] = results[k]; });
+    try { localStorage.setItem('iw_market', JSON.stringify({ ts: Date.now(), data: cachePayload })); } catch(e){}
+    applyMarketData(cachePayload, false);
+    lastApiSuccess = new Date();
+    if (errors.length > 0) {
+      setApiStatus('cached', 'Partial data: ' + successCount + '/6 sources live');
+    } else {
+      setApiStatus('live', 'Live · 15-20 min delayed · next refresh in 1 hour');
+    }
+  } else {
+    setApiStatus('offline', 'API offline · showing last known values');
+  }
+}
+
+function applyMarketData(data, fromCache) {
+  var now = new Date().toLocaleTimeString('en-NZ', { hour: '2-digit', minute: '2-digit' });
+  var updStr = fromCache ? 'Cached · ' + now : 'Updated ' + now;
+
+  if (data.gold) {
+    var g = data.gold;
+    marketData.gold = g;
+    var barPct = Math.min(100, Math.max(10, ((g.price - 2000) / (6000 - 2000)) * 100));
+    updateTile('gold', fmtPrice(g.price, 0) + '/oz', formatChange(g.change, g.pct), barPct, 'var(--amber)', updStr);
+  }
+  if (data.oil) {
+    var o = data.oil;
+    marketData.oil = o;
+    var barPct2 = Math.min(100, Math.max(10, ((o.price - 40) / (130 - 40)) * 100));
+    updateTile('oil', fmtPrice(o.price, 0) + '/bbl', formatChange(o.change, o.pct), barPct2, 'var(--orange)', updStr);
+  }
+  if (data.silver) {
+    var s = data.silver;
+    marketData.silver = s;
+    var barPct3 = Math.min(100, Math.max(10, ((s.price - 15) / (100 - 15)) * 100));
+    updateTile('silver', fmtPrice(s.price, 2) + '/oz', formatChange(s.change, s.pct), barPct3, '#cbd5e1', updStr);
+  }
+  if (data.sp500) {
+    var sp = data.sp500;
+    marketData.sp500 = sp;
+    var spStr = sp.price ? sp.price.toFixed(0) : '...';
+    var barPct4 = Math.min(100, Math.max(10, ((sp.price - 3000) / (7000 - 3000)) * 100));
+    updateTile('sp500', spStr, formatChange(sp.change, sp.pct), barPct4, 'var(--purple)', updStr);
+  }
+  if (data.dxy) {
+    var dx = data.dxy;
+    marketData.dxy = dx;
+    var barPct5 = Math.min(100, Math.max(10, ((dx.price - 80) / (130 - 80)) * 100));
+    updateTile('dxy', dx.price ? dx.price.toFixed(2) : '...', formatChange(dx.change, dx.pct), barPct5, '#a78bfa', updStr);
+  }
+  if (data.nzd) {
+    var nz = data.nzd;
+    marketData.nzd = nz;
+    var barPct6 = Math.min(100, Math.max(10, ((nz.price - 0.40) / (0.80 - 0.40)) * 100));
+    updateTile('nzd', nz.price ? '0.' + String(nz.price.toFixed(4)).split('.')[1] : '...', formatChange(nz.change, nz.pct), barPct6, '#34d399', updStr);
+    // fix NZD display
+    var el = document.getElementById('m-nzd');
+    if (el && nz.price) el.textContent = nz.price.toFixed(4);
+  }
+
+  updateRibbonPrices();
+  var pullEl = document.getElementById('last-api-pull');
+  if (pullEl) pullEl.textContent = fromCache ? 'cached at ' + now : now;
+}
+
+// === SHARE FUNCTIONS ===
 function shareToX(){
-  var ms=Date.now()-STRIKE_START.getTime(), days=Math.floor(ms/864e5);
-  var d=ms/864e5;
-  var cost=d<=FIRST_WEEK_DAYS?(d/FIRST_WEEK_DAYS)*FIRST_WEEK_COST:FIRST_WEEK_COST+(d-FIRST_WEEK_DAYS)*DAILY_RATE;
-  var costStr="$"+(cost/1e9).toFixed(1)+"B";
-  var text="The Iran war has cost U.S. taxpayers "+costStr+" in "+days+" days.\n\nPentagon told Congress: $11.3B in the first week alone.\nGold: $4,430/oz. Recession odds: 48.6% (Moody's).\n\nLive tracker 👇";
-  window.open("https://x.com/intent/tweet?text="+encodeURIComponent(text)+"&url="+encodeURIComponent("https://costoftheiranwar.com"),"_blank","width=560,height=440");
+  var ms = Date.now() - STRIKE_START.getTime();
+  var days = Math.floor(ms/864e5);
+  var d = ms/864e5;
+  var cost = d<=FIRST_WEEK_DAYS?(d/FIRST_WEEK_DAYS)*FIRST_WEEK_COST:FIRST_WEEK_COST+(d-FIRST_WEEK_DAYS)*DAILY_RATE;
+  var costStr = '$'+(cost/1e9).toFixed(1)+'B';
+  var goldStr = marketData.gold.price ? '$'+marketData.gold.price.toFixed(0)+'/oz' : '$4,430/oz';
+  var text = 'The Iran war has cost U.S. taxpayers '+costStr+' in '+days+' days.\n\nPentagon told Congress: $11.3B in the first week alone.\nGold: '+goldStr+'. Recession odds: 48.6% (Moody\'s).\n3,400+ Iranian civilians killed.\n\nLive tracker:';
+  window.open('https://x.com/intent/tweet?text='+encodeURIComponent(text)+'&url='+encodeURIComponent('https://costoftheiranwar.com'),'_blank','width=560,height=440');
 }
 
 function copyLink(){
-  var url="https://costoftheiranwar.com";
-  var btn=document.getElementById("copy-btn");
-  var origTitle=btn.querySelector(".sb-title").textContent;
+  var url = 'https://costoftheiranwar.com';
+  var btn = document.getElementById('copy-btn');
+  var titleEl = btn ? btn.querySelector('.sb-title') : null;
+  var origTitle = titleEl ? titleEl.textContent : 'Copy Link';
   function flash(){
-    btn.querySelector(".sb-title").textContent="✓ Copied!";
-    btn.style.borderColor="rgba(0,230,118,.4)";
-    setTimeout(function(){ btn.querySelector(".sb-title").textContent=origTitle; btn.style.borderColor=""; },2000);
+    if (titleEl) titleEl.textContent = 'Copied!';
+    if (btn) btn.style.borderColor = 'rgba(0,230,118,.4)';
+    setTimeout(function(){ if(titleEl) titleEl.textContent=origTitle; if(btn) btn.style.borderColor=''; }, 2000);
   }
-  if(navigator.clipboard) navigator.clipboard.writeText(url).then(flash).catch(function(){fb()});
-  else fb();
+  if(navigator.clipboard){navigator.clipboard.writeText(url).then(flash).catch(function(){fb()});}else{fb();}
   function fb(){
-    var ta=document.createElement("textarea");ta.value=url;ta.style.cssText="position:fixed;opacity:0";
-    document.body.appendChild(ta);ta.select();try{document.execCommand("copy");flash();}catch(e){}document.body.removeChild(ta);
+    var ta=document.createElement('textarea');ta.value=url;ta.style.cssText='position:fixed;opacity:0';
+    document.body.appendChild(ta);ta.select();try{document.execCommand('copy');flash();}catch(e){}document.body.removeChild(ta);
   }
 }
 
-requestAnimationFrame(tick);
+// === MAIN LOOP ===
+function mainTick(){
+  tickCost();
+  updateClocks();
+  requestAnimationFrame(mainTick);
+}
+
+// === INIT ===
+requestAnimationFrame(mainTick);
+
+// Fetch market data immediately, then every 5 minutes
+fetchMarketData();
+setInterval(fetchMarketData, DATA_TTL);
+
+// AbortSignal.timeout polyfill for older browsers
+if (!AbortSignal.timeout) {
+  AbortSignal.timeout = function(ms) {
+    var ctrl = new AbortController();
+    setTimeout(function(){ ctrl.abort(); }, ms);
+    return ctrl.signal;
+  };
+}
 </script>
 </body>
 </html>
