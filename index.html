@@ -353,7 +353,7 @@ details.section[open]>summary{margin-bottom:10px}
   </div>
 </div>
 
-<!-- RIBBON — dynamic spans for all live values -->
+<!-- RIBBON -->
 <div class="ribbon">
   <div class="ribbon-inner" id="ribbon-inner">
     <span class="ri">GOLD <span id="rib-gold">loading...</span></span><span class="rs">|</span>
@@ -371,7 +371,6 @@ details.section[open]>summary{margin-bottom:10px}
     <span class="ri">VIX FEAR INDEX: <span id="rib-vix">loading...</span></span><span class="rs">|</span>
     <span class="ri">NATURAL GAS: <span id="rib-natgas">loading...</span>/MMBtu</span><span class="rs">|</span>
     <span class="ri">WAR STRESS INDEX: <span id="rib-rec">--</span>% (LIVE MARKET MODEL)</span><span class="rs">|</span>
-    <!-- duplicate for seamless scroll -->
     <span class="ri">GOLD <span id="rib-gold2">loading...</span></span><span class="rs">|</span>
     <span class="ri">BRENT CRUDE <span id="rib-oil2">loading...</span> · UP <span id="rib-oil-pct2">--</span>% SINCE FEB 28</span><span class="rs">|</span>
     <span class="ri">SILVER <span id="rib-silver2">loading...</span></span><span class="rs">|</span>
@@ -392,7 +391,6 @@ details.section[open]>summary{margin-bottom:10px}
 
 <div class="page">
 
-  <!-- HEADER -->
   <div class="header">
     <div class="kicker">costoftheiranwar.com &nbsp;·&nbsp; Independent Real-Time Tracker</div>
     <h1>The <span>True Cost</span><br>of the Iran War</h1>
@@ -426,7 +424,6 @@ details.section[open]>summary{margin-bottom:10px}
         </div>
       </div>
     </div>
-    <!-- SHARE CARD -->
     <div class="card cyan">
       <div class="card-label">Share This Tracker</div>
       <div class="share-col">
@@ -446,7 +443,7 @@ details.section[open]>summary{margin-bottom:10px}
     </div>
   </div>
 
-  <!-- LIVE MARKET DATA — ROW 1: Core assets -->
+  <!-- LIVE MARKET DATA -->
   <div class="section-title">Live Market Data <span style="font-size:7.5px;color:var(--green);letter-spacing:.8px">&nbsp;AUTO-REFRESHES EVERY HOUR</span></div>
   <div class="g4" id="market-strip">
     <div class="market-tile tile-gold">
@@ -483,7 +480,6 @@ details.section[open]>summary{margin-bottom:10px}
     </div>
   </div>
 
-  <!-- MARKET DATA — ROW 2: FX + energy -->
   <div class="g4">
     <div class="market-tile">
       <div class="mt-label">US Regular Gas (EIA)</div>
@@ -519,7 +515,6 @@ details.section[open]>summary{margin-bottom:10px}
     </div>
   </div>
 
-  <!-- MARKET DATA — ROW 3: Volatility + sentiment -->
   <div class="g4" style="margin-bottom:18px">
     <div class="market-tile">
       <div class="mt-label">VIX Fear Index (^VIX)</div>
@@ -587,13 +582,12 @@ details.section[open]>summary{margin-bottom:10px}
         <strong>Live model inputs:</strong> <span id="rec-inputs">Fetching oil, currencies, VIX &amp; equity data...</span>
       </div>
       <div class="model-disclaimer">
-        ⚠️ <strong>Note:</strong> The "Live Stress Index" is a market-stress model based on oil shock, currency weakness, equity decline, and VIX — not a formal econometric recession forecast. Compare it against the analyst estimates above, not alongside them.
+        ⚠️ <strong>Note:</strong> The "Live Stress Index" is a market-stress model based on oil shock, currency weakness, equity decline, and VIX — not a formal econometric recession forecast.
       </div>
       <div class="info-box warn" style="margin-top:7px">
-        <strong>Zandi (Moody's):</strong> recession "more than likely by H2 2026" without ceasefire. PNC's Faucher: odds top <strong>50%</strong> if oil reaches $150/bbl. Brent crude already peaked at $115/bbl on Mar 14.
+        <strong>Zandi (Moody's):</strong> recession "more than likely by H2 2026" without ceasefire. PNC's Faucher: odds top <strong>50%</strong> if oil reaches $150/bbl.
       </div>
     </div>
-    <!-- BUDGET -->
     <div class="card amber">
       <div class="card-label">Where the Money Goes</div>
       <div class="budget-row"><div class="budget-icon">💣</div><span class="budget-label">Precision munitions (Tomahawks, GBU-57, JDAMs, AIM-120s)</span><div class="budget-bar-bg"><div class="budget-bar-fill" style="width:90%;background:var(--red)"></div></div><span class="budget-pct">37%</span><span class="budget-amt">~$4.2B</span></div>
@@ -602,12 +596,12 @@ details.section[open]>summary{margin-bottom:10px}
       <div class="budget-row"><div class="budget-icon">🛡️</div><span class="budget-label">Missile defense intercepts (Patriot, THAAD, SM-3s)</span><div class="budget-bar-bg"><div class="budget-bar-fill" style="width:28%;background:var(--purple)"></div></div><span class="budget-pct">11%</span><span class="budget-amt">~$1.2B</span></div>
       <div class="budget-row"><div class="budget-icon">🕵️</div><span class="budget-label">Intelligence, cyber ops, special operations (NSA/CIA/JSOC)</span><div class="budget-bar-bg"><div class="budget-bar-fill" style="width:22%;background:var(--cyan)"></div></div><span class="budget-pct">6%</span><span class="budget-amt">~$0.7B</span></div>
       <div class="info-box amber" style="margin-top:11px">
-        <strong>Note:</strong> Congressional estimates from WSJ, NYT, and defense analysts. Pentagon has not published a line-item budget. Veteran costs over 10–30 years not included — will likely <strong>triple</strong> direct spend (Watson Institute).
+        <strong>Note:</strong> Congressional estimates from WSJ, NYT, and defense analysts. Veteran costs over 10–30 years not included — will likely <strong>triple</strong> direct spend (Watson Institute).
       </div>
     </div>
   </div>
 
-  <!-- SNAPSHOT TILES — all dynamic where possible -->
+  <!-- SNAPSHOT TILES -->
   <div class="section-title">Key Numbers at a Glance</div>
   <div class="g3">
     <div class="snap-tile lives"><div class="st-label">Iranian Civilians Killed</div><div class="st-big">3,400+</div><div class="st-sub">9,100+ wounded. UNESCO condemned strikes on civilian infrastructure.</div></div>
@@ -618,7 +612,6 @@ details.section[open]>summary{margin-bottom:10px}
     <div class="snap-tile shipping"><div class="st-label">Shipping Cost Surge</div><div class="st-big">+187%</div><div class="st-sub">Baltic Dry Index. Hormuz closure forces Cape of Good Hope rerouting.</div></div>
   </div>
 
-  <!-- VIX + FEAR SNAP TILES -->
   <div class="g3" style="margin-bottom:18px">
     <div class="snap-tile vix-tile"><div class="st-label">VIX Volatility Index</div><div class="st-big" id="snap-vix">--</div><div class="st-sub" id="snap-vix-sub">Market fear gauge. >20 elevated · >30 fear · >40 extreme stress.</div></div>
     <div class="snap-tile fg-tile"><div class="st-label">Crypto Fear &amp; Greed</div><div class="st-big" id="snap-fg">--</div><div class="st-sub" id="snap-fg-sub">Sentiment indicator. 0 = Extreme Fear · 100 = Extreme Greed.</div></div>
@@ -645,7 +638,6 @@ details.section[open]>summary{margin-bottom:10px}
         <div id="tl-live-container"></div>
       </div>
     </div>
-    <!-- LIVE NEWS -->
     <div class="card" style="background:var(--bg2)">
       <div class="news-feed-header">
         <div class="card-label" style="color:var(--t2);margin-bottom:0">Latest Reports</div>
@@ -680,17 +672,17 @@ details.section[open]>summary{margin-bottom:10px}
       <cite>Hengaw · AP · UNESCO Statement · March 7, 2026</cite>
     </div>
     <p class="prose"><strong>American families feeling it at home.</strong> Gas is up <strong id="prose-gas-chg">$0.98/gallon</strong> nationwide. Diesel jumped from $3.75 to <strong id="prose-diesel">$5.37/gallon</strong> (+43% in one month). Every sustained $10 rise in oil costs U.S. households <strong>$450 extra per year</strong> (Moody's).</p>
-    <p class="prose"><strong>New Zealand is not insulated.</strong> NZ imports roughly 75% of its liquid fuels. RBNZ paused planned rate cuts. NZ Food Price Index rose 4.2% MoM in March 2026 (Stats NZ preliminary data). Petrol prices hit lower-income households hardest.</p>
+    <p class="prose"><strong>New Zealand is not insulated.</strong> NZ imports roughly 75% of its liquid fuels. RBNZ paused planned rate cuts. NZ Food Price Index rose 4.2% MoM in March 2026 (Stats NZ preliminary data).</p>
     <p class="prose"><strong>Global South on the edge.</strong> Pakistan, Egypt, Kenya, and Sri Lanka already in emergency IMF consultations. UN WFP warns of acute food insecurity in 60+ nations by Q3 2026.</p>
   </div>
 
   <!-- SUPPLY CHAIN -->
   <div class="section-title">Supply Chain Disruption: The Hidden Costs</div>
   <div class="g3" style="margin-bottom:18px">
-    <div class="sc-tile"><div class="sc-icon">🚢</div><div class="sc-title">Strait of Hormuz</div><div class="sc-body"><span class="sc-stat">21M bbl/day blocked</span>21% of global oil and 20% of LNG passes through the Strait. Effective closure since Mar 3 — largest energy disruption since 1973. Rerouting via Cape of Good Hope adds 14 days and $2–3M per voyage.</div></div>
+    <div class="sc-tile"><div class="sc-icon">🚢</div><div class="sc-title">Strait of Hormuz</div><div class="sc-body"><span class="sc-stat">21M bbl/day blocked</span>21% of global oil and 20% of LNG passes through the Strait. Effective closure since Mar 3. Rerouting adds 14 days and $2–3M per voyage.</div></div>
     <div class="sc-tile"><div class="sc-icon">🌾</div><div class="sc-title">Food &amp; Fertilizer</div><div class="sc-body"><span class="sc-stat">+65% fertilizer prices</span>Iran and Qatar supply 30%+ of global potash and urea exports. Global food price index up 8.3% since February.</div></div>
     <div class="sc-tile"><div class="sc-icon">💊</div><div class="sc-title">Pharmaceuticals</div><div class="sc-body"><span class="sc-stat">4,000+ drugs at risk</span>Iran produces pharmaceutical intermediates globally. European hospital chains report 40+ critical drug shortages. WHO declares "pharmaceutical supply emergency."</div></div>
-    <div class="sc-tile"><div class="sc-icon">🔮</div><div class="sc-title">Helium Supply</div><div class="sc-body"><span class="sc-stat">40% of world supply halted</span>Qatar — world's largest helium exporter — on force majeure. Semiconductor fabs, MRI machines, and fiber optic manufacturing all at risk.</div></div>
+    <div class="sc-tile"><div class="sc-icon">🔮</div><div class="sc-title">Helium Supply</div><div class="sc-body"><span class="sc-stat">40% of world supply halted</span>Qatar — world's largest helium exporter — on force majeure. Semiconductor fabs and MRI machines at risk.</div></div>
     <div class="sc-tile"><div class="sc-icon">✈️</div><div class="sc-title">Aviation</div><div class="sc-body"><span class="sc-stat">+41% jet fuel costs</span>Asia–Europe flights diverted over Central Asia, adding 2–4 hours. IATA estimates global aviation losses of $23B in 2026.</div></div>
     <div class="sc-tile"><div class="sc-icon">💻</div><div class="sc-title">Tech &amp; Chips</div><div class="sc-body"><span class="sc-stat">Helium + shipping crunch</span>TSMC and Samsung warn of slowdowns. Longer shipping routes delay components. AI data center buildout timelines slipping 3–6 months.</div></div>
   </div>
@@ -713,7 +705,7 @@ details.section[open]>summary{margin-bottom:10px}
       </table>
     </div>
     <div class="info-box amber" style="margin-top:11px">
-      <strong>Projecting forward:</strong> If the Iran War continues at $1B/day for a full year, the direct cost reaches $365B. Add 30-year veteran care (Watson Institute model: 2–3× direct spend) and the true total could reach <strong>$1–1.5 trillion</strong>.
+      <strong>Projecting forward:</strong> If the Iran War continues at $1B/day for a full year, the direct cost reaches $365B. Add 30-year veteran care and the true total could reach <strong>$1–1.5 trillion</strong>.
     </div>
   </div>
 
@@ -721,29 +713,29 @@ details.section[open]>summary{margin-bottom:10px}
   <div class="card purple" style="margin-bottom:11px">
     <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:13px;flex-wrap:wrap;gap:7px">
       <div class="card-label" style="margin-bottom:0">Global Economic Pain by Region</div>
-      <span style="font-size:7.5px;letter-spacing:1.2px;text-transform:uppercase;color:var(--t3);font-style:italic" id="pain-table-status">Awaiting data...</span>
+      <span style="font-size:7.5px;letter-spacing:1.2px;text-transform:uppercase;color:var(--t3);font-style:italic" id="pain-table-status">Loading live data...</span>
     </div>
     <div class="pain-table-scroll">
       <table class="pain-table">
         <thead><tr><th>Region</th><th>Risk Level</th><th>Impact / Live Data</th><th class="detail">Key Detail</th></tr></thead>
         <tbody>
           <tr><td class="region">Iran</td><td><span class="level catastrophic">Catastrophic</span></td><td style="color:#ff6b6b;font-size:11.5px;font-weight:700">GDP −10%+<div class="pain-score-bar"><div class="pain-score-fill" style="width:97%;background:#ff6b6b"></div></div></td><td class="detail">Infrastructure destroyed, economy in freefall. 1.8M displaced.</td></tr>
-          <tr><td class="region">Gulf States</td><td><span class="level critical" id="pl-gulf">Critical</span></td><td id="pc-gulf" style="font-size:11.5px;font-weight:700;color:var(--red)"><span id="pi-gulf">LNG disrupted</span><div class="pain-score-bar"><div class="pain-score-fill" id="pb-gulf" style="width:72%;background:var(--red)"></div></div><span class="cur-delta flat" id="cd-gulf">USD-pegged currencies</span></td><td class="detail">Qatar: 40% of world helium on force majeure.</td></tr>
-          <tr><td class="region">United Kingdom</td><td><span class="level critical" id="pl-uk">Critical</span></td><td id="pc-uk" style="font-size:11.5px;font-weight:700;color:var(--red)"><span id="pi-uk">In recession</span><div class="pain-score-bar"><div class="pain-score-fill" id="pb-uk" style="width:68%;background:var(--red)"></div></div><span class="cur-delta" id="cd-uk">GBP/USD loading...</span></td><td class="detail">First G7 nation in recession. OECD: worst-hit major economy.</td></tr>
-          <tr><td class="region">Germany &amp; Italy</td><td><span class="level critical" id="pl-germany">Critical</span></td><td id="pc-germany" style="font-size:11.5px;font-weight:700;color:var(--red)"><span id="pi-germany">Recession likely</span><div class="pain-score-bar"><div class="pain-score-fill" id="pb-germany" style="width:64%;background:var(--red)"></div></div><span class="cur-delta" id="cd-germany">EUR/USD loading...</span></td><td class="detail">Energy-intensive manufacturing +30% cost surcharges.</td></tr>
-          <tr><td class="region">United States</td><td><span class="level high" id="pl-usa">High</span></td><td id="pc-usa" style="font-size:11.5px;font-weight:700;color:var(--amber)"><span id="pi-usa">Inflation 3–4%</span><div class="pain-score-bar"><div class="pain-score-fill" id="pb-usa" style="width:50%;background:var(--amber)"></div></div><span class="cur-delta" id="cd-usa">Oil: loading...</span></td><td class="detail">Goldman 30%, Moody's 48.6% recession odds. Gas up $0.98/gal.</td></tr>
-          <tr><td class="region">Euro Zone</td><td><span class="level high" id="pl-eurozone">High</span></td><td id="pc-eurozone" style="font-size:11.5px;font-weight:700;color:var(--amber)"><span id="pi-eurozone">GDP +0.5% only</span><div class="pain-score-bar"><div class="pain-score-fill" id="pb-eurozone" style="width:45%;background:var(--amber)"></div></div><span class="cur-delta" id="cd-eurozone">EUR/USD loading...</span></td><td class="detail">ECB halted rate cuts. Stagflation warning.</td></tr>
-          <tr><td class="region">Japan</td><td><span class="level high" id="pl-japan">High</span></td><td id="pc-japan" style="font-size:11.5px;font-weight:700;color:var(--amber)"><span id="pi-japan">Energy shock</span><div class="pain-score-bar"><div class="pain-score-fill" id="pb-japan" style="width:48%;background:var(--amber)"></div></div><span class="cur-delta" id="cd-japan">JPY/USD loading...</span></td><td class="detail">97% oil imported. BoJ FX intervention.</td></tr>
-          <tr><td class="region">Australia</td><td><span class="level elevated" id="pl-australia">Elevated</span></td><td id="pc-australia" style="font-size:11.5px;font-weight:700;color:var(--orange)"><span id="pi-australia">Fuel costs up</span><div class="pain-score-bar"><div class="pain-score-fill" id="pb-australia" style="width:36%;background:var(--orange)"></div></div><span class="cur-delta" id="cd-australia">AUD/USD loading...</span></td><td class="detail">RBA raised rates 0.25pp on Mar 18.</td></tr>
-          <tr><td class="region">New Zealand</td><td><span class="level elevated" id="pl-nz">Elevated</span></td><td id="pc-nz" style="font-size:11.5px;font-weight:700;color:var(--orange)"><span id="pi-nz">Fuel +15%+</span><div class="pain-score-bar"><div class="pain-score-fill" id="pb-nz" style="width:34%;background:var(--orange)"></div></div><span class="cur-delta" id="cd-nz">NZD/USD loading...</span></td><td class="detail">75% fuel imports. RBNZ paused rate cuts. Food CPI +4.2% MoM.</td></tr>
-          <tr><td class="region">India</td><td><span class="level elevated" id="pl-india">Elevated</span></td><td id="pc-india" style="font-size:11.5px;font-weight:700;color:var(--orange)"><span id="pi-india">Oil import shock</span><div class="pain-score-bar"><div class="pain-score-fill" id="pb-india" style="width:38%;background:var(--orange)"></div></div><span class="cur-delta" id="cd-india">INR pressure rising</span></td><td class="detail">85% oil imported. RBI emergency meeting.</td></tr>
-          <tr><td class="region">China</td><td><span class="level moderate" id="pl-china">Moderate</span></td><td id="pc-china" style="font-size:11.5px;font-weight:700;color:var(--purple)"><span id="pi-china">Growth under 3%</span><div class="pain-score-bar"><div class="pain-score-fill" id="pb-china" style="width:22%;background:var(--purple)"></div></div><span class="cur-delta flat">Diversified energy supply</span></td><td class="detail">Diversified energy mix. Suffers via global demand collapse.</td></tr>
-          <tr><td class="region">Global South</td><td><span class="level critical" id="pl-south">Critical</span></td><td id="pc-south" style="font-size:11.5px;font-weight:700;color:var(--red)"><span id="pi-south">Debt crisis risk</span><div class="pain-score-bar"><div class="pain-score-fill" id="pb-south" style="width:65%;background:var(--red)"></div></div><span class="cur-delta neg" id="cd-south">Multi-currency weakness</span></td><td class="detail">Fuel rationing. Emergency IMF consultations.</td></tr>
+          <tr><td class="region">Gulf States</td><td><span class="level critical" id="pl-gulf">Critical</span></td><td id="pc-gulf" style="font-size:11.5px;font-weight:700;color:var(--red)"><span id="pi-gulf">Calculating...</span><div class="pain-score-bar"><div class="pain-score-fill" id="pb-gulf" style="width:72%;background:var(--red)"></div></div><span class="cur-delta flat" id="cd-gulf">USD-pegged currencies</span></td><td class="detail">Qatar: 40% of world helium on force majeure.</td></tr>
+          <tr><td class="region">United Kingdom</td><td><span class="level critical" id="pl-uk">Critical</span></td><td id="pc-uk" style="font-size:11.5px;font-weight:700;color:var(--red)"><span id="pi-uk">Calculating...</span><div class="pain-score-bar"><div class="pain-score-fill" id="pb-uk" style="width:68%;background:var(--red)"></div></div><span class="cur-delta" id="cd-uk">GBP/USD fetching...</span></td><td class="detail">First G7 nation in recession. OECD: worst-hit major economy.</td></tr>
+          <tr><td class="region">Germany &amp; Italy</td><td><span class="level critical" id="pl-germany">Critical</span></td><td id="pc-germany" style="font-size:11.5px;font-weight:700;color:var(--red)"><span id="pi-germany">Calculating...</span><div class="pain-score-bar"><div class="pain-score-fill" id="pb-germany" style="width:64%;background:var(--red)"></div></div><span class="cur-delta" id="cd-germany">EUR/USD fetching...</span></td><td class="detail">Energy-intensive manufacturing +30% cost surcharges.</td></tr>
+          <tr><td class="region">United States</td><td><span class="level high" id="pl-usa">High</span></td><td id="pc-usa" style="font-size:11.5px;font-weight:700;color:var(--amber)"><span id="pi-usa">Calculating...</span><div class="pain-score-bar"><div class="pain-score-fill" id="pb-usa" style="width:50%;background:var(--amber)"></div></div><span class="cur-delta" id="cd-usa">Oil: fetching...</span></td><td class="detail">Goldman 30%, Moody's 48.6% recession odds. Gas up $0.98/gal.</td></tr>
+          <tr><td class="region">Euro Zone</td><td><span class="level high" id="pl-eurozone">High</span></td><td id="pc-eurozone" style="font-size:11.5px;font-weight:700;color:var(--amber)"><span id="pi-eurozone">Calculating...</span><div class="pain-score-bar"><div class="pain-score-fill" id="pb-eurozone" style="width:45%;background:var(--amber)"></div></div><span class="cur-delta" id="cd-eurozone">EUR/USD fetching...</span></td><td class="detail">ECB halted rate cuts. Stagflation warning.</td></tr>
+          <tr><td class="region">Japan</td><td><span class="level high" id="pl-japan">High</span></td><td id="pc-japan" style="font-size:11.5px;font-weight:700;color:var(--amber)"><span id="pi-japan">Calculating...</span><div class="pain-score-bar"><div class="pain-score-fill" id="pb-japan" style="width:48%;background:var(--amber)"></div></div><span class="cur-delta" id="cd-japan">JPY/USD fetching...</span></td><td class="detail">97% oil imported. BoJ FX intervention.</td></tr>
+          <tr><td class="region">Australia</td><td><span class="level elevated" id="pl-australia">Elevated</span></td><td id="pc-australia" style="font-size:11.5px;font-weight:700;color:var(--orange)"><span id="pi-australia">Calculating...</span><div class="pain-score-bar"><div class="pain-score-fill" id="pb-australia" style="width:36%;background:var(--orange)"></div></div><span class="cur-delta" id="cd-australia">AUD/USD fetching...</span></td><td class="detail">RBA raised rates 0.25pp on Mar 18.</td></tr>
+          <tr><td class="region">New Zealand</td><td><span class="level elevated" id="pl-nz">Elevated</span></td><td id="pc-nz" style="font-size:11.5px;font-weight:700;color:var(--orange)"><span id="pi-nz">Calculating...</span><div class="pain-score-bar"><div class="pain-score-fill" id="pb-nz" style="width:34%;background:var(--orange)"></div></div><span class="cur-delta" id="cd-nz">NZD/USD fetching...</span></td><td class="detail">75% fuel imports. RBNZ paused rate cuts. Food CPI +4.2% MoM.</td></tr>
+          <tr><td class="region">India</td><td><span class="level elevated" id="pl-india">Elevated</span></td><td id="pc-india" style="font-size:11.5px;font-weight:700;color:var(--orange)"><span id="pi-india">Calculating...</span><div class="pain-score-bar"><div class="pain-score-fill" id="pb-india" style="width:38%;background:var(--orange)"></div></div><span class="cur-delta" id="cd-india">INR pressure rising</span></td><td class="detail">85% oil imported. RBI emergency meeting.</td></tr>
+          <tr><td class="region">China</td><td><span class="level moderate" id="pl-china">Moderate</span></td><td id="pc-china" style="font-size:11.5px;font-weight:700;color:var(--purple)"><span id="pi-china">Calculating...</span><div class="pain-score-bar"><div class="pain-score-fill" id="pb-china" style="width:22%;background:var(--purple)"></div></div><span class="cur-delta flat">Diversified energy supply</span></td><td class="detail">Diversified energy mix. Suffers via global demand collapse.</td></tr>
+          <tr><td class="region">Global South</td><td><span class="level critical" id="pl-south">Critical</span></td><td id="pc-south" style="font-size:11.5px;font-weight:700;color:var(--red)"><span id="pi-south">Calculating...</span><div class="pain-score-bar"><div class="pain-score-fill" id="pb-south" style="width:65%;background:var(--red)"></div></div><span class="cur-delta neg" id="cd-south">Multi-currency weakness</span></td><td class="detail">Fuel rationing. Emergency IMF consultations.</td></tr>
         </tbody>
       </table>
     </div>
     <div style="font-size:8.5px;color:var(--t3);margin-top:9px;line-height:1.6">
-      Risk levels: currency weakness vs pre-war baseline (Feb 27, 2026) + oil price shock + structural energy import exposure. Data: Frankfurter API + Yahoo Finance. Updates hourly.
+      Risk levels: currency weakness vs pre-war baseline (Feb 27, 2026) + oil price shock + structural energy import exposure. Data: open.er-api.com + Frankfurter API + Yahoo Finance. Updates hourly.
     </div>
   </div>
 
@@ -753,14 +745,14 @@ details.section[open]>summary{margin-bottom:10px}
     <summary>Sources and Methodology</summary>
     <div class="source-list" style="margin-top:2px">
       <p><strong>Cost counter:</strong> Pentagon briefing to Senate Armed Services Committee (Mar 11, 2026) via NYT. $11.3B for first 6 days. $1B/day ongoing. Sen. Chris Coons (NBC News): "likely an undercount."</p>
-      <p><strong>Live market data:</strong> Yahoo Finance API (GC=F gold, BZ=F Brent crude, SI=F silver, ^GSPC S&amp;P 500, DX-Y.NYB dollar index, ^VIX volatility, NG=F natural gas) via allorigins.win CORS proxy with corsproxy.io fallback. Frankfurter API for currency rates (GBP, EUR, NZD, AUD, JPY, CHF, INR). Refreshes every 60 minutes. Prices delayed 15–20 min per Yahoo Finance terms.</p>
-      <p><strong>US Gas &amp; Diesel prices:</strong> U.S. Energy Information Administration (EIA) open API — weekly national averages, product codes EPM0 (regular gasoline) and EPD2D (diesel). Free public data, no API key required for DEMO_KEY access. Updated weekly (Mondays).</p>
-      <p><strong>Fear &amp; Greed index:</strong> alternative.me free API — crypto market sentiment. 0 = Extreme Fear, 100 = Extreme Greed. Updated daily. Note: This tracks crypto sentiment, not stock markets; VIX (^VIX) is a better equity fear gauge.</p>
-      <p><strong>Live news feed:</strong> RSS XML from Al Jazeera, BBC World, The Guardian World, Reuters (where available). Parsed client-side. Multiple CORS proxy fallback. Filtered by Iran/conflict/economy keywords.</p>
-      <p><strong>War Stress Index model:</strong> Weighted market-stress calculation — oil price shock vs $74 pre-war baseline (35%), currency basket weakness — EUR, GBP, NZD, AUD (25%), S&amp;P 500 performance vs pre-war 5,790 (20%), VIX elevation above 20 (10%), gold safe-haven premium above $3,790 (10%). Base: 15% pre-war. <strong>This is a stress indicator, not a formal recession probability model.</strong></p>
-      <p><strong>Recession odds:</strong> Goldman Sachs (30%), EY-Parthenon/Gregory Daco (40%), Moody's Analytics/Mark Zandi (48.6%), JP Morgan/Bob Michele (25%), PNC/Gus Faucher. Bloomberg Mar 25, CBS News, Fortune Mar 25, 2026.</p>
-      <p><strong>Historical war costs:</strong> Watson Institute at Brown University "Costs of War" project. Congressional Research Service R40727. All figures adjusted to 2026 USD using BLS CPI calculator.</p>
-      <p><strong>Human cost:</strong> UNHCR (displacement), UN Human Rights, UNESCO, Hengaw, AP, Reuters. Civilian casualty figures are estimates and likely undercounts due to restricted media access.</p>
+      <p><strong>Live market data:</strong> Yahoo Finance API via allorigins.win/corsproxy.io. Refreshes every 60 minutes. Prices delayed 15–20 min.</p>
+      <p><strong>Currency rates:</strong> open.er-api.com (primary, CORS-enabled, free) with Frankfurter API and proxy fallbacks. GBP, EUR, NZD, AUD, JPY, CHF, INR. Updated hourly.</p>
+      <p><strong>US Gas &amp; Diesel prices:</strong> U.S. EIA open API — weekly national averages. Updated weekly (Mondays).</p>
+      <p><strong>Fear &amp; Greed index:</strong> alternative.me free API — crypto market sentiment. Updated daily.</p>
+      <p><strong>War Stress Index model:</strong> Weighted market-stress calculation — oil price shock (35%), currency basket weakness (25%), S&amp;P 500 performance (20%), VIX elevation (10%), gold safe-haven premium (10%). Base: 15% pre-war. <strong>This is a stress indicator, not a formal recession probability model.</strong></p>
+      <p><strong>Recession odds:</strong> Goldman Sachs (30%), EY-Parthenon/Gregory Daco (40%), Moody's Analytics/Mark Zandi (48.6%), JP Morgan/Bob Michele (25%). Bloomberg Mar 25, CBS News, Fortune Mar 25, 2026.</p>
+      <p><strong>Historical war costs:</strong> Watson Institute at Brown University "Costs of War" project. CRS R40727. All figures adjusted to 2026 USD.</p>
+      <p><strong>Human cost:</strong> UNHCR (displacement), UN Human Rights, UNESCO, Hengaw, AP, Reuters. Civilian casualty figures are estimates and likely undercounts.</p>
     </div>
   </details>
 
@@ -769,7 +761,7 @@ details.section[open]>summary{margin-bottom:10px}
       <strong>costoftheiranwar.com</strong> · Independent, non-partisan tracker<br>
       Cost figures are <strong>conservative estimates</strong> based on the Pentagon's own briefing to Congress<br>
       Market data refreshes hourly · Prices delayed 15–20 min (Yahoo Finance) · Gas prices: EIA weekly<br>
-      War Stress Index: live-calculated from oil + currency + equity + VIX — not a formal forecast<br>
+      Currency rates: open.er-api.com + Frankfurter API · War Stress Index: live-calculated<br>
       <a href="https://www.instagram.com/heyramanraman" target="_blank" rel="noopener">@heyramanraman on Instagram</a><br><br>
       <span style="color:var(--t3)">Last market pull: <span id="last-pull">never</span> · War day: <span id="footer-day">35</span></span>
     </p>
@@ -784,18 +776,16 @@ var WAR_START = new Date("2026-02-28T04:00:00Z");
 var FIRST_WEEK_COST = 11300000000;
 var FIRST_WEEK_DAYS = 6;
 var DAILY_RATE = 1000000000;
-var CACHE_TTL = 60 * 60 * 1000; // 1 hour
+var CACHE_TTL = 60 * 60 * 1000;
 
-// Pre-war baselines
 var PRE_WAR_USD = { GBP:1.265, EUR:1.042, JPY:0.00664, AUD:0.635, NZD:0.605, CHF:1.115, INR:0.01200 };
 var OIL_BASELINE  = 74;
 var SP_BASELINE   = 5790;
 var GOLD_BASELINE = 3790;
-var GAS_BASELINE  = 2.96;  // pre-war US regular gas $/gal
+var GAS_BASELINE  = 2.96;
 var DIESEL_BASELINE = 3.75;
-var NATGAS_BASELINE = 3.20; // pre-war nat gas $/MMBtu
+var NATGAS_BASELINE = 3.20;
 
-// DST transitions
 var NZ_DST_END_UTC = new Date("2026-04-04T14:00:00Z");
 var AU_DST_END_UTC = new Date("2026-04-04T16:00:00Z");
 var US_EDT_START   = new Date("2026-03-08T07:00:00Z");
@@ -815,7 +805,6 @@ var mkt = {
 function pad(n){ return String(n).padStart(2,'0'); }
 function fmtMoney(n,dp){ return n==null?'...' : '$'+n.toFixed(dp===undefined?2:dp); }
 function fmtBig(n){ return '$'+Math.floor(n).toLocaleString('en-US'); }
-function minsAgo(ms){ var m=Math.round((Date.now()-ms)/60000); return m<=1?'just now':m+'m ago'; }
 function stripTags(s){ return (s||'').replace(/<[^>]+>/g,' ').replace(/\s{2,}/g,' ').replace(/&amp;/g,'&').replace(/&lt;/g,'<').replace(/&gt;/g,'>').replace(/&quot;/g,'"').replace(/&#39;/g,"'").replace(/&nbsp;/g,' ').replace(/<!\[CDATA\[|\]\]>/g,'').trim(); }
 if(!AbortSignal.timeout){ AbortSignal.timeout=function(ms){var c=new AbortController();setTimeout(function(){c.abort();},ms);return c.signal;}; }
 function setText(id,v){ var el=document.getElementById(id); if(el) el.textContent=v; }
@@ -882,14 +871,12 @@ function tickCost(){
 }
 
 // ============================================================
-// WAR STRESS INDEX — now includes VIX
+// WAR STRESS INDEX
 // ============================================================
 function calcStressIndex(oilPrice, frankRates, sp500, goldPrice, vixPrice){
   var BASE = 15;
-  // Oil shock (35% weight)
   var oilPct = (((oilPrice||105) - OIL_BASELINE) / OIL_BASELINE) * 100;
   var oilC = Math.max(0, oilPct) * 0.48;
-  // Currency basket (25% weight)
   var curC = 0;
   if(frankRates && Object.keys(frankRates).length > 0){
     var pcts=[];
@@ -904,14 +891,10 @@ function calcStressIndex(oilPrice, frankRates, sp500, goldPrice, vixPrice){
       curC = Math.abs(Math.min(0, avg)) * 1.2;
     }
   }
-  // Equity (20% weight)
   var eqC = sp500 ? Math.max(0,((SP_BASELINE - sp500)/SP_BASELINE)*100)*0.9 : 5;
-  // VIX (10% weight)
   var vixC = 0;
   if(vixPrice){ vixC = Math.max(0, (vixPrice - 20)) * 0.3; }
-  // Gold safe-haven (10% weight)
   var gC = Math.max(0,(((goldPrice||4430)-GOLD_BASELINE)/GOLD_BASELINE)*100)*0.18;
-
   var total = Math.min(72, Math.max(15, BASE + oilC + curC + eqC + vixC + gC));
   return {total:total, oilC:oilC, curC:curC, eqC:eqC, vixC:vixC, gC:gC, oilPct:oilPct};
 }
@@ -940,108 +923,74 @@ function updateStressGauge(oilPrice, frankRates, sp500, goldPrice, vixPrice){
 }
 
 // ============================================================
-// DYNAMIC SNAP TILES — calculated from live data
+// DYNAMIC SNAP TILES
 // ============================================================
 function updateSnapTiles(){
-  // Oil % change
   if(mkt.oil.price){
     var oilPct = ((mkt.oil.price - OIL_BASELINE) / OIL_BASELINE * 100);
-    var oilSign = oilPct >= 0 ? '+' : '';
-    setText('snap-oil-pct', oilSign + oilPct.toFixed(1)+'%');
+    setText('snap-oil-pct', (oilPct>=0?'+':'')+oilPct.toFixed(1)+'%');
     setText('snap-oil-sub', '$'+OIL_BASELINE+' → $'+mkt.oil.price.toFixed(0)+'/bbl. Peaked at $115 on Mar 14.');
-    // Oil meta in tile
     setText('m-oil-pct-meta', 'Hormuz closure: +'+oilPct.toFixed(0)+'% since Feb 28');
   }
-  // Stocks % change
   if(mkt.sp500.price){
     var spPct = ((mkt.sp500.price - SP_BASELINE) / SP_BASELINE * 100);
-    var spSign = spPct >= 0 ? '+' : '';
-    setText('snap-stocks-pct', spSign + spPct.toFixed(1)+'%');
+    setText('snap-stocks-pct', (spPct>=0?'+':'')+spPct.toFixed(1)+'%');
     setText('snap-stocks-sub', 'S&P 500: '+SP_BASELINE+' → '+mkt.sp500.price.toFixed(0)+'. Tech −7.2%, Energy +18%.');
-    setText('m-sp500-chg-meta', spSign+spPct.toFixed(1)+'% vs pre-war 5,790');
+    setText('m-sp500-chg-meta', (spPct>=0?'+':'')+spPct.toFixed(1)+'% vs pre-war 5,790');
   }
-  // VIX snap tile
   if(mkt.vix.price){
     var vix = mkt.vix.price;
     setText('snap-vix', vix.toFixed(1));
     var vixLabel = vix >= 40 ? 'Extreme Stress' : vix >= 30 ? 'Fear' : vix >= 20 ? 'Elevated' : 'Low';
-    var vixColor = vix >= 40 ? 'var(--red)' : vix >= 30 ? 'var(--red)' : vix >= 20 ? 'var(--amber)' : 'var(--green)';
     setText('snap-vix-sub', 'Status: '+vixLabel+'. Pre-war avg: ~15. Higher = more fear.');
     var snapVixEl = document.getElementById('snap-vix');
-    if(snapVixEl) snapVixEl.style.color = vixColor;
+    if(snapVixEl) snapVixEl.style.color = vix >= 30 ? 'var(--red)' : vix >= 20 ? 'var(--amber)' : 'var(--green)';
   }
-  // Natural gas snap
-  if(mkt.natgas.price){
-    var ng = mkt.natgas.price;
-    setText('snap-natgas', '$'+ng.toFixed(2));
-  }
-  // Gas prices snap
+  if(mkt.natgas.price){ setText('snap-natgas', '$'+mkt.natgas.price.toFixed(2)); }
   if(mkt.gas.regular){
     var gasDiff = (mkt.gas.regular - GAS_BASELINE).toFixed(2);
-    var gasSign = gasDiff >= 0 ? '+' : '';
-    setText('snap-gas-chg', gasSign+'$'+Math.abs(gasDiff));
+    setText('snap-gas-chg', (gasDiff>=0?'+':'')+'$'+Math.abs(gasDiff));
     setText('snap-gas-sub', 'Per gallon vs pre-war $'+GAS_BASELINE+'. Diesel: '+(mkt.gas.diesel?'$'+mkt.gas.diesel.toFixed(2):'+43% est.')+'. Airline fuel +41%.');
-    // Prose inline updates
     setText('prose-gas-chg', '$'+Math.abs(gasDiff)+'/gallon');
     if(mkt.gas.diesel) setText('prose-diesel', '$'+mkt.gas.diesel.toFixed(2)+'/gallon');
   }
-  // Fear & Greed snap
   if(mkt.fearGreed.value !== null){
     var fg = mkt.fearGreed.value;
     setText('snap-fg', fg);
     setText('snap-fg-sub', 'Classification: '+mkt.fearGreed.label+'. Updated daily. 0=Extreme Fear, 100=Extreme Greed.');
     var fgEl = document.getElementById('snap-fg');
-    if(fgEl){
-      fgEl.style.color = fg <= 25 ? 'var(--red)' : fg <= 46 ? 'var(--orange)' : fg <= 54 ? 'var(--t2)' : fg <= 74 ? 'var(--green)' : 'var(--cyan)';
-    }
+    if(fgEl) fgEl.style.color = fg <= 25 ? 'var(--red)' : fg <= 46 ? 'var(--orange)' : fg <= 54 ? 'var(--t2)' : fg <= 74 ? 'var(--green)' : 'var(--cyan)';
   }
 }
 
 // ============================================================
-// DYNAMIC RIBBON — update all live spans
+// RIBBON
 // ============================================================
 function updateRibbon(){
-  var now = new Date().toLocaleTimeString('en-NZ',{hour:'2-digit',minute:'2-digit'});
-  // Gold
   var goldStr = mkt.gold.price ? '$'+mkt.gold.price.toFixed(0)+'/oz' : '$4,430/oz';
   ['rib-gold','rib-gold2'].forEach(function(id){ setText(id, goldStr); });
-  // Oil + %
   var oilStr = mkt.oil.price ? '$'+mkt.oil.price.toFixed(0)+'/bbl' : '~$105/bbl';
   var oilPctStr = mkt.oil.price ? ((mkt.oil.price - OIL_BASELINE)/OIL_BASELINE*100).toFixed(0)+'%' : '40%+';
   ['rib-oil','rib-oil2'].forEach(function(id){ setText(id, oilStr); });
   ['rib-oil-pct','rib-oil-pct2'].forEach(function(id){ setText(id, oilPctStr); });
-  // Silver
   var silvStr = mkt.silver.price ? '$'+mkt.silver.price.toFixed(2)+'/oz' : '$67.73/oz';
   ['rib-silver','rib-silver2'].forEach(function(id){ setText(id, silvStr); });
-  // Stocks
   if(mkt.sp500.price){
     var spPct = ((mkt.sp500.price - SP_BASELINE)/SP_BASELINE*100);
-    var spStr = (spPct >= 0 ? '+' : '') + spPct.toFixed(1)+'%';
-    ['rib-stocks','rib-stocks2'].forEach(function(id){ setText(id, spStr); });
+    ['rib-stocks','rib-stocks2'].forEach(function(id){ setText(id, (spPct>=0?'+':'')+spPct.toFixed(1)+'%'); });
   }
-  // Gas (EIA)
   if(mkt.gas.regular){
     var gasStr = '$'+mkt.gas.regular.toFixed(2);
-    var gasDiff = mkt.gas.regular - GAS_BASELINE;
-    var gasChgStr = (gasDiff >= 0 ? '+' : '') + '$'+Math.abs(gasDiff).toFixed(2)+' vs pre-war';
+    var gasChgStr = (mkt.gas.regular-GAS_BASELINE>=0?'+':'')+'$'+Math.abs(mkt.gas.regular-GAS_BASELINE).toFixed(2)+' vs pre-war';
     ['rib-gas','rib-gas2'].forEach(function(id){ setText(id, gasStr); });
     ['rib-gas-chg','rib-gas-chg2'].forEach(function(id){ setText(id, gasChgStr); });
   }
-  // Diesel
   if(mkt.gas.diesel){
-    var dieselStr = '$'+mkt.gas.diesel.toFixed(2);
-    var dieselPct = ((mkt.gas.diesel - DIESEL_BASELINE)/DIESEL_BASELINE*100).toFixed(0)+'%';
-    ['rib-diesel'].forEach(function(id){ setText(id, dieselStr); });
-    ['rib-diesel-chg'].forEach(function(id){ setText(id, '+'+dieselPct+' vs pre-war'); });
+    setText('rib-diesel', '$'+mkt.gas.diesel.toFixed(2));
+    setText('rib-diesel-chg', '+'+(((mkt.gas.diesel-DIESEL_BASELINE)/DIESEL_BASELINE)*100).toFixed(0)+'% vs pre-war');
   }
-  // VIX
-  if(mkt.vix.price){
-    ['rib-vix','rib-vix2'].forEach(function(id){ setText(id, mkt.vix.price.toFixed(1)); });
-  }
-  // Nat Gas
-  if(mkt.natgas.price){
-    ['rib-natgas','rib-natgas2'].forEach(function(id){ setText(id, '$'+mkt.natgas.price.toFixed(2)); });
-  }
+  if(mkt.vix.price){ ['rib-vix','rib-vix2'].forEach(function(id){ setText(id, mkt.vix.price.toFixed(1)); }); }
+  if(mkt.natgas.price){ ['rib-natgas','rib-natgas2'].forEach(function(id){ setText(id, '$'+mkt.natgas.price.toFixed(2)); }); }
 }
 
 // ============================================================
@@ -1059,7 +1008,7 @@ function setApiStatus(state, msg){
 }
 
 // ============================================================
-// CORS PROXY FETCH — Yahoo Finance + general
+// CORS PROXY FETCH
 // ============================================================
 var CORS_PROXIES = [
   'https://api.allorigins.win/raw?url=',
@@ -1100,41 +1049,20 @@ function updateTile(key, priceStr, chgHtml, barPct, color, upd){
 }
 
 // ============================================================
-// EIA API — US Gas & Diesel prices (free DEMO_KEY, weekly data)
+// EIA API
 // ============================================================
 async function fetchEIAGasPrices(){
-  // EIA v2 API — national weekly average regular gasoline + diesel
-  // DEMO_KEY: 100 requests/day — fine for hourly page load
   var baseUrl = 'https://api.eia.gov/v2/petroleum/pri/gnd/data/';
-  var params = [
-    'api_key=DEMO_KEY',
-    'frequency=weekly',
-    'data[0]=value',
-    'facets[duoarea][]=NUS',      // national US
-    'facets[product][]=EPM0',     // regular gasoline
-    'facets[product][]=EPD2D',    // diesel
-    'sort[0][column]=period',
-    'sort[0][direction]=desc',
-    'length=4'                    // last 4 weeks
-  ].join('&');
-  var url = baseUrl + '?' + params;
+  var params = ['api_key=DEMO_KEY','frequency=weekly','data[0]=value','facets[duoarea][]=NUS','facets[product][]=EPM0','facets[product][]=EPD2D','sort[0][column]=period','sort[0][direction]=desc','length=4'].join('&');
   try {
-    var res = await fetchWithFallback(url, 10000);
+    var res = await fetchWithFallback(baseUrl + '?' + params, 10000);
     var json = await res.json();
     var rows = json.response.data;
     if(!rows || rows.length === 0) throw new Error('No EIA data');
-    // Find most recent regular gas and diesel
     var regular = rows.filter(function(r){ return r.product === 'EPM0'; });
     var diesel  = rows.filter(function(r){ return r.product === 'EPD2D'; });
-    return {
-      regular: regular.length ? parseFloat(regular[0].value) : null,
-      diesel:  diesel.length  ? parseFloat(diesel[0].value)  : null,
-      period:  regular.length ? regular[0].period : 'recent'
-    };
-  } catch(e) {
-    console.warn('EIA API failed:', e.message);
-    return null;
-  }
+    return { regular: regular.length ? parseFloat(regular[0].value) : null, diesel: diesel.length ? parseFloat(diesel[0].value) : null, period: regular.length ? regular[0].period : 'recent' };
+  } catch(e) { console.warn('EIA API failed:', e.message); return null; }
 }
 function applyGasPrices(data, upd){
   if(!data) return;
@@ -1142,27 +1070,22 @@ function applyGasPrices(data, upd){
   mkt.gas.diesel  = data.diesel;
   if(data.regular){
     var chgVsPreWar = data.regular - GAS_BASELINE;
-    var sign = chgVsPreWar >= 0 ? '+' : '';
     setText('m-gas', '$'+data.regular.toFixed(3)+'/gal');
-    setHTML('m-gas-chg', '<div class="mt-change '+(chgVsPreWar>=0?'down':'up')+'"><span>'+sign+'$'+Math.abs(chgVsPreWar).toFixed(2)+' vs pre-war</span></div>');
+    setHTML('m-gas-chg', '<div class="mt-change '+(chgVsPreWar>=0?'down':'up')+'"><span>'+(chgVsPreWar>=0?'+':'')+'$'+Math.abs(chgVsPreWar).toFixed(2)+' vs pre-war</span></div>');
     var barPct = Math.min(100, Math.max(5, ((data.regular - 2.0) / (5.5 - 2.0)) * 100));
     var bar = document.getElementById('m-gas-bar');
     if(bar) bar.style.width = barPct+'%';
-    if(data.diesel){
-      var dieselChg = ((data.diesel - DIESEL_BASELINE)/DIESEL_BASELINE*100).toFixed(0);
-      setText('m-diesel-meta', 'Diesel: $'+data.diesel.toFixed(3)+'/gal (+'+dieselChg+'% vs pre-war)');
-    }
-    setText('m-gas-upd', 'EIA weekly · w/e '+data.period);
+    if(data.diesel) setText('m-diesel-meta', 'Diesel: $'+data.diesel.toFixed(3)+'/gal (+'+((data.diesel-DIESEL_BASELINE)/DIESEL_BASELINE*100).toFixed(0)+'% vs pre-war)');
+    setText('m-gas-upd', 'EIA weekly · w/e '+(data.period||'recent'));
     updateSnapTiles();
     updateRibbon();
   }
 }
 
 // ============================================================
-// FEAR & GREED — alternative.me (crypto sentiment, free, no key)
+// FEAR & GREED
 // ============================================================
 async function fetchFearGreed(){
-  // Check cache first (daily data, no need to hit more than once per hour)
   try{
     var cached = JSON.parse(localStorage.getItem('iwt_fg2')||'null');
     if(cached && (Date.now()-cached.ts) < CACHE_TTL) return cached.data;
@@ -1174,10 +1097,7 @@ async function fetchFearGreed(){
     var result = {value: parseInt(d.value), label: d.value_classification};
     try{ localStorage.setItem('iwt_fg2', JSON.stringify({ts:Date.now(),data:result})); }catch(e){}
     return result;
-  } catch(e) {
-    console.warn('Fear & Greed API failed:', e.message);
-    return null;
-  }
+  } catch(e) { console.warn('Fear & Greed API failed:', e.message); return null; }
 }
 function applyFearGreed(data){
   if(!data) return;
@@ -1208,7 +1128,7 @@ var REGION_CFG = {
   india:{oilW:.75,curW:.2,base:5,curs:[]},
   south:{oilW:.70,curW:.4,base:14,curs:['EUR']}
 };
-var LEVEL_COLORS={'catastrophic':'#ff6b6b','critical':'var(--red)','high':'var(--amber)','elevated':'var(--orange)','moderate':'var(--purple)'};
+var LEVEL_DISPLAY_COLORS = { catastrophic:'#ff6b6b', critical:'var(--red)', high:'var(--amber)', elevated:'var(--orange)', moderate:'var(--purple)' };
 function scoreToLevel(s){ return s>=72?{cls:'catastrophic',label:'Catastrophic'}:s>=48?{cls:'critical',label:'Critical'}:s>=32?{cls:'high',label:'High'}:s>=18?{cls:'elevated',label:'Elevated'}:{cls:'moderate',label:'Moderate'}; }
 function calcPainScore(r, rates, oil){
   if(r==='iran') return 95;
@@ -1229,147 +1149,49 @@ function calcPainScore(r, rates, oil){
   }
   return Math.min(95, c.base+oilComp+curComp);
 }
-// Map score level to display color
-var LEVEL_DISPLAY_COLORS = {
-  catastrophic: '#ff6b6b',
-  critical:     'var(--red)',
-  high:         'var(--amber)',
-  elevated:     'var(--orange)',
-  moderate:     'var(--purple)'
-};
-
-// Generate dynamic impact headline text per region based on live score + data
 function getImpactText(region, score, rates, oil){
   var oilPct = (((oil||105) - OIL_BASELINE) / OIL_BASELINE * 100).toFixed(0);
-  var oilStr = '$'+(oil||105).toFixed(0)+'/bbl';
-  // severity: 0=low 1=elevated 2=high 3=critical 4=catastrophic
   var sev = score >= 72 ? 4 : score >= 48 ? 3 : score >= 32 ? 2 : score >= 18 ? 1 : 0;
-
-  // Currency change string for currency-exposed regions
   function curStr(cur){
-    if(!rates||!rates[cur]||!PRE_WAR_USD[cur]) return '';
+    if(!rates||!rates[cur]||!PRE_WAR_USD[cur]) return cur+' fetching...';
     var usd = 1/rates[cur];
     var p = ((usd - PRE_WAR_USD[cur])/PRE_WAR_USD[cur]*100).toFixed(1);
     return cur+' '+(p>=0?'+':'')+p+'%';
   }
-
   var gasNow = mkt.gas.regular ? '$'+mkt.gas.regular.toFixed(2) : '$3.94';
   var gasDiff = mkt.gas.regular ? (mkt.gas.regular - GAS_BASELINE).toFixed(2) : '0.98';
-
   var texts = {
-    gulf: [
-      'Energy prices rising',
-      'LNG disrupted · oil '+oilStr,
-      'LNG disrupted · oil +'+oilPct+'%',
-      'Energy crisis · oil +'+oilPct+'%',
-      'Economy collapsed · oil +'+oilPct+'%'
-    ],
-    uk: [
-      'Growth slowing · '+curStr('GBP'),
-      'Recession risk · '+curStr('GBP'),
-      'Recession likely · '+curStr('GBP'),
-      'In recession · '+curStr('GBP'),
-      'Deep recession · '+curStr('GBP')
-    ],
-    germany: [
-      'Growth slowing · '+curStr('EUR'),
-      'Stagflation risk · '+curStr('EUR'),
-      'Recession likely · energy +30%',
-      'In recession · '+curStr('EUR'),
-      'Deep recession · energy crisis'
-    ],
-    usa: [
-      'Gas '+gasNow+' · minor pressure',
-      'Gas '+gasNow+' · +$'+gasDiff+'/gal',
-      'Gas '+gasNow+' · recession odds 30%+',
-      'Gas '+gasNow+' · recession odds 48%+',
-      'Stagflation · recession likely'
-    ],
-    eurozone: [
-      'Growth slowing · '+curStr('EUR'),
-      'Stagflation risk · '+curStr('EUR'),
-      'GDP +0.5% only · ECB frozen',
-      'Recession risk · '+curStr('EUR'),
-      'Deep recession · '+curStr('EUR')
-    ],
-    australia: [
-      'Fuel costs rising · '+curStr('AUD'),
-      'Fuel costs up · '+curStr('AUD'),
-      'Fuel +'+oilPct+'% · RBA hiking',
-      'Energy shock · '+curStr('AUD'),
-      'Severe recession · '+curStr('AUD')
-    ],
-    nz: [
-      'Fuel pressure · '+curStr('NZD'),
-      'Fuel +15%+ · RBNZ paused',
-      'Fuel +'+oilPct+'% · CPI rising',
-      'Severe energy shock · '+curStr('NZD'),
-      'Deep recession · '+curStr('NZD')
-    ],
-    japan: [
-      'Energy costs rising',
-      'Energy shock · '+curStr('JPY'),
-      'Energy crisis · 97% imported',
-      'Severe recession · BoJ intervening',
-      'Economy in crisis · '+curStr('JPY')
-    ],
-    china: [
-      'Minimal impact',
-      'Growth under 4%',
-      'Growth under 3%',
-      'GDP shock · demand collapse',
-      'Severe slowdown'
-    ],
-    india: [
-      'Fuel pressure rising',
-      'Oil import +'+oilPct+'% · RBI alert',
-      'Oil shock · 85% imported',
-      'Severe energy crisis',
-      'Economy in crisis'
-    ],
-    south: [
-      'Fuel costs rising',
-      'Fuel rationing risk',
-      'Debt crisis risk · fuel rationing',
-      'Debt default risk · IMF talks',
-      'Economy collapsed'
-    ]
+    gulf: ['Energy prices rising','LNG disrupted · oil $'+((oil||105).toFixed(0))+'/bbl','LNG disrupted · oil +'+oilPct+'%','Energy crisis · oil +'+oilPct+'%','Economy collapsed · oil +'+oilPct+'%'],
+    uk: ['Growth slowing · '+curStr('GBP'),'Recession risk · '+curStr('GBP'),'Recession likely · '+curStr('GBP'),'In recession · '+curStr('GBP'),'Deep recession · '+curStr('GBP')],
+    germany: ['Growth slowing · '+curStr('EUR'),'Stagflation risk · '+curStr('EUR'),'Recession likely · energy +30%','In recession · '+curStr('EUR'),'Deep recession · energy crisis'],
+    usa: ['Gas '+gasNow+' · minor pressure','Gas '+gasNow+' · +$'+gasDiff+'/gal','Gas '+gasNow+' · recession 30%+','Gas '+gasNow+' · recession 48%+','Stagflation · recession likely'],
+    eurozone: ['Growth slowing · '+curStr('EUR'),'Stagflation risk · '+curStr('EUR'),'GDP +0.5% only · ECB frozen','Recession risk · '+curStr('EUR'),'Deep recession · '+curStr('EUR')],
+    australia: ['Fuel costs rising · '+curStr('AUD'),'Fuel costs up · '+curStr('AUD'),'Fuel +'+oilPct+'% · RBA hiking','Energy shock · '+curStr('AUD'),'Severe recession · '+curStr('AUD')],
+    nz: ['Fuel pressure · '+curStr('NZD'),'Fuel +15%+ · RBNZ paused','Fuel +'+oilPct+'% · CPI rising','Severe energy shock · '+curStr('NZD'),'Deep recession · '+curStr('NZD')],
+    japan: ['Energy costs rising','Energy shock · '+curStr('JPY'),'Energy crisis · 97% imported','Severe recession · BoJ intervening','Economy in crisis · '+curStr('JPY')],
+    china: ['Minimal impact','Growth under 4%','Growth under 3%','GDP shock · demand collapse','Severe slowdown'],
+    india: ['Fuel pressure rising','Oil import +'+oilPct+'% · RBI alert','Oil shock · 85% imported','Severe energy crisis','Economy in crisis'],
+    south: ['Fuel costs rising','Fuel rationing risk','Debt crisis risk · fuel rationing','Debt default risk · IMF talks','Economy collapsed']
   };
-
   var arr = texts[region];
   if(!arr) return 'Calculating...';
   return arr[Math.min(sev, arr.length-1)];
 }
-
 function updatePainTable(rates){
   var oil = mkt.oil.price || 105;
   var now = new Date().toLocaleTimeString('en-NZ',{hour:'2-digit',minute:'2-digit'});
-  setText('pain-table-status', rates
-    ? 'Live · '+now+' · Frankfurter+Yahoo · auto-refreshes hourly'
-    : 'Oil-only · '+now+' · currency data pending');
-
   ['gulf','uk','germany','usa','eurozone','australia','nz','japan','china','india','south'].forEach(function(r){
     var score = calcPainScore(r, rates, oil);
     var lvl   = scoreToLevel(score);
     var color = LEVEL_DISPLAY_COLORS[lvl.cls] || 'var(--amber)';
-
-    // 1. Risk Level badge — text + CSS class → determines badge color
     var badge = document.getElementById('pl-'+r);
     if(badge){ badge.textContent = lvl.label; badge.className = 'level '+lvl.cls; }
-
-    // 2. Progress bar — width + color matches level
     var bar = document.getElementById('pb-'+r);
     if(bar){ bar.style.width = Math.min(97, score)+'%'; bar.style.background = color; }
-
-    // 3. Impact text TD color — updates to match current level
     var tdEl = document.getElementById('pc-'+r);
     if(tdEl){ tdEl.style.color = color; }
-
-    // 4. Primary impact headline — fully dynamic text based on score + live data
     var piEl = document.getElementById('pi-'+r);
     if(piEl){ piEl.textContent = getImpactText(r, score, rates, oil); }
-
-    // 5. Currency / oil sub-line (cd-* span)
     var cdEl = document.getElementById('cd-'+r);
     if(cdEl && rates){
       var c = REGION_CFG[r];
@@ -1378,8 +1200,7 @@ function updatePainTable(rates){
         if(rates[cur] && PRE_WAR_USD[cur]){
           var usd = 1/rates[cur];
           var pct = ((usd - PRE_WAR_USD[cur])/PRE_WAR_USD[cur])*100;
-          var s = pct >= 0 ? '+' : '';
-          cdEl.textContent = cur+'/USD: $'+usd.toFixed(4)+' ('+s+pct.toFixed(1)+'% vs pre-war)';
+          cdEl.textContent = cur+'/USD: $'+usd.toFixed(4)+' ('+(pct>=0?'+':'')+pct.toFixed(1)+'% vs pre-war)';
           cdEl.className = 'cur-delta '+(pct >= -0.5 ? 'pos' : 'neg');
         }
       } else if(r === 'usa'){
@@ -1387,19 +1208,95 @@ function updatePainTable(rates){
         cdEl.textContent = 'Oil: $'+oil.toFixed(0)+'/bbl (+'+oilPctUs+'%) · gas: '+(mkt.gas.regular?'$'+mkt.gas.regular.toFixed(2):'loading...');
         cdEl.className = 'cur-delta neg';
       } else if(r === 'india'){
-        var oilPctIn = ((oil - OIL_BASELINE)/OIL_BASELINE*100).toFixed(0);
-        cdEl.textContent = 'Oil import cost: +'+oilPctIn+'% vs pre-war';
+        cdEl.textContent = 'Oil import cost: +'+((oil-OIL_BASELINE)/OIL_BASELINE*100).toFixed(0)+'% vs pre-war';
         cdEl.className = 'cur-delta neg';
       } else if(r === 'china'){
-        cdEl.textContent = 'Diversified supply · oil +'+((oil - OIL_BASELINE)/OIL_BASELINE*100).toFixed(0)+'%';
+        cdEl.textContent = 'Diversified supply · oil +'+((oil-OIL_BASELINE)/OIL_BASELINE*100).toFixed(0)+'%';
         cdEl.className = 'cur-delta flat';
       }
+    } else if(cdEl && !rates){
+      // No currency data yet — show oil-only context
+      if(r==='uk') cdEl.textContent='GBP/USD: fetching live rate...';
+      else if(r==='germany'||r==='eurozone') cdEl.textContent='EUR/USD: fetching live rate...';
+      else if(r==='nz') cdEl.textContent='NZD/USD: fetching live rate...';
+      else if(r==='australia') cdEl.textContent='AUD/USD: fetching live rate...';
+      else if(r==='japan') cdEl.textContent='JPY/USD: fetching live rate...';
+      else if(r==='usa') cdEl.textContent='Oil: $'+oil.toFixed(0)+'/bbl (live) · gas: '+(mkt.gas.regular?'$'+mkt.gas.regular.toFixed(2):'loading...');
+      cdEl.className = 'cur-delta flat';
     }
   });
 }
 
 // ============================================================
-// MAIN MARKET FETCH — Yahoo Finance + Frankfurter
+// STANDALONE CURRENCY FETCH — independent of Yahoo Finance
+// Tries open.er-api.com (CORS-ok, free) → Frankfurter → proxies
+// ============================================================
+async function fetchCurrencyDataStandalone(){
+  var SOURCES=[
+    async function(){
+      var r=await fetch('https://open.er-api.com/v6/latest/USD',{signal:AbortSignal.timeout(7000)});
+      var j=await r.json();
+      if(j.result!=='success') throw new Error('er-api non-success');
+      return j.rates; // already USD base, values are how much 1 USD buys
+    },
+    async function(){
+      // Frankfurter returns rates as 1 USD = X foreign — same convention
+      var r=await fetch('https://api.frankfurter.app/latest?base=USD&symbols=GBP,EUR,JPY,AUD,NZD,CHF,INR',{signal:AbortSignal.timeout(7000)});
+      var j=await r.json();
+      return j.rates;
+    },
+    async function(){
+      var url='https://api.frankfurter.app/latest?base=USD&symbols=GBP,EUR,JPY,AUD,NZD,CHF,INR';
+      var r=await fetch('https://api.allorigins.win/raw?url='+encodeURIComponent(url),{signal:AbortSignal.timeout(9000)});
+      var j=await r.json();
+      return j.rates;
+    },
+    async function(){
+      var url='https://api.frankfurter.app/latest?base=USD&symbols=GBP,EUR,JPY,AUD,NZD,CHF,INR';
+      var r=await fetch('https://corsproxy.io/?'+encodeURIComponent(url),{signal:AbortSignal.timeout(9000)});
+      var j=await r.json();
+      return j.rates;
+    }
+  ];
+  for(var i=0;i<SOURCES.length;i++){
+    try{
+      var rates=await SOURCES[i]();
+      if(rates&&(rates.GBP||rates.EUR)){
+        try{localStorage.setItem('iwt_cur3',JSON.stringify({ts:Date.now(),rates:rates}));}catch(e){}
+        return rates;
+      }
+    }catch(e){console.warn('Currency source '+i+' failed:',e.message);}
+  }
+  return null;
+}
+
+async function initCurrencyAndPainTable(){
+  setText('pain-table-status','Fetching currency data...');
+  // Check cache first
+  try{
+    var cached=JSON.parse(localStorage.getItem('iwt_cur3')||'null');
+    if(cached&&(Date.now()-cached.ts)<CACHE_TTL&&cached.rates&&(cached.rates.GBP||cached.rates.EUR)){
+      mkt.currencies=cached.rates;
+      updatePainTable(cached.rates);
+      updateStressGauge(mkt.oil.price||105,cached.rates,mkt.sp500?mkt.sp500.price:null,mkt.gold.price||4430,mkt.vix?mkt.vix.price:null);
+      setText('pain-table-status','Cached · '+new Date().toLocaleTimeString('en-NZ',{hour:'2-digit',minute:'2-digit'})+' · auto-refreshes hourly');
+      return;
+    }
+  }catch(e){}
+  var rates=await fetchCurrencyDataStandalone();
+  if(rates){
+    mkt.currencies=rates;
+    updatePainTable(rates);
+    updateStressGauge(mkt.oil.price||105,rates,mkt.sp500?mkt.sp500.price:null,mkt.gold.price||4430,mkt.vix?mkt.vix.price:null);
+    setText('pain-table-status','Live · '+new Date().toLocaleTimeString('en-NZ',{hour:'2-digit',minute:'2-digit'})+' · open.er-api+Frankfurter · updates hourly');
+  }else{
+    updatePainTable(null);
+    setText('pain-table-status','Currency APIs offline · oil-only estimates · '+new Date().toLocaleTimeString('en-NZ',{hour:'2-digit',minute:'2-digit'}));
+  }
+}
+
+// ============================================================
+// MAIN MARKET FETCH — Yahoo Finance + Frankfurter (as backup)
 // ============================================================
 async function fetchMarketData(){
   setApiStatus('loading','Fetching live data...');
@@ -1410,143 +1307,120 @@ async function fetchMarketData(){
       return;
     }
   }catch(e){}
-
   var results={};
   var ok=0;
-  // All Yahoo Finance tickers (added ^VIX and NG=F)
   var syms=[
-    {k:'gold',  s:'GC=F'},
-    {k:'oil',   s:'BZ=F'},
-    {k:'silver',s:'SI=F'},
-    {k:'sp500', s:'^GSPC'},
-    {k:'dxy',   s:'DX-Y.NYB'},
-    {k:'vix',   s:'^VIX'},    // ← NEW: market volatility/fear
-    {k:'natgas',s:'NG=F'}     // ← NEW: natural gas
+    {k:'gold',s:'GC=F'},{k:'oil',s:'BZ=F'},{k:'silver',s:'SI=F'},
+    {k:'sp500',s:'^GSPC'},{k:'dxy',s:'DX-Y.NYB'},{k:'vix',s:'^VIX'},{k:'natgas',s:'NG=F'}
   ];
   for(var i=0;i<syms.length;i++){
     try{results[syms[i].k]=await fetchYahoo(syms[i].s);ok++;}
     catch(e){console.warn('Yahoo fail:',syms[i].s,e.message);}
   }
-  // Frankfurter currencies
-  try{
-    var fRes=await fetch('https://api.frankfurter.app/latest?base=USD&symbols=GBP,EUR,JPY,AUD,NZD,CHF,INR',{signal:AbortSignal.timeout(8000)});
-    var fJson=await fRes.json();
-    results.currencies=fJson.rates;
+  // Use already-fetched currencies if available, otherwise try Frankfurter again
+  if(mkt.currencies && Object.keys(mkt.currencies).length > 0){
+    results.currencies = mkt.currencies;
     ok++;
-  }catch(e){console.warn('Frankfurter fail:',e.message);}
-
+  } else {
+    try{
+      var fRes=await fetch('https://api.frankfurter.app/latest?base=USD&symbols=GBP,EUR,JPY,AUD,NZD,CHF,INR',{signal:AbortSignal.timeout(8000)});
+      var fJson=await fRes.json();
+      results.currencies=fJson.rates;
+      ok++;
+    }catch(e){console.warn('Frankfurter in market fetch failed:',e.message);}
+  }
   if(ok>0){
     try{localStorage.setItem('iwt_mkt5',JSON.stringify({ts:Date.now(),data:results}));}catch(e){}
     applyMarket(results,false);
-    setApiStatus('live','Live · Yahoo+Frankfurter+EIA · 15-20min delay');
+    setApiStatus('live','Live · Yahoo+open.er-api+EIA · 15-20min delay');
   } else {
     setApiStatus('offline','API offline · last known values');
-    updateStressGauge(105,{},null,4430,null);
-    updatePainTable(null);
+    updateStressGauge(105,mkt.currencies||{},null,4430,null);
+    updatePainTable(Object.keys(mkt.currencies).length>0?mkt.currencies:null);
   }
 }
 
 function applyMarket(data, fromCache){
   var now=new Date().toLocaleTimeString('en-NZ',{hour:'2-digit',minute:'2-digit'});
   var upd=fromCache?'Cached · '+now:'Updated '+now;
-
-  // Gold
   if(data.gold){
     mkt.gold=data.gold;
     var g=data.gold;
-    var bp=Math.min(100,Math.max(5,((g.price-2000)/(6000-2000))*100));
-    updateTile('gold',fmtMoney(g.price,0)+'/oz',fmtChg(g.chg,g.pct),bp,'var(--amber)',upd);
+    updateTile('gold',fmtMoney(g.price,0)+'/oz',fmtChg(g.chg,g.pct),Math.min(100,Math.max(5,((g.price-2000)/(6000-2000))*100)),'var(--amber)',upd);
     var sg=document.getElementById('snap-gold'); if(sg) sg.textContent='$'+g.price.toFixed(0);
     var sgSub=document.getElementById('snap-gold-sub');
-    if(sgSub){ var goldChg=((g.price-GOLD_BASELINE)/GOLD_BASELINE*100).toFixed(0); sgSub.textContent='+'+(goldChg)+'% vs pre-war $3,790. Jan ATH was $5,589.'; }
+    if(sgSub){ sgSub.textContent='+'+(((g.price-GOLD_BASELINE)/GOLD_BASELINE)*100).toFixed(0)+'% vs pre-war $3,790. Jan ATH was $5,589.'; }
   }
-  // Oil
   if(data.oil){
     mkt.oil=data.oil;
     var o=data.oil;
-    var bp2=Math.min(100,Math.max(5,((o.price-40)/(130-40))*100));
-    updateTile('oil',fmtMoney(o.price,0)+'/bbl',fmtChg(o.chg,o.pct),bp2,'var(--orange)',upd);
+    updateTile('oil',fmtMoney(o.price,0)+'/bbl',fmtChg(o.chg,o.pct),Math.min(100,Math.max(5,((o.price-40)/(130-40))*100)),'var(--orange)',upd);
   }
-  // Silver
   if(data.silver){
     mkt.silver=data.silver;
     var sv=data.silver;
-    var bp3=Math.min(100,Math.max(5,((sv.price-15)/(100-15))*100));
-    updateTile('silver',fmtMoney(sv.price,2)+'/oz',fmtChg(sv.chg,sv.pct),bp3,'#cbd5e1',upd);
+    updateTile('silver',fmtMoney(sv.price,2)+'/oz',fmtChg(sv.chg,sv.pct),Math.min(100,Math.max(5,((sv.price-15)/(100-15))*100)),'#cbd5e1',upd);
   }
-  // S&P 500
   if(data.sp500){
     mkt.sp500=data.sp500;
     var sp=data.sp500;
-    var bp4=Math.min(100,Math.max(5,((sp.price-3000)/(7000-3000))*100));
-    updateTile('sp500',sp.price?sp.price.toFixed(0):'...',fmtChg(sp.chg,sp.pct),bp4,'var(--purple)',upd);
+    updateTile('sp500',sp.price?sp.price.toFixed(0):'...',fmtChg(sp.chg,sp.pct),Math.min(100,Math.max(5,((sp.price-3000)/(7000-3000))*100)),'var(--purple)',upd);
   }
-  // DXY
   if(data.dxy){
     mkt.dxy=data.dxy;
     var dx=data.dxy;
-    var bp5=Math.min(100,Math.max(5,((dx.price-80)/(130-80))*100));
-    updateTile('dxy',dx.price?dx.price.toFixed(2):'...',fmtChg(dx.chg,dx.pct),bp5,'#a78bfa',upd);
+    updateTile('dxy',dx.price?dx.price.toFixed(2):'...',fmtChg(dx.chg,dx.pct),Math.min(100,Math.max(5,((dx.price-80)/(130-80))*100)),'#a78bfa',upd);
   }
-  // VIX — NEW
   if(data.vix){
     mkt.vix=data.vix;
     var vx=data.vix;
-    var vixColor = vx.price >= 40 ? 'var(--red)' : vx.price >= 30 ? 'var(--red)' : vx.price >= 20 ? 'var(--amber)' : 'var(--green)';
-    var bp6=Math.min(100,Math.max(5,((vx.price-10)/(60-10))*100));
-    updateTile('vix',vx.price?vx.price.toFixed(2):'...',fmtChg(vx.chg,vx.pct),bp6,vixColor,upd);
-    // Override color on tile
+    var vixColor = vx.price >= 30 ? 'var(--red)' : vx.price >= 20 ? 'var(--amber)' : 'var(--green)';
+    updateTile('vix',vx.price?vx.price.toFixed(2):'...',fmtChg(vx.chg,vx.pct),Math.min(100,Math.max(5,((vx.price-10)/(60-10))*100)),vixColor,upd);
     var vixPriceEl=document.getElementById('m-vix'); if(vixPriceEl) vixPriceEl.style.color=vixColor;
     ['rib-vix','rib-vix2'].forEach(function(id){setText(id,vx.price?vx.price.toFixed(1):'--');});
   }
-  // Natural Gas — NEW
   if(data.natgas){
     mkt.natgas=data.natgas;
     var ng=data.natgas;
-    var ngPct=((ng.price-NATGAS_BASELINE)/NATGAS_BASELINE*100).toFixed(0);
-    var bp7=Math.min(100,Math.max(5,((ng.price-2)/(8-2))*100));
-    updateTile('natgas',ng.price?'$'+ng.price.toFixed(3)+'/MMBtu':'...',fmtChg(ng.chg,ng.pct),bp7,'var(--cyan)',upd);
+    updateTile('natgas',ng.price?'$'+ng.price.toFixed(3)+'/MMBtu':'...',fmtChg(ng.chg,ng.pct),Math.min(100,Math.max(5,((ng.price-2)/(8-2))*100)),'var(--cyan)',upd);
     ['rib-natgas','rib-natgas2'].forEach(function(id){setText(id,ng.price?'$'+ng.price.toFixed(2):'--');});
   }
-  // Frankfurter currencies
   if(data.currencies){
-    mkt.currencies=data.currencies;
-    var rates=data.currencies;
-    // NZD
+    // Merge: only update if we don't already have fresh currency data
+    if(!mkt.currencies||Object.keys(mkt.currencies).length===0){
+      mkt.currencies=data.currencies;
+    }
+    var rates=mkt.currencies;
     if(rates.NZD){
       var nzd=1/rates.NZD; var nzdPre=PRE_WAR_USD.NZD;
       var nzdPct=((nzd-nzdPre)/nzdPre)*100;
-      var bp8=Math.min(100,Math.max(5,((nzd-.40)/(.80-.40))*100));
       setText('m-nzd',nzd.toFixed(4));
       setHTML('m-nzd-chg',fmtChg(nzd-nzdPre,nzdPct));
-      var nb=document.getElementById('m-nzd-bar'); if(nb) nb.style.width=bp8+'%';
+      var nb=document.getElementById('m-nzd-bar'); if(nb) nb.style.width=Math.min(100,Math.max(5,((nzd-.40)/(.80-.40))*100))+'%';
       setText('m-nzd-upd',upd);
     }
-    // AUD — NEW tile
     if(rates.AUD){
       var aud=1/rates.AUD; var audPre=PRE_WAR_USD.AUD;
       var audPct=((aud-audPre)/audPre)*100;
-      var bp9=Math.min(100,Math.max(5,((aud-.45)/(.80-.45))*100));
       setText('m-aud',aud.toFixed(4));
       setHTML('m-aud-chg',fmtChg(aud-audPre,audPct));
-      var ab=document.getElementById('m-aud-bar'); if(ab) ab.style.width=bp9+'%';
+      var ab=document.getElementById('m-aud-bar'); if(ab) ab.style.width=Math.min(100,Math.max(5,((aud-.45)/(.80-.45))*100))+'%';
       setText('m-aud-upd',upd);
     }
     updatePainTable(rates);
-    updateStressGauge(mkt.oil.price||105, rates, mkt.sp500.price, mkt.gold.price||4430, mkt.vix.price);
+    updateStressGauge(mkt.oil.price||105, rates, mkt.sp500?mkt.sp500.price:null, mkt.gold.price||4430, mkt.vix?mkt.vix.price:null);
   } else {
-    updatePainTable(null);
-    updateStressGauge(mkt.oil.price||105, {}, mkt.sp500.price, mkt.gold.price||4430, mkt.vix.price);
+    var existingRates=Object.keys(mkt.currencies).length>0?mkt.currencies:null;
+    updatePainTable(existingRates);
+    updateStressGauge(mkt.oil.price||105, existingRates||{}, mkt.sp500?mkt.sp500.price:null, mkt.gold.price||4430, mkt.vix?mkt.vix.price:null);
   }
-
-  // Update all dynamic snap tiles and ribbon after data applied
   updateSnapTiles();
   updateRibbon();
   setText('last-pull', fromCache?'cached '+now:now);
 }
 
 // ============================================================
-// LIVE NEWS — Multiple RSS feeds
+// LIVE NEWS
 // ============================================================
 var NEWS_FEEDS = [
   {url:'https://www.aljazeera.com/xml/rss/all.xml',src:'Al Jazeera'},
@@ -1557,21 +1431,9 @@ var NEWS_FEEDS = [
   {url:'https://rss.cnn.com/rss/edition_world.rss',src:'CNN World'}
 ];
 var KEYWORDS = ['iran','hormuz','tehran','irgc','nuclear','hezbollah','houthi','ceasefire','strait','airstrike','missile','drone','middle east','war cost','pentagon','brent crude','recession','oil shock','persian gulf','operation epic','war spending','israel','oil price','energy crisis','inflation'];
-function isRelevant(title,desc){
-  var t=((title||'')+(desc||'')).toLowerCase();
-  return KEYWORDS.some(function(k){return t.indexOf(k)>=0;});
-}
+function isRelevant(title,desc){ var t=((title||'')+(desc||'')).toLowerCase(); return KEYWORDS.some(function(k){return t.indexOf(k)>=0;}); }
 function relDate(pub){
-  try{
-    var d=new Date(pub); if(isNaN(d.getTime())) return '';
-    var diff=Date.now()-d.getTime();
-    var m=Math.floor(diff/60000);
-    if(m<2) return 'just now';
-    if(m<60) return m+'m ago';
-    var h=Math.floor(m/60);
-    if(h<24) return h+'h ago';
-    return d.toLocaleDateString('en-NZ',{month:'short',day:'numeric'});
-  }catch(e){return '';}
+  try{ var d=new Date(pub); if(isNaN(d.getTime())) return ''; var diff=Date.now()-d.getTime(); var m=Math.floor(diff/60000); if(m<2) return 'just now'; if(m<60) return m+'m ago'; var h=Math.floor(m/60); if(h<24) return h+'h ago'; return d.toLocaleDateString('en-NZ',{month:'short',day:'numeric'}); }catch(e){return '';}
 }
 async function fetchFeed(feed){
   for(var i=0;i<CORS_PROXIES.length;i++){
@@ -1592,9 +1454,7 @@ async function fetchFeed(feed){
         var linkEl=item.querySelector('link');
         var link='#';
         if(linkEl){ link=linkEl.textContent||linkEl.getAttribute('href')||'#'; }
-        if(isRelevant(title,desc)){
-          out.push({title:title.slice(0,140),desc:desc.slice(0,180),pub:pub,link:link.trim(),src:feed.src});
-        }
+        if(isRelevant(title,desc)) out.push({title:title.slice(0,140),desc:desc.slice(0,180),pub:pub,link:link.trim(),src:feed.src});
       });
       return out;
     }catch(e){ console.warn('Feed fail (proxy '+i+'):', feed.src, e.message); }
@@ -1608,8 +1468,7 @@ async function fetchAllNews(){
   try{
     var cached=JSON.parse(localStorage.getItem('iwt_news3')||'null');
     if(cached&&(Date.now()-cached.ts)<CACHE_TTL&&cached.items&&cached.items.length>0){
-      renderNews(cached.items,true,statusEl,container);
-      return;
+      renderNews(cached.items,true,statusEl,container); return;
     }
   }catch(e){}
   statusEl.className='news-status-badge nfs-loading';
@@ -1617,20 +1476,14 @@ async function fetchAllNews(){
   var all=[];
   var promises=NEWS_FEEDS.map(function(f){ return fetchFeed(f).catch(function(){return[];}); });
   var results=await Promise.allSettled(promises);
-  results.forEach(function(r){
-    if(r.status==='fulfilled'&&r.value.length){ all=all.concat(r.value); }
-  });
+  results.forEach(function(r){ if(r.status==='fulfilled'&&r.value.length){ all=all.concat(r.value); } });
   all.sort(function(a,b){return new Date(b.pub)-new Date(a.pub);});
   var seen={};
-  var deduped=all.filter(function(item){
-    var key=item.title.toLowerCase().replace(/[^a-z0-9]/g,'').slice(0,32);
-    if(seen[key]) return false; seen[key]=true; return true;
-  }).slice(0,10);
+  var deduped=all.filter(function(item){ var key=item.title.toLowerCase().replace(/[^a-z0-9]/g,'').slice(0,32); if(seen[key]) return false; seen[key]=true; return true; }).slice(0,10);
   if(deduped.length>0){
     try{localStorage.setItem('iwt_news3',JSON.stringify({ts:Date.now(),items:deduped}));}catch(e){}
     renderNews(deduped,false,statusEl,container);
-    var fb=document.getElementById('fallback-news');
-    if(fb) fb.style.display='none';
+    var fb=document.getElementById('fallback-news'); if(fb) fb.style.display='none';
   } else {
     statusEl.className='news-status-badge nfs-error';
     statusEl.textContent='Live feed unavailable';
@@ -1643,20 +1496,9 @@ function renderNews(items,fromCache,statusEl,container){
   statusEl.textContent=fromCache?('Cached · '+now):('Live · '+items.length+' articles · '+now);
   var html=items.map(function(item){
     var t=item.title.toLowerCase();
-    var dot=/strike|attack|kill|dead|bomb|missile|drone|airstrike|explosion/.test(t)?'red':
-             /oil|gold|recession|economy|inflation|market|price|gdp/.test(t)?'amber':'';
-    var linked=(item.link&&item.link!=='#')
-      ?'<a href="'+item.link+'" target="_blank" rel="noopener"><strong>'+item.title+'</strong></a>'
-      :'<strong>'+item.title+'</strong>';
-    return '<div class="news-item">'+
-      '<div class="news-date">'+relDate(item.pub)+'</div>'+
-      '<div class="news-dot '+dot+'"></div>'+
-      '<div>'+
-        '<div class="news-body">'+linked+'</div>'+
-        (item.desc?'<div class="news-body" style="margin-top:2px;font-size:10px">'+item.desc+'</div>':'')+
-        '<div class="news-source">'+item.src+'</div>'+
-      '</div>'+
-    '</div>';
+    var dot=/strike|attack|kill|dead|bomb|missile|drone|airstrike|explosion/.test(t)?'red':/oil|gold|recession|economy|inflation|market|price|gdp/.test(t)?'amber':'';
+    var linked=(item.link&&item.link!=='#')?'<a href="'+item.link+'" target="_blank" rel="noopener"><strong>'+item.title+'</strong></a>':'<strong>'+item.title+'</strong>';
+    return '<div class="news-item"><div class="news-date">'+relDate(item.pub)+'</div><div class="news-dot '+dot+'"></div><div><div class="news-body">'+linked+'</div>'+(item.desc?'<div class="news-body" style="margin-top:2px;font-size:10px">'+item.desc+'</div>':'')+'<div class="news-source">'+item.src+'</div></div></div>';
   }).join('');
   container.innerHTML=html||'<div style="font-size:9px;color:var(--t3)">No relevant articles found in feeds.</div>';
   injectLiveTimeline(items.slice(0,3));
@@ -1665,27 +1507,15 @@ function injectLiveTimeline(items){
   var tlContainer=document.getElementById('tl-live-container');
   if(!tlContainer||!items.length) return;
   var cutoff=Date.now()-(48*3600000);
-  var recent=items.filter(function(it){
-    try{return new Date(it.pub).getTime()>cutoff;}catch(e){return false;}
-  });
+  var recent=items.filter(function(it){ try{return new Date(it.pub).getTime()>cutoff;}catch(e){return false;} });
   if(!recent.length){tlContainer.innerHTML='';return;}
   var html=recent.map(function(item){
     var t=item.title.toLowerCase();
-    var dotCls=/strike|attack|kill|dead|bomb|missile|drone|airstrike/.test(t)?'red':
-               /oil|gold|recession|economy|market|price/.test(t)?'amber':'';
-    var titleHtml=(item.link&&item.link!=='#')
-      ?'<a class="tl-live-link" href="'+item.link+'" target="_blank" rel="noopener">'+item.title+'</a>'
-      :item.title;
+    var dotCls=/strike|attack|kill|dead|bomb|missile|drone|airstrike/.test(t)?'red':/oil|gold|recession|economy|market|price/.test(t)?'amber':'';
+    var titleHtml=(item.link&&item.link!=='#')?'<a class="tl-live-link" href="'+item.link+'" target="_blank" rel="noopener">'+item.title+'</a>':item.title;
     var d; try{d=new Date(item.pub);}catch(e){d=new Date();}
     var dateStr=d.toLocaleDateString('en-NZ',{month:'short',day:'numeric',year:'numeric'});
-    return '<div class="tl-event" style="border-top:1px solid rgba(0,229,255,.08)">'+
-      '<div class="tl-dot '+dotCls+'" style="background:var(--cyan);box-shadow:0 0 8px rgba(0,229,255,.6)"></div>'+
-      '<div class="tl-live-badge"><span class="pip" style="width:4px;height:4px;background:var(--cyan);animation-duration:.8s"></span>LIVE · '+relDate(item.pub)+'</div>'+
-      '<div class="tl-date">'+dateStr+'</div>'+
-      '<div class="tl-title">'+titleHtml+'</div>'+
-      (item.desc?'<div class="tl-body">'+item.desc+'</div>':'')+
-      '<div class="tl-live-src">'+item.src+'</div>'+
-    '</div>';
+    return '<div class="tl-event" style="border-top:1px solid rgba(0,229,255,.08)"><div class="tl-dot '+dotCls+'" style="background:var(--cyan);box-shadow:0 0 8px rgba(0,229,255,.6)"></div><div class="tl-live-badge"><span class="pip" style="width:4px;height:4px;background:var(--cyan);animation-duration:.8s"></span>LIVE · '+relDate(item.pub)+'</div><div class="tl-date">'+dateStr+'</div><div class="tl-title">'+titleHtml+'</div>'+(item.desc?'<div class="tl-body">'+item.desc+'</div>':'')+'<div class="tl-live-src">'+item.src+'</div></div>';
   }).join('');
   tlContainer.innerHTML=html;
 }
@@ -1697,7 +1527,7 @@ function shareToX(){
   var cost=(calcCost()/1e9).toFixed(1);
   var d=Math.floor((Date.now()-WAR_START.getTime())/864e5);
   var gold=mkt.gold.price?'$'+mkt.gold.price.toFixed(0)+'/oz':'$4,430/oz';
-  var gasInfo = mkt.gas.regular ? ' Gas: $'+mkt.gas.regular.toFixed(2)+'/gal.' : '';
+  var gasInfo=mkt.gas.regular?' Gas: $'+mkt.gas.regular.toFixed(2)+'/gal.':'';
   var text='The Iran war has cost U.S. taxpayers $'+cost+'B in '+d+' days.\n\nPentagon told Congress: $11.3B in the first week alone.'+gasInfo+'\nGold: '+gold+'. Recession odds: 48.6% (Moody\'s).\n3,400+ Iranian civilians killed.\n\nLive tracker:';
   window.open('https://x.com/intent/tweet?text='+encodeURIComponent(text)+'&url='+encodeURIComponent('https://costoftheiranwar.com'),'_blank','width=560,height=440');
 }
@@ -1713,42 +1543,43 @@ function copyLink(){
 // ============================================================
 // INIT
 // ============================================================
-// Seed stress gauge with fallback defaults while data loads
+// Seed stress gauge with fallback defaults while async data loads
 updateStressGauge(105, {}, null, 4430, null);
+
+// Seed pain table immediately with oil-only estimates (currencies load below)
+updatePainTable(null);
+setText('pain-table-status', 'Loading live data...');
 
 // Main animation loop
 function tick(){ tickCost(); updateClocks(); requestAnimationFrame(tick); }
 requestAnimationFrame(tick);
 
-// Stagger API calls to avoid blocking render
+// *** KEY FIX: Currency fetch runs IMMEDIATELY and INDEPENDENTLY of Yahoo Finance ***
+initCurrencyAndPainTable();
+
+// Stagger other API calls to avoid blocking render
 fetchMarketData();
 
-// EIA gas prices (staggered 1s after market data starts)
 setTimeout(async function(){
   var gasData = await fetchEIAGasPrices();
   applyGasPrices(gasData, 'EIA weekly');
 }, 1000);
 
-// Fear & Greed (staggered 1.5s)
 setTimeout(async function(){
   var fg = await fetchFearGreed();
   applyFearGreed(fg);
 }, 1500);
 
-// News (staggered 2s)
 setTimeout(fetchAllNews, 2000);
 
-// Hourly refresh of everything
+// Hourly refreshes for all data sources
 setInterval(fetchMarketData, CACHE_TTL);
+setInterval(initCurrencyAndPainTable, CACHE_TTL);  // *** Independent currency refresh ***
 setInterval(async function(){ applyGasPrices(await fetchEIAGasPrices()); }, CACHE_TTL);
 setInterval(async function(){ applyFearGreed(await fetchFearGreed()); }, CACHE_TTL);
 setInterval(fetchAllNews, CACHE_TTL);
-
-// Independent pain table hourly refresh using already-loaded mkt data.
-// Recalculates impact text, colors, risk levels, and bars every hour
-// regardless of whether the full market fetch hits cache or not.
 setInterval(function(){
-  var rates = (mkt.currencies && Object.keys(mkt.currencies).length > 0) ? mkt.currencies : null;
+  var rates=(mkt.currencies&&Object.keys(mkt.currencies).length>0)?mkt.currencies:null;
   updatePainTable(rates);
 }, CACHE_TTL);
 </script>
