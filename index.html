@@ -250,7 +250,6 @@ h1 span{color:var(--cyan)}
 .nfs-cached{background:rgba(255,183,3,.09);color:var(--amber);border:1px solid rgba(255,183,3,.2)}
 .nfs-error{background:rgba(255,59,59,.09);color:var(--red);border:1px solid rgba(255,59,59,.2)}
 @keyframes pulse{0%,100%{opacity:1}50%{opacity:.35}}
-.news-fallback-label{font-size:7.5px;letter-spacing:1.8px;text-transform:uppercase;color:var(--t3);margin:9px 0 5px;padding-top:9px;border-top:1px solid var(--border)}
 /* ===== INFO BITS ===== */
 .info-box{font-size:10px;color:var(--t2);line-height:1.7;background:rgba(0,0,0,.18);border:1px solid rgba(255,255,255,.065);border-radius:7px;padding:11px 13px;margin-top:11px}
 .info-box.warn{border-color:rgba(255,59,59,.17);background:rgba(255,59,59,.045)}
@@ -646,15 +645,7 @@ details.section[open]>summary{margin-bottom:10px}
       <div id="live-news-container" style="min-height:40px">
         <div style="font-size:9.5px;color:var(--t3);padding:8px 0">Fetching from Al Jazeera, BBC, Guardian, Reuters...</div>
       </div>
-      <div class="news-fallback-label">Verified Reference Reports</div>
-      <div class="news-grid" id="fallback-news">
-        <div class="news-item"><div class="news-date">Apr 4</div><div class="news-dot red"></div><div><div class="news-body"><strong>UN Security Council emergency session</strong> — ceasefire resolution vetoed by U.S. War enters Day 35.</div><div class="news-source">UN · Reuters · AP</div></div></div>
-        <div class="news-item"><div class="news-date">Mar 30</div><div class="news-dot red"></div><div><div class="news-body"><strong>Iran launches fourth wave of drone strikes</strong> targeting U.S. drone base in Kuwait. All intercepted.</div><div class="news-source">Reuters · AP</div></div></div>
-        <div class="news-item"><div class="news-date">Mar 29</div><div class="news-dot amber"></div><div><div class="news-body"><strong>U.S. fertilizer costs surge 65%</strong> due to Hormuz disruption impacting global potash supply.</div><div class="news-source">Washington Times</div></div></div>
-        <div class="news-item"><div class="news-date">Mar 28</div><div class="news-dot"></div><div><div class="news-body"><strong>IMF issues emergency bulletin:</strong> downgrades global 2026 growth forecast from 3.2% to 2.1%.</div><div class="news-source">IMF · Bloomberg</div></div></div>
-        <div class="news-item"><div class="news-date">Mar 26</div><div class="news-dot red"></div><div><div class="news-body"><strong>UK economy formally in recession</strong> — first G7 nation since war began. ONS confirms two negative quarters.</div><div class="news-source">ONS · OECD · Guardian</div></div></div>
-        <div class="news-item"><div class="news-date">Mar 24</div><div class="news-dot amber"></div><div><div class="news-body"><strong>Qatar announces force majeure</strong> on 12% of LNG contracts. Germany activates emergency gas rationing.</div><div class="news-source">FT · Al Jazeera</div></div></div>
-      </div>
+
     </div>
   </div>
 
@@ -875,28 +866,43 @@ function tickCost(){
 // ============================================================
 function calcStressIndex(oilPrice, frankRates, sp500, goldPrice, vixPrice){
   var BASE = 15;
+  // Oil shock (35% weight) — primary driver, real EIA/metals data
   var oilPct = (((oilPrice||105) - OIL_BASELINE) / OIL_BASELINE) * 100;
   var oilC = Math.max(0, oilPct) * 0.48;
+
+  // Currency basket (25% weight)
+  // Only count currencies that WEAKENED vs USD (negative = weakened).
+  // Don't let commodity-exporter currencies (AUD) that strengthened cancel out
+  // the genuine weakness in NZD, GBP, EUR etc. Each 1% avg weakening = 1.5pp stress.
   var curC = 0;
+  var curDetails = [];
   if(frankRates && Object.keys(frankRates).length > 0){
-    var pcts=[];
     ['EUR','GBP','NZD','AUD'].forEach(function(c){
-      if(frankRates[c]&&PRE_WAR_USD[c]){
-        var now1=1/frankRates[c];
-        pcts.push(((now1-PRE_WAR_USD[c])/PRE_WAR_USD[c])*100);
+      if(frankRates[c] && PRE_WAR_USD[c]){
+        var usdVal = 1/frankRates[c];
+        var chgPct = ((usdVal - PRE_WAR_USD[c])/PRE_WAR_USD[c])*100;
+        curDetails.push({c:c, pct:chgPct, usd:usdVal});
       }
     });
-    if(pcts.length){
-      var avg=pcts.reduce(function(a,b){return a+b;},0)/pcts.length;
-      curC = Math.abs(Math.min(0, avg)) * 1.2;
+    var weakened = curDetails.filter(function(d){return d.pct < -0.5;}); // only genuine weakening
+    if(weakened.length > 0){
+      var avgWeak = weakened.reduce(function(s,d){return s+d.pct;},0) / weakened.length;
+      curC = Math.abs(avgWeak) * 1.5;
     }
   }
+
+  // Equity stress (20% weight)
   var eqC = sp500 ? Math.max(0,((SP_BASELINE - sp500)/SP_BASELINE)*100)*0.9 : 5;
+
+  // VIX fear (10% weight) — 0pp at VIX=20, scales with panic above that
   var vixC = 0;
-  if(vixPrice){ vixC = Math.max(0, (vixPrice - 20)) * 0.3; }
+  if(vixPrice){ vixC = Math.max(0, (vixPrice - 20)) * 0.35; }
+
+  // Gold safe-haven premium (10% weight)
   var gC = Math.max(0,(((goldPrice||4430)-GOLD_BASELINE)/GOLD_BASELINE)*100)*0.18;
-  var total = Math.min(72, Math.max(15, BASE + oilC + curC + eqC + vixC + gC));
-  return {total:total, oilC:oilC, curC:curC, eqC:eqC, vixC:vixC, gC:gC, oilPct:oilPct};
+
+  var total = Math.min(75, Math.max(15, BASE + oilC + curC + eqC + vixC + gC));
+  return {total:total, oilC:oilC, curC:curC, eqC:eqC, vixC:vixC, gC:gC, oilPct:oilPct, curDetails:curDetails};
 }
 function updateStressGauge(oilPrice, frankRates, sp500, goldPrice, vixPrice){
   var r = calcStressIndex(oilPrice, frankRates, sp500, goldPrice, vixPrice);
@@ -910,15 +916,30 @@ function updateStressGauge(oilPrice, frankRates, sp500, goldPrice, vixPrice){
   setText('rec-live-pct', pct+'%');
   setText('rib-rec', pct);
   var oilStr='$'+((oilPrice||105).toFixed(0))+'/bbl (+'+r.oilPct.toFixed(0)+'%)';
-  var sp5='S&P '+(sp500?sp500.toFixed(0):'no data');
-  var hasCur=frankRates&&Object.keys(frankRates).length>0;
+  var sp5=sp500?'S&P '+sp500.toFixed(0):'S&P —';
+  var gasLine=mkt.gas.regular?'Gas $'+mkt.gas.regular.toFixed(2)+'/gal':'';
+
+  // Build a readable currency detail string
+  var curStr;
+  if(r.curDetails && r.curDetails.length){
+    var parts=r.curDetails.map(function(d){
+      var sign=d.pct>=0?'+':'';
+      return d.c+' '+sign+d.pct.toFixed(1)+'%';
+    });
+    curStr=parts.join(' · ');
+  } else {
+    curStr='fetching...';
+  }
+
   setHTML('rec-inputs',
-    '<span style="color:var(--orange)">Oil:</span> '+oilStr+' → +'+r.oilC.toFixed(1)+'pp &nbsp;|&nbsp; '+
-    '<span style="color:var(--cyan)">Currencies:</span> '+(hasCur?'basket live':'est.')+' → +'+r.curC.toFixed(1)+'pp &nbsp;|&nbsp; '+
+    '<span style="color:var(--orange)">Oil:</span> '+oilStr+' → +'+r.oilC.toFixed(1)+'pp'+
+    (gasLine?' &nbsp;<span style="color:var(--green)">'+gasLine+'</span>':'')+
+    ' &nbsp;|&nbsp; '+
+    '<span style="color:var(--cyan)">FX:</span> '+curStr+' → +'+r.curC.toFixed(1)+'pp &nbsp;|&nbsp; '+
     '<span style="color:var(--purple)">Equity:</span> '+sp5+' → +'+r.eqC.toFixed(1)+'pp &nbsp;|&nbsp; '+
-    '<span style="color:var(--red)">VIX:</span> '+(vixPrice?vixPrice.toFixed(1):'no data')+' → +'+r.vixC.toFixed(1)+'pp &nbsp;|&nbsp; '+
-    '<span style="color:var(--amber)">Gold:</span> safe-haven → +'+r.gC.toFixed(1)+'pp &nbsp;|&nbsp; '+
-    '<span style="color:var(--t3)">Base: 15%</span>'
+    '<span style="color:var(--red)">VIX:</span> '+(vixPrice?vixPrice.toFixed(1):'—')+' → +'+r.vixC.toFixed(1)+'pp &nbsp;|&nbsp; '+
+    '<span style="color:var(--amber)">Gold:</span> $'+((goldPrice||4430).toFixed(0))+'/oz → +'+r.gC.toFixed(1)+'pp &nbsp;|&nbsp; '+
+    '<span style="color:var(--t3)">Base 15% + components = '+pct+'%</span>'
   );
 }
 
@@ -1026,17 +1047,76 @@ async function fetchWithFallback(url, timeoutMs){
   }
   throw new Error('All proxies failed for: '+url);
 }
+// ============================================================
+// SEED TILES — show last-known values immediately, never "Loading..."
+// These are replaced the moment real data arrives
+// ============================================================
+var SEED = {
+  gold:  {price:4430, chg:12,  pct:0.27},
+  oil:   {price:105,  chg:-0.8,pct:-0.76},
+  silver:{price:32.5, chg:0.15,pct:0.46},
+  sp500: {price:5475, chg:-8,  pct:-0.15},
+  dxy:   {price:103.2,chg:0.1, pct:0.10},
+  vix:   {price:24.5, chg:0.3, pct:1.24},
+  natgas:{price:4.18, chg:0.05,pct:1.21}
+};
+function seedTiles(){
+  var lbl='Est. · fetching live...';
+  var g=SEED.gold;   updateTile('gold',  '$'+g.price+'/oz',  fmtChg(g.chg,g.pct), 65,'var(--amber)',lbl);
+  var o=SEED.oil;    updateTile('oil',   '$'+o.price+'/bbl', fmtChg(o.chg,o.pct), 72,'var(--orange)',lbl);
+  var sv=SEED.silver;updateTile('silver','$'+sv.price+'/oz', fmtChg(sv.chg,sv.pct),62,'#cbd5e1',lbl);
+  var sp=SEED.sp500; updateTile('sp500', sp.price+'',        fmtChg(sp.chg,sp.pct),55,'var(--purple)',lbl);
+  var dx=SEED.dxy;   updateTile('dxy',   dx.price.toFixed(2),fmtChg(dx.chg,dx.pct),50,'#a78bfa',lbl);
+  var vx=SEED.vix;   updateTile('vix',   vx.price.toFixed(1),fmtChg(vx.chg,vx.pct),60,'var(--amber)',lbl);
+  var ng=SEED.natgas;updateTile('natgas','$'+ng.price.toFixed(2)+'/MMBtu',fmtChg(ng.chg,ng.pct),55,'var(--cyan)',lbl);
+  // Seed snap tiles from estimated values
+  mkt.oil.price=SEED.oil.price; mkt.gold.price=SEED.gold.price; mkt.sp500.price=SEED.sp500.price;
+  mkt.vix.price=SEED.vix.price; mkt.natgas.price=SEED.natgas.price; mkt.silver.price=SEED.silver.price;
+  updateSnapTiles(); updateRibbon(); updateStressGauge(SEED.oil.price,{},SEED.sp500.price,SEED.gold.price,SEED.vix.price);
+}
+
+// ============================================================
+// YAHOO FINANCE — multi-host, multi-version, with direct attempt
+// ============================================================
+async function fetchYahooSingle(sym, host, ver){
+  var url='https://'+host+'/v'+ver+'/finance/chart/'+encodeURIComponent(sym)+'?interval=1d&range=5d';
+  var res=await fetch(url,{signal:AbortSignal.timeout(7000)});
+  if(!res.ok) throw new Error('HTTP '+res.status);
+  var j=await res.json();
+  var result=j.chart.result[0];
+  var cur=result.meta.regularMarketPrice;
+  var closes=(result.indicators.quote[0].close||[]).filter(function(v){return v!=null;});
+  var prev=closes.length>=2?closes[closes.length-2]:result.meta.previousClose;
+  var chg=cur-prev, pct=prev?(chg/prev)*100:0;
+  return {price:cur,chg:chg,pct:pct};
+}
 async function fetchYahoo(sym){
-  var url='https://query1.finance.yahoo.com/v8/finance/chart/'+encodeURIComponent(sym)+'?interval=1d&range=5d';
-  var res = await fetchWithFallback(url);
-  var j = await res.json();
-  var result = j.chart.result[0];
-  var meta = result.meta;
-  var closes = (result.indicators.quote[0].close||[]).filter(function(v){return v!=null;});
-  var cur = meta.regularMarketPrice;
-  var prev = closes.length>=2 ? closes[closes.length-2] : meta.previousClose;
-  var chg = cur-prev, pct=prev?(chg/prev)*100:0;
-  return {price:cur, chg:chg, pct:pct};
+  // Strategy 1: Direct fetch, no proxy (sometimes Yahoo allows it)
+  var hosts=['query2.finance.yahoo.com','query1.finance.yahoo.com'];
+  var vers=['8','7'];
+  for(var h=0;h<hosts.length;h++){
+    for(var v=0;v<vers.length;v++){
+      try{ return await fetchYahooSingle(sym,hosts[h],vers[v]); }
+      catch(e){ /* try next */ }
+    }
+  }
+  // Strategy 2: Via CORS proxies
+  for(var p=0;p<CORS_PROXIES.length;p++){
+    for(var h2=0;h2<hosts.length;h2++){
+      try{
+        var url='https://'+hosts[h2]+'/v8/finance/chart/'+encodeURIComponent(sym)+'?interval=1d&range=5d';
+        var res=await fetch(CORS_PROXIES[p]+encodeURIComponent(url),{signal:AbortSignal.timeout(10000)});
+        if(!res.ok) continue;
+        var j=await res.json();
+        var result=j.chart.result[0];
+        var cur=result.meta.regularMarketPrice;
+        var closes=(result.indicators.quote[0].close||[]).filter(function(v){return v!=null;});
+        var prev=closes.length>=2?closes[closes.length-2]:result.meta.previousClose;
+        return {price:cur,chg:cur-prev,pct:prev?((cur-prev)/prev)*100:0};
+      }catch(e){ /* next */ }
+    }
+  }
+  throw new Error('All Yahoo paths failed for: '+sym);
 }
 function fmtChg(chg,pct){
   var s=chg>=0?'+':''; var cls=chg>=0?'up':'down';
@@ -1049,6 +1129,34 @@ function updateTile(key, priceStr, chgHtml, barPct, color, upd){
   if(bar){bar.style.width=barPct+'%';if(color) bar.style.background=color;}
   setText('m-'+key+'-upd', upd);
 }
+
+// ============================================================
+// METALS.LIVE — free, native CORS, no API key for gold/silver
+// ============================================================
+async function fetchMetalsLive(){
+  var res=await fetch('https://api.metals.live/v1/spot',{signal:AbortSignal.timeout(7000)});
+  var j=await res.json();
+  // Returns array of objects: [{gold:..., silver:..., platinum:...}]
+  var entry=Array.isArray(j)?j[0]:j;
+  var result={};
+  if(entry.gold)   result.gold   = {price:parseFloat(entry.gold),  chg:0, pct:0};
+  if(entry.silver) result.silver = {price:parseFloat(entry.silver), chg:0, pct:0};
+  return result;
+}
+
+// ============================================================
+// EIA BRENT CRUDE — free, native CORS
+// ============================================================
+async function fetchEIABrentCrude(){
+  var url='https://api.eia.gov/v2/petroleum/pri/spt/data/?api_key=DEMO_KEY&frequency=daily&data[0]=value&facets[series][]=RBRTE&sort[0][column]=period&sort[0][direction]=desc&length=5';
+  var res=await fetch(url,{signal:AbortSignal.timeout(9000)});
+  var j=await res.json();
+  var rows=j.response.data;
+  if(!rows||rows.length<2) throw new Error('No EIA Brent data');
+  var cur=parseFloat(rows[0].value), prev=parseFloat(rows[1].value);
+  return {price:cur, chg:cur-prev, pct:prev?((cur-prev)/prev)*100:0};
+}
+
 
 // ============================================================
 // EIA API
@@ -1070,7 +1178,7 @@ function applyGasPrices(data, upd){
   if(!data) return;
   mkt.gas.regular = data.regular;
   mkt.gas.diesel  = data.diesel;
-  if(data.regular){
+    if(data.regular){
     var chgVsPreWar = data.regular - GAS_BASELINE;
     setText('m-gas', '$'+data.regular.toFixed(3)+'/gal');
     setHTML('m-gas-chg', '<div class="mt-change '+(chgVsPreWar>=0?'down':'up')+'"><span>'+(chgVsPreWar>=0?'+':'')+'$'+Math.abs(chgVsPreWar).toFixed(2)+' vs pre-war</span></div>');
@@ -1079,6 +1187,10 @@ function applyGasPrices(data, upd){
     if(bar) bar.style.width = barPct+'%';
     if(data.diesel) setText('m-diesel-meta', 'Diesel: $'+data.diesel.toFixed(3)+'/gal (+'+((data.diesel-DIESEL_BASELINE)/DIESEL_BASELINE*100).toFixed(0)+'% vs pre-war)');
     setText('m-gas-upd', 'EIA weekly · w/e '+(data.period||'recent'));
+    // Re-fire stress gauge and pain table so they pick up live gas price
+    var rates=Object.keys(mkt.currencies||{}).length>0?mkt.currencies:null;
+    updateStressGauge(mkt.oil.price||105, rates||{}, mkt.sp500?mkt.sp500.price:null, mkt.gold.price||4430, mkt.vix?mkt.vix.price:null);
+    updatePainTable(rates);
     updateSnapTiles();
     updateRibbon();
   }
@@ -1207,7 +1319,11 @@ function updatePainTable(rates){
         }
       } else if(r === 'usa'){
         var oilPctUs = ((oil - OIL_BASELINE)/OIL_BASELINE*100).toFixed(0);
-        cdEl.textContent = 'Oil: $'+oil.toFixed(0)+'/bbl (+'+oilPctUs+'%) · gas: '+(mkt.gas.regular?'$'+mkt.gas.regular.toFixed(2):'loading...');
+        // Always show gas: use live EIA data, or estimate from pre-war + $0.98 war delta
+        var gasDisplay = mkt.gas.regular
+          ? '$'+mkt.gas.regular.toFixed(2)
+          : '~$'+(GAS_BASELINE+0.98).toFixed(2)+'*';
+        cdEl.textContent = 'Oil: $'+oil.toFixed(0)+'/bbl (+'+oilPctUs+'%) · gas: '+gasDisplay;
         cdEl.className = 'cur-delta neg';
       } else if(r === 'india'){
         cdEl.textContent = 'Oil import cost: +'+((oil-OIL_BASELINE)/OIL_BASELINE*100).toFixed(0)+'% vs pre-war';
@@ -1223,7 +1339,10 @@ function updatePainTable(rates){
       else if(r==='nz') cdEl.textContent='NZD/USD: fetching live rate...';
       else if(r==='australia') cdEl.textContent='AUD/USD: fetching live rate...';
       else if(r==='japan') cdEl.textContent='JPY/USD: fetching live rate...';
-      else if(r==='usa') cdEl.textContent='Oil: $'+oil.toFixed(0)+'/bbl (live) · gas: '+(mkt.gas.regular?'$'+mkt.gas.regular.toFixed(2):'loading...');
+      else if(r==='usa'){
+        var gasEst=mkt.gas.regular?'$'+mkt.gas.regular.toFixed(2):'~$'+(GAS_BASELINE+0.98).toFixed(2)+'*';
+        cdEl.textContent='Oil: $'+oil.toFixed(0)+'/bbl (live) · gas: '+gasEst;
+      }
       cdEl.className = 'cur-delta flat';
     }
   });
@@ -1298,47 +1417,80 @@ async function initCurrencyAndPainTable(){
 }
 
 // ============================================================
-// MAIN MARKET FETCH — Yahoo Finance + Frankfurter (as backup)
+// MAIN MARKET FETCH — uses best source per asset class
 // ============================================================
 async function fetchMarketData(){
   setApiStatus('loading','Fetching live data...');
   try{
-    var cached=JSON.parse(localStorage.getItem('iwt_mkt5')||'null');
+    var cached=JSON.parse(localStorage.getItem('iwt_mkt6')||'null');
     if(cached&&(Date.now()-cached.ts)<CACHE_TTL){
       applyMarket(cached.data,true);
       return;
     }
   }catch(e){}
+
   var results={};
-  var ok=0;
-  var syms=[
-    {k:'gold',s:'GC=F'},{k:'oil',s:'BZ=F'},{k:'silver',s:'SI=F'},
-    {k:'sp500',s:'^GSPC'},{k:'dxy',s:'DX-Y.NYB'},{k:'vix',s:'^VIX'},{k:'natgas',s:'NG=F'}
-  ];
-  for(var i=0;i<syms.length;i++){
-    try{results[syms[i].k]=await fetchYahoo(syms[i].s);ok++;}
-    catch(e){console.warn('Yahoo fail:',syms[i].s,e.message);}
+  var sources=[];
+
+  // --- Gold & Silver: metals.live first (native CORS, no proxy) ---
+  try{
+    var metals=await fetchMetalsLive();
+    if(metals.gold)   { results.gold=metals.gold;   sources.push('metals.live'); }
+    if(metals.silver) { results.silver=metals.silver; }
+  }catch(e){ console.warn('metals.live failed:',e.message); }
+
+  // --- Brent Crude: EIA first (native CORS), Yahoo fallback ---
+  try{
+    results.oil=await fetchEIABrentCrude();
+    sources.push('EIA');
+  }catch(e){
+    console.warn('EIA Brent failed:',e.message);
+    try{ results.oil=await fetchYahoo('BZ=F'); sources.push('Yahoo/oil'); }catch(e2){ console.warn('Yahoo oil failed:',e2.message); }
   }
-  // Use already-fetched currencies if available, otherwise try Frankfurter again
-  if(mkt.currencies && Object.keys(mkt.currencies).length > 0){
-    results.currencies = mkt.currencies;
-    ok++;
-  } else {
+
+  // --- Gold fallback if metals.live failed ---
+  if(!results.gold){
+    try{ results.gold=await fetchYahoo('GC=F'); sources.push('Yahoo/gold'); }catch(e){ console.warn('Yahoo gold failed:',e.message); }
+  }
+  // --- Silver fallback if metals.live failed ---
+  if(!results.silver){
+    try{ results.silver=await fetchYahoo('SI=F'); sources.push('Yahoo/silver'); }catch(e){ console.warn('Yahoo silver failed:',e.message); }
+  }
+
+  // --- Remaining Yahoo tickers ---
+  var yahooTickers=[
+    {k:'sp500',s:'^GSPC'},{k:'dxy',s:'DX-Y.NYB'},
+    {k:'vix',s:'^VIX'},{k:'natgas',s:'NG=F'}
+  ];
+  var yahooOk=0;
+  for(var i=0;i<yahooTickers.length;i++){
+    try{ results[yahooTickers[i].k]=await fetchYahoo(yahooTickers[i].s); yahooOk++; }
+    catch(e){ console.warn('Yahoo fail:',yahooTickers[i].s,e.message); }
+  }
+  if(yahooOk>0) sources.push('Yahoo');
+
+  // --- Currencies: use already-fetched if available ---
+  if(mkt.currencies&&Object.keys(mkt.currencies).length>0){
+    results.currencies=mkt.currencies;
+  }else{
     try{
       var fRes=await fetch('https://api.frankfurter.app/latest?base=USD&symbols=GBP,EUR,JPY,AUD,NZD,CHF,INR',{signal:AbortSignal.timeout(8000)});
       var fJson=await fRes.json();
       results.currencies=fJson.rates;
-      ok++;
-    }catch(e){console.warn('Frankfurter in market fetch failed:',e.message);}
+      sources.push('Frankfurter');
+    }catch(e){ console.warn('Frankfurter fallback failed:',e.message); }
   }
-  if(ok>0){
-    try{localStorage.setItem('iwt_mkt5',JSON.stringify({ts:Date.now(),data:results}));}catch(e){}
+
+  var totalOk=Object.keys(results).filter(function(k){return k!=='currencies';}).length;
+  if(totalOk>0){
+    try{localStorage.setItem('iwt_mkt6',JSON.stringify({ts:Date.now(),data:results}));}catch(e){}
     applyMarket(results,false);
-    setApiStatus('live','Live · Yahoo+open.er-api+EIA · 15-20min delay');
-  } else {
-    setApiStatus('offline','API offline · last known values');
-    updateStressGauge(105,mkt.currencies||{},null,4430,null);
-    updatePainTable(Object.keys(mkt.currencies).length>0?mkt.currencies:null);
+    setApiStatus('live','Live · '+sources.join('+')+' · '+new Date().toLocaleTimeString('en-NZ',{hour:'2-digit',minute:'2-digit'}));
+  }else{
+    setApiStatus('offline','APIs offline · showing estimates');
+    // Keep seed values — at least the page shows something
+    updateStressGauge(mkt.oil.price||105,mkt.currencies||{},mkt.sp500?mkt.sp500.price:null,mkt.gold.price||4430,mkt.vix?mkt.vix.price:null);
+    updatePainTable(Object.keys(mkt.currencies||{}).length>0?mkt.currencies:null);
   }
 }
 
@@ -1570,7 +1722,6 @@ async function fetchAllNews(){
   if(final.length>0){
     try{localStorage.setItem('iwt_news4',JSON.stringify({ts:Date.now(),items:final}));}catch(e){}
     renderNews(final,false,statusEl,container);
-    var fb=document.getElementById('fallback-news'); if(fb) fb.style.display='none';
   } else {
     // Total failure — all feeds blocked
     statusEl.className='news-status-badge nfs-error';
@@ -1643,12 +1794,16 @@ function copyLink(){
 // ============================================================
 // INIT
 // ============================================================
-// Seed stress gauge with fallback defaults while async data loads
-updateStressGauge(105, {}, null, 4430, null);
+// Seed all market tiles immediately — never show "Loading..."
+seedTiles();
 
-// Seed pain table immediately with oil-only estimates (currencies load below)
+// Seed stress gauge and pain table with estimates
+updateStressGauge(SEED.oil.price, {}, SEED.sp500.price, SEED.gold.price, SEED.vix.price);
 updatePainTable(null);
 setText('pain-table-status', 'Loading live data...');
+
+// Clear old cache keys from previous versions
+try{['iwt_mkt5','iwt_news3'].forEach(function(k){localStorage.removeItem(k);});}catch(e){}
 
 // Main animation loop
 function tick(){ tickCost(); updateClocks(); requestAnimationFrame(tick); }
