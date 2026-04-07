@@ -1012,7 +1012,9 @@ function setApiStatus(state, msg){
 // ============================================================
 var CORS_PROXIES = [
   'https://api.allorigins.win/raw?url=',
-  'https://corsproxy.io/?'
+  'https://corsproxy.io/?',
+  'https://corsproxy.io/?url=',
+  'https://api.codetabs.com/v1/proxy?quest='
 ];
 async function fetchWithFallback(url, timeoutMs){
   timeoutMs = timeoutMs || 9000;
@@ -1422,86 +1424,184 @@ function applyMarket(data, fromCache){
 // ============================================================
 // LIVE NEWS
 // ============================================================
+// ============================================================
+// NEWS FEEDS — ordered by reliability
+// rss2json.com handles CORS server-side so no proxy needed for that path
+// ============================================================
 var NEWS_FEEDS = [
   {url:'https://www.aljazeera.com/xml/rss/all.xml',src:'Al Jazeera'},
   {url:'https://feeds.bbci.co.uk/news/world/rss.xml',src:'BBC World'},
   {url:'https://www.theguardian.com/world/rss',src:'The Guardian'},
+  {url:'https://feeds.skynews.com/feeds/rss/world.xml',src:'Sky News'},
   {url:'https://rss.nytimes.com/services/xml/rss/nyt/World.xml',src:'NY Times'},
-  {url:'https://www.ft.com/?format=rss',src:'Financial Times'},
-  {url:'https://rss.cnn.com/rss/edition_world.rss',src:'CNN World'}
+  {url:'https://rss.cnn.com/rss/edition_world.rss',src:'CNN World'},
+  {url:'https://www.rt.com/rss/news/',src:'RT News'},
+  {url:'https://www.independent.co.uk/news/world/rss',src:'The Independent'},
+  {url:'https://www.aljazeera.com/xml/rss/all.xml',src:'Al Jazeera'}
 ];
-var KEYWORDS = ['iran','hormuz','tehran','irgc','nuclear','hezbollah','houthi','ceasefire','strait','airstrike','missile','drone','middle east','war cost','pentagon','brent crude','recession','oil shock','persian gulf','operation epic','war spending','israel','oil price','energy crisis','inflation'];
-function isRelevant(title,desc){ var t=((title||'')+(desc||'')).toLowerCase(); return KEYWORDS.some(function(k){return t.indexOf(k)>=0;}); }
-function relDate(pub){
-  try{ var d=new Date(pub); if(isNaN(d.getTime())) return ''; var diff=Date.now()-d.getTime(); var m=Math.floor(diff/60000); if(m<2) return 'just now'; if(m<60) return m+'m ago'; var h=Math.floor(m/60); if(h<24) return h+'h ago'; return d.toLocaleDateString('en-NZ',{month:'short',day:'numeric'}); }catch(e){return '';}
+// Deduplicate by URL
+var _seen_feeds={};
+NEWS_FEEDS=NEWS_FEEDS.filter(function(f){ if(_seen_feeds[f.url]) return false; _seen_feeds[f.url]=true; return true; });
+
+var KEYWORDS = ['iran','hormuz','tehran','irgc','nuclear','hezbollah','houthi','ceasefire','strait','airstrike','missile','drone','middle east','war cost','pentagon','brent crude','recession','oil shock','persian gulf','operation epic','war spending','israel','oil price','energy crisis','inflation','war','conflict','sanctions','rafah','gaza','khamenei'];
+
+function isRelevant(title,desc){
+  var t=((title||'')+(desc||'')).toLowerCase();
+  return KEYWORDS.some(function(k){return t.indexOf(k)>=0;});
 }
-async function fetchFeed(feed){
+function relDate(pub){
+  try{
+    var d=new Date(pub); if(isNaN(d.getTime())) return '';
+    var diff=Date.now()-d.getTime(), m=Math.floor(diff/60000);
+    if(m<2) return 'just now'; if(m<60) return m+'m ago';
+    var h=Math.floor(m/60); if(h<24) return h+'h ago';
+    return d.toLocaleDateString('en-NZ',{month:'short',day:'numeric'});
+  }catch(e){return '';}
+}
+
+// Strategy 1: rss2json.com — converts RSS to JSON server-side (no CORS proxy needed)
+async function fetchViaRss2Json(feed){
+  var api='https://api.rss2json.com/v1/api.json?rss_url='+encodeURIComponent(feed.url)+'&api_key=public&count=20';
+  var res=await fetch(api,{signal:AbortSignal.timeout(10000)});
+  var j=await res.json();
+  if(j.status!=='ok'||!j.items||j.items.length===0) throw new Error('rss2json returned status: '+j.status);
+  return j.items.map(function(item){
+    return {
+      title:stripTags(item.title||'').slice(0,140),
+      desc:stripTags(item.description||item.content||'').slice(0,200),
+      pub:item.pubDate||'',
+      link:(item.link||item.guid||'').trim(),
+      src:feed.src,
+      relevant:isRelevant(item.title,item.description)
+    };
+  });
+}
+
+// Strategy 2: raw XML via CORS proxy chain
+async function fetchViaProxy(feed){
   for(var i=0;i<CORS_PROXIES.length;i++){
     try{
       var res=await fetch(CORS_PROXIES[i]+encodeURIComponent(feed.url),{signal:AbortSignal.timeout(9000)});
       if(!res.ok) continue;
       var xml=await res.text();
+      if(!xml||xml.length<200) continue;
       var doc=new DOMParser().parseFromString(xml,'text/xml');
+      var parseErr=doc.querySelector('parsererror');
+      if(parseErr) continue;
       var items=[].concat(Array.from(doc.querySelectorAll('item')),Array.from(doc.querySelectorAll('entry')));
       if(items.length===0) continue;
-      var out=[];
-      items.forEach(function(item){
+      return items.map(function(item){
         var title=stripTags(item.querySelector('title')?item.querySelector('title').textContent:'');
         var descEl=item.querySelector('description')||item.querySelector('summary')||item.querySelector('content');
         var desc=descEl?stripTags(descEl.textContent):'';
         var pubEl=item.querySelector('pubDate')||item.querySelector('published')||item.querySelector('updated');
         var pub=pubEl?pubEl.textContent:'';
         var linkEl=item.querySelector('link');
-        var link='#';
-        if(linkEl){ link=linkEl.textContent||linkEl.getAttribute('href')||'#'; }
-        if(isRelevant(title,desc)) out.push({title:title.slice(0,140),desc:desc.slice(0,180),pub:pub,link:link.trim(),src:feed.src});
+        var link=linkEl?(linkEl.textContent||linkEl.getAttribute('href')||'#'):'#';
+        return {title:title.slice(0,140),desc:desc.slice(0,200),pub:pub,link:link.trim(),src:feed.src,relevant:isRelevant(title,desc)};
       });
-      return out;
-    }catch(e){ console.warn('Feed fail (proxy '+i+'):', feed.src, e.message); }
+    }catch(e){ console.warn('Proxy '+i+' failed for '+feed.src+':', e.message); }
   }
   return [];
 }
+
+async function fetchFeed(feed){
+  // Try rss2json first (most reliable), then proxy fallback
+  try{ var items=await fetchViaRss2Json(feed); if(items&&items.length) return items; }
+  catch(e){ console.warn('rss2json failed for '+feed.src+':', e.message); }
+  try{ var items2=await fetchViaProxy(feed); if(items2&&items2.length) return items2; }
+  catch(e){ console.warn('proxy failed for '+feed.src+':', e.message); }
+  return [];
+}
+
 async function fetchAllNews(){
   var statusEl=document.getElementById('news-status');
   var container=document.getElementById('live-news-container');
   if(!statusEl||!container) return;
+  // Check cache — use 30-min TTL for news (fresher than market data)
+  var NEWS_TTL = 30 * 60 * 1000;
   try{
-    var cached=JSON.parse(localStorage.getItem('iwt_news3')||'null');
-    if(cached&&(Date.now()-cached.ts)<CACHE_TTL&&cached.items&&cached.items.length>0){
+    var cached=JSON.parse(localStorage.getItem('iwt_news4')||'null');
+    if(cached&&(Date.now()-cached.ts)<NEWS_TTL&&cached.items&&cached.items.length>0){
       renderNews(cached.items,true,statusEl,container); return;
     }
   }catch(e){}
   statusEl.className='news-status-badge nfs-loading';
-  statusEl.textContent='Fetching '+NEWS_FEEDS.length+' sources...';
-  var all=[];
+  statusEl.textContent='Fetching live news...';
+  // Fetch all feeds in parallel, with a race cutoff — don't wait forever
+  var allRaw=[];
   var promises=NEWS_FEEDS.map(function(f){ return fetchFeed(f).catch(function(){return[];}); });
   var results=await Promise.allSettled(promises);
-  results.forEach(function(r){ if(r.status==='fulfilled'&&r.value.length){ all=all.concat(r.value); } });
-  all.sort(function(a,b){return new Date(b.pub)-new Date(a.pub);});
+  results.forEach(function(r){ if(r.status==='fulfilled'&&r.value.length){ allRaw=allRaw.concat(r.value); } });
+
+  // Separate: keyword-relevant items vs everything else
+  var relevant=allRaw.filter(function(it){return it.relevant;});
+  var other=allRaw.filter(function(it){return !it.relevant;});
+
+  // Sort each by date descending
+  function sortByDate(arr){ return arr.sort(function(a,b){return new Date(b.pub)-new Date(a.pub);}); }
+  sortByDate(relevant); sortByDate(other);
+
+  // Deduplicate
   var seen={};
-  var deduped=all.filter(function(item){ var key=item.title.toLowerCase().replace(/[^a-z0-9]/g,'').slice(0,32); if(seen[key]) return false; seen[key]=true; return true; }).slice(0,10);
-  if(deduped.length>0){
-    try{localStorage.setItem('iwt_news3',JSON.stringify({ts:Date.now(),items:deduped}));}catch(e){}
-    renderNews(deduped,false,statusEl,container);
+  function dedup(arr){
+    return arr.filter(function(item){
+      var key=item.title.toLowerCase().replace(/[^a-z0-9]/g,'').slice(0,30);
+      if(!key||seen[key]) return false; seen[key]=true; return true;
+    });
+  }
+  var dedupedRelevant=dedup(relevant);
+  var dedupedOther=dedup(other);
+
+  // Use relevant items if we have enough; otherwise pad with latest non-relevant
+  var final;
+  if(dedupedRelevant.length>=4){
+    final=dedupedRelevant.slice(0,10);
+  } else if(dedupedRelevant.length>0){
+    // Pad with most-recent other items
+    final=dedupedRelevant.concat(dedupedOther.slice(0,10-dedupedRelevant.length));
+  } else if(dedupedOther.length>0){
+    // Nothing keyword-matched — show latest general world news with a note
+    final=dedupedOther.slice(0,8);
+  } else {
+    final=[];
+  }
+
+  if(final.length>0){
+    try{localStorage.setItem('iwt_news4',JSON.stringify({ts:Date.now(),items:final}));}catch(e){}
+    renderNews(final,false,statusEl,container);
     var fb=document.getElementById('fallback-news'); if(fb) fb.style.display='none';
   } else {
+    // Total failure — all feeds blocked
     statusEl.className='news-status-badge nfs-error';
-    statusEl.textContent='Live feed unavailable';
-    container.innerHTML='<div style="font-size:9px;color:var(--t3);padding:6px 0">No live feeds available. See verified reports below.</div>';
+    statusEl.textContent='Feeds blocked · retrying in 30min';
+    container.innerHTML='<div style="font-size:9.5px;color:var(--t3);padding:8px 0;line-height:1.7">Live RSS feeds unavailable right now (network restrictions or rate limits). Verified reference reports are shown below.<br><span style="font-size:8.5px;letter-spacing:.5px">Auto-retrying every 30 minutes.</span></div>';
   }
 }
 function renderNews(items,fromCache,statusEl,container){
   var now=new Date().toLocaleTimeString('en-NZ',{hour:'2-digit',minute:'2-digit'});
+  var relevantCount=items.filter(function(i){return i.relevant;}).length;
   statusEl.className='news-status-badge '+(fromCache?'nfs-cached':'nfs-live');
-  statusEl.textContent=fromCache?('Cached · '+now):('Live · '+items.length+' articles · '+now);
+  if(fromCache){
+    statusEl.textContent='Cached · '+now;
+  } else if(relevantCount>0){
+    statusEl.textContent='Live · '+relevantCount+' war/econ articles · '+now;
+  } else {
+    statusEl.textContent='Live · latest world news · '+now;
+  }
+  // If we're showing non-relevant items, add a soft note at the top
+  var note='';
+  if(!fromCache&&relevantCount===0&&items.length>0){
+    note='<div style="font-size:8.5px;color:var(--t3);padding:5px 0 7px;border-bottom:1px solid rgba(255,255,255,.04);margin-bottom:4px">No Iran/war articles in current feed cycle — showing latest world news instead</div>';
+  }
   var html=items.map(function(item){
     var t=item.title.toLowerCase();
     var dot=/strike|attack|kill|dead|bomb|missile|drone|airstrike|explosion/.test(t)?'red':/oil|gold|recession|economy|inflation|market|price|gdp/.test(t)?'amber':'';
     var linked=(item.link&&item.link!=='#')?'<a href="'+item.link+'" target="_blank" rel="noopener"><strong>'+item.title+'</strong></a>':'<strong>'+item.title+'</strong>';
     return '<div class="news-item"><div class="news-date">'+relDate(item.pub)+'</div><div class="news-dot '+dot+'"></div><div><div class="news-body">'+linked+'</div>'+(item.desc?'<div class="news-body" style="margin-top:2px;font-size:10px">'+item.desc+'</div>':'')+'<div class="news-source">'+item.src+'</div></div></div>';
   }).join('');
-  container.innerHTML=html||'<div style="font-size:9px;color:var(--t3)">No relevant articles found in feeds.</div>';
-  injectLiveTimeline(items.slice(0,3));
+  container.innerHTML=note+(html||'<div style="font-size:9px;color:var(--t3)">No articles found in live feeds.</div>');
+  injectLiveTimeline(items.filter(function(i){return i.relevant;}).slice(0,3));
 }
 function injectLiveTimeline(items){
   var tlContainer=document.getElementById('tl-live-container');
@@ -1577,7 +1677,7 @@ setInterval(fetchMarketData, CACHE_TTL);
 setInterval(initCurrencyAndPainTable, CACHE_TTL);  // *** Independent currency refresh ***
 setInterval(async function(){ applyGasPrices(await fetchEIAGasPrices()); }, CACHE_TTL);
 setInterval(async function(){ applyFearGreed(await fetchFearGreed()); }, CACHE_TTL);
-setInterval(fetchAllNews, CACHE_TTL);
+setInterval(fetchAllNews, 30 * 60 * 1000); // News refreshes every 30 min (fresher than market data)
 setInterval(function(){
   var rates=(mkt.currencies&&Object.keys(mkt.currencies).length>0)?mkt.currencies:null;
   updatePainTable(rates);
